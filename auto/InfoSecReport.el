@@ -1,8 +1,11 @@
 (TeX-add-style-hook "InfoSecReport"
  (lambda ()
-    (LaTeX-add-bibitems
-     "IEEEhowto:kopka")
+    (LaTeX-add-bibliographies
+     "Reference"
+     "IEEEabrv"
+     "Reference")
     (TeX-run-style-hooks
+     "hyperref"
      "url"
      "stfloats"
      "fixltx2e"
