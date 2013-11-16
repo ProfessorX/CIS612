@@ -419,6 +419,12 @@
 % (Unless specifically asked to do so by the journal or conference you plan
 % to submit to, of course. )
 
+% I still do not think hyperref is a bad package.
+\usepackage{hyperref}
+\hypersetup{unicode}
+\hypersetup{colorlinks=true}
+\hypersetup{linkcolor=black}
+
 
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
@@ -646,7 +652,9 @@ Some problems with this template...I mean, the subsubsection part.
 This is just another testing case.
 
 \section{El-Gamal}
-I was fucked! By the power of Emacs!
+I was so damn amazed by the power of Emacs. So damn powerful!
+\par
+This is just another testing text. To test \cite{ref:Pholig1978}.
 
 \section{Implementation}
 Implementation process will be discussed here.
@@ -767,6 +775,8 @@ Conclusion and Contributions.
 %
 
 
+
+% Appendices are here. The grammar highlight here is also good, ahuh.
 \appendices
 \section{Proof of the First Zonklar Equation}
 Appendix one text goes here.
@@ -787,7 +797,8 @@ Appendix two text goes here.
 \fi
 
 
-The authors would like to thank...
+% The authors would like to thank...
+The authors would like to thank Dr. Zeyar for his amazing lectures throughout the semester, as well as assigning us a challenging but rewarding project like this. In addition, we would show our gratitude to Masdar Institute for creating the world-class research environment.
 
 
 % Can use something like this to put references on a page
@@ -813,20 +824,21 @@ The authors would like to thank...
 % http://www.ctan.org/tex-archive/biblio/bibtex/contrib/doc/
 % The IEEEtran BibTeX style support page is at:
 % http://www.michaelshell.org/tex/ieeetran/bibtex/
-%\bibliographystyle{IEEEtran}
+\bibliographystyle{IEEEtran}
 % argument is your BibTeX string definitions and bibliography database(s)
-%\bibliography{IEEEabrv,../bib/paper}
+
+\bibliography{IEEEabrv,Reference}
 %
 % <OR> manually copy in the resultant .bbl file
 % set second argument of \begin to the number of references
 % (used to reserve space for the reference number labels box)
-\begin{thebibliography}{1}
+%\begin{thebibliography}{1}
 
-\bibitem{IEEEhowto:kopka}
-H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
-  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
+%\bibitem{IEEEhowto:kopka}
+%H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
+%  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
 
-\end{thebibliography}
+%\end{thebibliography}
 
 % biography section
 %
@@ -839,23 +851,26 @@ H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
 %\begin{biography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{mshell}}]{Michael Shell}
 % or if you just want to reserve a space for a photo:
 
-\begin{IEEEbiography}{Michael Shell}
-Biography text here.
-\end{IEEEbiography}
+%\begin{IEEEbiography}{Michael Shell}
+%Biography text here.
+%\end{IEEEbiography}
 
 % if you will not have a photo at all:
-\begin{IEEEbiographynophoto}{John Doe}
-Biography text here.
+\begin{IEEEbiographynophoto}{Fadwa Bin Ishaq}
+is a second year master student at Masdar Institute.
 \end{IEEEbiographynophoto}
 
 % insert where needed to balance the two columns on the last page with
 % biographies
 %\newpage
 
-\begin{IEEEbiographynophoto}{Jane Doe}
-Biography text here.
+\begin{IEEEbiographynophoto}{Yanan Xiao}
+is a first year master student at Masdar Institute. For his undergraduate, he spent three years in information security related area, mainly computer networks. Right now he is with Dr. Chi-Kin Chau to earn his MSc degree. His research interests are wireless networks, embedded systems and all kinds of algorithms. When he does not have much research workload, he usually takes some tea while reading books.
 \end{IEEEbiographynophoto}
 
+\begin{IEEEbiographynophoto}{Maryam Al Mehrezi}
+is a first year master student at Masdar Institute.
+\end{IEEEbiographynophoto}
 % You can push biographies down or up by placing
 % a \vfill before or after them. The appropriate
 % use of \vfill depends on what kind of text is
