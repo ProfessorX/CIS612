@@ -419,6 +419,12 @@
 % (Unless specifically asked to do so by the journal or conference you plan
 % to submit to, of course. )
 
+% I still do not think hyperref is a bad package.
+\usepackage{hyperref}
+\hypersetup{unicode}
+\hypersetup{colorlinks=true}
+\hypersetup{linkcolor=black}
+
 
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
@@ -646,7 +652,10 @@ Some problems with this template...I mean, the subsubsection part.
 This is just another testing case.
 
 \section{El-Gamal}
-I was fucked! By the power of Emacs!
+I was so damn amazed by the power of Emacs. So damn powerful!
+\par
+This is just another testing text. To test \cite{ref:Pholig1978}.
+Yet another El-Gamal \cite
 
 \section{Implementation}
 Implementation process will be discussed here.
@@ -768,7 +777,7 @@ Conclusion and Contributions.
 
 
 
-% Appen
+% Appendices are here. The grammar highlight here is also good, ahuh.
 \appendices
 \section{Proof of the First Zonklar Equation}
 Appendix one text goes here.
@@ -860,8 +869,8 @@ is a second year master student at Masdar Institute.
 is a first year master student at Masdar Institute. For his undergraduate, he spent three years in information security related area, mainly computer networks. Right now he is with Dr. Chi-Kin Chau to earn his MSc degree. His research interests are wireless networks, embedded systems and all kinds of algorithms. When he does not have much research workload, he usually takes some tea while reading books.
 \end{IEEEbiographynophoto}
 
-\begin{IEEEbiographynophoto}{}
-
+\begin{IEEEbiographynophoto}{Maryam Al Mehrezi}
+is a first year master student at Masdar Institute.
 \end{IEEEbiographynophoto}
 % You can push biographies down or up by placing
 % a \vfill before or after them. The appropriate

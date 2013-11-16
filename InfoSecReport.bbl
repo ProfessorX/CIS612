@@ -26,4 +26,14 @@ S.~Pohlig and M.~Hellman, ``An improved algorithm for computing logarithms over
   gf(p) and its cryptographic significance (corresp.),'' \emph{Information
   Theory, IEEE Transactions on}, vol.~24, no.~1, pp. 106--110, 1978.
 
+\bibitem{ref:Elgamal1985}
+T.~Elgamal, ``A public key cryptosystem and a signature scheme based on
+  discrete logarithms,'' \emph{Information Theory, IEEE Transactions on},
+  vol.~31, no.~4, pp. 469--472, 1985.
+
+\bibitem{ref:Elgamal1985A}
+------, ``A subexponential-time algorithm for computing discrete logarithms
+  over,'' \emph{Information Theory, IEEE Transactions on}, vol.~31, no.~4, pp.
+  473--481, 1985.
+
 \end{thebibliography}
