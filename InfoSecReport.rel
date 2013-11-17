@@ -1,0 +1,68 @@
+;; RefTeX parse info file
+;; File: /home/abrahamx91/Professional/Git/CIS612-Composition/InfoSecReport.tex
+;; User: abrahamx91 (Abraham Xiao)
+
+(set reftex-docstruct-symbol '(
+
+
+(xr nil "\\\\\\\\\\\\")
+
+(index-tags)
+
+(is-multi nil)
+
+(bibview-cache ("ref:Pholig1978" . "Pohlig & Hellman 1978, An impr. algor. comp. logar., Information Theory, IEEE Transactions on 24:106") ("ref:Haber:2001:SCP:501983.502013" . "Haber & Pinkas 2001, Secur. Comb. Publ. key Crypt., in: Proceedings 8th ACM Conference, 215") ("ref:Elgamal1985A" . "Elgamal 1985, subexp. time algor. comp. discr., Information Theory, IEEE Transactions on 31:473"))
+
+(master-dir . "/home/abrahamx91/Professional/Git/CIS612-Composition/")
+
+(label-numbers)
+
+(bof "/home/abrahamx91/Professional/Git/CIS612-Composition/InfoSecReport.tex")
+
+(toc "toc" "    1 Introduction" "/home/abrahamx91/Professional/Git/CIS612-Composition/InfoSecReport.tex" nil 2 "1" "\\section{Introduction}" 18059)
+
+("sec:introduction" "s" "% % \\global\\everypar=\\everypar}}% % \\vspace{-1\\baselineskip}\\vspace{-\\parskip}\\par %\\else % \\section" "/home/abrahamx91/Professional/Git/CIS612-Composition/InfoSecReport.tex" 25505)
+
+("sec:introduction" "s" "\\par %\\fi % % Admittedly, this is a hack and may well be fragile, but seems to do the % trick for me" "/home/abrahamx91/Professional/Git/CIS612-Composition/InfoSecReport.tex" 25669)
+
+(toc "toc" "      1.1 Subsection Heading Here" "/home/abrahamx91/Professional/Git/CIS612-Composition/InfoSecReport.tex" nil 3 "1.1" "\\subsection{Subsection Heading Here}" 18059)
+
+(toc "toc" "    2 Public Key Cryptosystem" "/home/abrahamx91/Professional/Git/CIS612-Composition/InfoSecReport.tex" nil 2 "2" "\\section{Public Key Cryptosystem}" 18059)
+
+(toc "toc" "      2.1 More Details" "/home/abrahamx91/Professional/Git/CIS612-Composition/InfoSecReport.tex" nil 3 "2.1" "\\subsection{More Details}" 18059)
+
+(toc "toc" "    3 RSA" "/home/abrahamx91/Professional/Git/CIS612-Composition/InfoSecReport.tex" nil 2 "3" "\\section{RSA}" 18059)
+
+(toc "toc" "    4 El-Gamal" "/home/abrahamx91/Professional/Git/CIS612-Composition/InfoSecReport.tex" nil 2 "4" "\\section{El-Gamal}" 18059)
+
+("fig:testing" "f" nil "/home/abrahamx91/Professional/Git/CIS612-Composition/InfoSecReport.tex" nil "")
+
+("fig:test" "f" "NO MATCH FOR CONTEXT REGEXP" "/home/abrahamx91/Professional/Git/CIS612-Composition/InfoSecReport.tex" nil)
+
+(toc "toc" "    5 Implementation" "/home/abrahamx91/Professional/Git/CIS612-Composition/InfoSecReport.tex" nil 2 "5" "\\section{Implementation}" 18059)
+
+(toc "toc" "    6 Conclusion" "/home/abrahamx91/Professional/Git/CIS612-Composition/InfoSecReport.tex" nil 2 "6" "\\section{Conclusion}" 18059)
+
+("fig_sim" "f" "Simulation Results" "/home/abrahamx91/Professional/Git/CIS612-Composition/InfoSecReport.tex" 28769)
+
+("fig_first_case" "f" "NO MATCH FOR CONTEXT REGEXP" "/home/abrahamx91/Professional/Git/CIS612-Composition/InfoSecReport.tex" 29540)
+
+("fig_second_case" "f" "NO MATCH FOR CONTEXT REGEXP" "/home/abrahamx91/Professional/Git/CIS612-Composition/InfoSecReport.tex" 29636)
+
+("fig_sim" "f" "Simulation results" "/home/abrahamx91/Professional/Git/CIS612-Composition/InfoSecReport.tex" 29693)
+
+("table_example" "t" "An Example of a Table" "/home/abrahamx91/Professional/Git/CIS612-Composition/InfoSecReport.tex" 30487)
+
+(toc "toc" "    7 Proof of the First Zonklar Equation" "/home/abrahamx91/Professional/Git/CIS612-Composition/InfoSecReport.tex" nil 2 "7" "\\section{Proof of the First Zonklar Equation}" 18059)
+
+(toc "toc" "    8 Some related math stuff will be displayed here" "/home/abrahamx91/Professional/Git/CIS612-Composition/InfoSecReport.tex" nil 2 "8" "\\section{Some related math stuff will be displayed here}" 18059)
+
+(toc "toc" "    * Acknowledgments" "/home/abrahamx91/Professional/Git/CIS612-Composition/InfoSecReport.tex" nil 2 "*" "\\section*{Acknowledgments}" 18059)
+
+(toc "toc" "    * Acknowledgment" "/home/abrahamx91/Professional/Git/CIS612-Composition/InfoSecReport.tex" nil 2 "*" "\\section*{Acknowledgment}" 18059)
+
+(bib "/home/abrahamx91/Professional/Git/CIS612-Composition/IEEEabrv.bib" "/home/abrahamx91/Professional/Git/CIS612-Composition/Reference.bib")
+
+(eof "/home/abrahamx91/Professional/Git/CIS612-Composition/InfoSecReport.tex")
+))
+

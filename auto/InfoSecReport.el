@@ -1,7 +1,6 @@
 (TeX-add-style-hook "InfoSecReport"
  (lambda ()
     (LaTeX-add-bibliographies
-     "Reference"
      "IEEEabrv"
      "Reference")
     (TeX-run-style-hooks
