@@ -470,13 +470,13 @@
 %E-mail: see http://www.michaelshell.org/contact.html
 %\IEEEcompsocthanksitem J. Doe and J. Doe are with Anonymous University.}% <-this % stops a space
 %\thanks{Manuscript received April 19, 2005; revised January 11, 2007.}}
-\author{Fadwa~Bin~Ishaq,~Yanan~Xiao,~\IEEEmembership{Student~Member,~IEEE}
+\author{Yanan~Xiao,~\IEEEmembership{Student~Member,~IEEE}
 Maryam~Al~Mehrezi%
-\IEEEcompsocitemizethanks{\IEEEcompsocthanksitem Fadwa Bin Ishaq,
-Yanan Xiao and Maryam Al Mehrezi are with the Department of Electrical Engineering and
+\IEEEcompsocitemizethanks{\IEEEcompsocthanksitem Yanan Xiao and Maryam
+  Al Mehrezi are with the Department of Electrical Engineering and
 Computer Science, Masdar Institute of Science and Technology, Masdar City,
 Abu Dhabi, UAE, 54224.\protect\\
-E-mail: \{fbinishaq,yxiao,malmehrezi\}@masdar.ac.ae}}
+E-mail: \{yxiao,malmehrezi\}@masdar.ac.ae}}
 
 % note the % following the last \IEEEmembership and also \thanks -
 % these prevent an unwanted space from occurring between the last author name
@@ -566,7 +566,7 @@ RSA, El-Gamal, Implementation, Public Key, Cryptosystem
 % is not selected <OR> if conference mode is selected - because compsoc
 % conference papers position the abstract like regular (non-compsoc)
 % papers do!
-\IEEEdisplaynotcompsoctitleabstractindextext
+\IEEEdisplaynotcompsoctitleabstractindextext%
 % \IEEEdisplaynotcompsoctitleabstractindextext has no effect when using
 % compsoc under a non-conference mode.
 
@@ -579,11 +579,12 @@ RSA, El-Gamal, Implementation, Public Key, Cryptosystem
 %
 % For peerreview papers, this IEEEtran command inserts a page break and
 % creates the second title. It will be ignored for other modes.
-\IEEEpeerreviewmaketitle
+\IEEEpeerreviewmaketitle%
 
 
 
 \section{Introduction}
+\label{sec:introduction}
 % Computer Society journal papers do something a tad strange with the very
 % first section heading (almost always called "Introduction"). They place it
 % ABOVE the main text! IEEEtran.cls currently does not do this for you.
@@ -644,29 +645,36 @@ Subsection text here.
 %Some related work will be discussed here.
 
 \section{Public Key Cryptosystem}
+\label{sec:publ-key-crypt}
 PKCS
 \subsection{More Details}
+
 Some problems with this template...I mean, the subsubsection part.
 
 \section{RSA}
 This is just another testing case.
 
 \section{El-Gamal Cryptosystem}
-% Let the hunt begin.
+\label{sec:el-gamal-crypt}
+Let the hunt begin.
+
+n nvKJASHF
+\cite{ref:Diffie1976}. 
 \subsection{Background}
-Something will be added here.
+Discrete logarithm problem will be discussed here. 
 
 \subsection{Basic El-Gamal Encryption}
 Well, I really want to finish those stuff as soon as possible. In this
 way I have to abort something else.
 
 \subsection{Generalized El-Gamal Encryption}
-Life is so damn hard. Isn't it?
+Life is so damn hard. Isn't it? Just another 
 
 \subsection{El-Gamal in Digital Signature}
+~
 
 \subsection{Some Possible Attacks}
-
+~
 
 
 
@@ -878,14 +886,15 @@ The authors would like to thank Dr. Zeyar for his amazing lectures throughout th
 %\end{IEEEbiography}
 
 % if you will not have a photo at all:
-\begin{IEEEbiographynophoto}{Fadwa Bin Ishaq}
-is a second year master student at Masdar Institute.
-\end{IEEEbiographynophoto}
+% \begin{IEEEbiographynophoto}{Fadwa Bin Ishaq}
+% is a second year master student at Masdar Institute.
+% \end{IEEEbiographynophoto}
 
 % insert where needed to balance the two columns on the last page with
 % biographies
 %\newpage
 
+% \vfill
 \begin{IEEEbiographynophoto}{Yanan Xiao}
 is a first year master student at Masdar Institute. For his undergraduate, he spent three years in information security related area, mainly computer networks. Right now he is with Dr. Chi-Kin Chau to earn his MSc degree. His research interests are wireless networks, embedded systems and all kinds of algorithms. When he does not have much research workload, he usually takes some tea while reading books.
 \end{IEEEbiographynophoto}
@@ -899,11 +908,11 @@ is a first year master student at Masdar Institute.
 % on the last page and whether or not the columns
 % are being equalized.
 
-%\vfill
+\vfill
 
 % Can be used to pull up biographies so that the bottom of the last one
 % is flush with the other column.
-%\enlargethispage{-5in}
+\enlargethispage{-5in}
 
 
 

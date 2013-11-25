@@ -1,6 +1,10 @@
 (TeX-add-style-hook "_region_"
  (lambda ()
+    (LaTeX-add-bibliographies
+     "IEEEabrv"
+     "Reference")
     (TeX-run-style-hooks
+     "hyperref"
      "url"
      "stfloats"
      "fixltx2e"

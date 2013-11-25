@@ -21,6 +21,10 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{ref:Diffie1976}
+W.~Diffie and M.~Hellman, ``New directions in cryptography,'' \emph{Information
+  Theory, IEEE Transactions on}, vol.~22, no.~6, pp. 644--654, 1976.
+
 \bibitem{ref:Elgamal1985}
 T.~Elgamal, ``A public key cryptosystem and a signature scheme based on
   discrete logarithms,'' \emph{Information Theory, IEEE Transactions on},

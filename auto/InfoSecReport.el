@@ -3,6 +3,10 @@
     (LaTeX-add-bibliographies
      "IEEEabrv"
      "Reference")
+    (LaTeX-add-labels
+     "sec:introduction"
+     "sec:publ-key-crypt"
+     "sec:el-gamal-crypt")
     (TeX-run-style-hooks
      "hyperref"
      "url"
