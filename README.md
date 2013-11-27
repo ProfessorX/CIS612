@@ -1,7 +1,17 @@
 # Information Security #
 
-## Introduction ##
+## TODO ##
+1. Finish reading the final few documents.
+2. Begin the programming of your part. (ElGamal cryptosystem)
+3. Begin the writing part of your literature review.
 
+
+
+
+
+
+
+## Introduction ##
 We have to finish the writing and coding part. Right now I am working
 on the ElGamal stuff. I suppose I can finish this writing stuff by the
 end of Thursday.
