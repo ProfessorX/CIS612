@@ -6,7 +6,9 @@
     (LaTeX-add-labels
      "sec:introduction"
      "sec:publ-key-crypt"
-     "sec:el-gamal-crypt")
+     "sec:rsa-cryptosystem"
+     "sec:el-gamal-crypt"
+     "sec:implementation")
     (TeX-run-style-hooks
      "hyperref"
      "url"

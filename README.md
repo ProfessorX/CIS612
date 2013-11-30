@@ -2,6 +2,10 @@
 Life is never easy. Especially if this is your first time to...Well,
 study abroad.
 
+** No more excuses and get things done! My master Abraham!!! Or you
+   shall be kicked off from this, CARE-FREE research institute.**
+
+
 ## Introduction ##
 We have to finish the writing and coding part. Right now I am working
 on the ElGamal stuff. I suppose I can finish this writing stuff by the
