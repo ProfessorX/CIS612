@@ -8,5 +8,6 @@
      "IEEEexample:article_typical"
      "ref:Diffie1976"
      "ref:Odlyzko1990"
-     "ref:Bach1996")))
+     "ref:Bach1996"
+     "ref:menezes2010handbook")))
 
