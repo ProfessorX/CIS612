@@ -39,4 +39,9 @@ T.~Elgamal, ``A public key cryptosystem and a signature scheme based on
   discrete logarithms,'' \emph{Information Theory, IEEE Transactions on},
   vol.~31, no.~4, pp. 469--472, 1985.
 
+\bibitem{ref:menezes2010handbook}
+A.~J. Menezes, P.~C. Van~Oorschot, and S.~A. Vanstone, \emph{Handbook of
+  applied cryptography}.\hskip 1em plus 0.5em minus 0.4em\relax CRC press,
+  2010.
+
 \end{thebibliography}

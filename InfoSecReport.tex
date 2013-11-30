@@ -686,7 +686,8 @@ It is well recognized that the ElGamal cryptosystem could be regarded as
 Diffie-Hellman key agreement~\cite{ref:Elgamal1985} in key transfer
 mode. Thus, the security of ElGamal cryptosystem has much to do with
 the intractability of discrete logarithm problem as well as the
-Diffie-Hellman problem. We analyze them one by one thereafter.
+Diffie-Hellman problem. We analyze them one by one thereafter. We
+follow the definition style in~\cite{ref:menezes2010handbook}.
 
 
 
@@ -698,11 +699,18 @@ The Diffie-Hellman key exchange agreement and its derivatives,
 alongside with ElGamal public key encryption scheme are formed on the
 basis of Diffie-Hellman problem. 
 \par
-\textbf{Definition}~The Diffie-Hellman problem (DHP): given a prime
-$p$, a generator $\alpha$ of $Z^{*}_{p}$, and elements
-$\alpha^{a}\mod p$ and $\alpha^{b}\mod p$, find $\alpha^{ab}\mod p$.
+\textbf{Definition}~The Diffie-Hellman problem (DHP): find
+$\alpha^{ab}\mod p$, provided th~at aprime
+$p$, a generato~r $\~lpha$ of $Z^{*}_{p}$, and elements
+$\alpha^{a}\mod p$ and $\alpha^{b}\mod p$
 \par
-\textbf{Definition}~
+\textbf{Definition}~The \emph{generalized Diffie-Hellman problem
+  (GDHP)}: find $\alpha^{ab}$, provided that a finite cyclic group
+$G$, a generator $\alpha$ of $G$, and group elements $\alpha^{a}$ and
+$\alpha^{b}$. 
+\par
+The link between Diffie-Hellman problem and discrete logarithm problem
+is established as follows. Under the assumption that 
 
 
 
