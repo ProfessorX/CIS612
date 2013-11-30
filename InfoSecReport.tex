@@ -670,10 +670,22 @@ This is just another testing case.
 As stated in the Section~\ref{sec:introduction}, after the
 introduction of public key cryptosystems concept by Diffie and Hellman
 in~\cite{ref:Diffie1976}, a lot of trials and errors have been made to
-find feasible cryptosystems. The RSA 
+find feasible cryptosystems. The security of RSA system discussed
+above has much to do with large integers factorization. The knapsack
+public key encryption scheme relies on the complexity of subset sum
+problem, which is NP-complete~\cite{ref:Odlyzko1990}. The first
+example of \emph{provably secure} public key encryption scheme,
+i.e.\ the Rabin scheme, is based on the problem of finding square
+roots of a modulo a prime. In a more generic manner, the Rabin
+encryption scheme is derived from the problem of finding $d^{th}$
+roots in a finite field, which is intensively discussed
+in~\cite{ref:Bach1996}. In this section, we discuss another cryptosystem that
+is still being widely used, i.e. ElGamal cryptosystem. 
+\par
 
 
-\cite{ref:Diffie1976}. 
+
+
 \subsection{Background}
 % I suppose this subsection should deal with mainly Diffie-Hellman key exchange.
 % Diffie-Hellman key exchange. It's never too easy to write something

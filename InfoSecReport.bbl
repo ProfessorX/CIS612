@@ -25,6 +25,15 @@
 W.~Diffie and M.~Hellman, ``New directions in cryptography,'' \emph{Information
   Theory, IEEE Transactions on}, vol.~22, no.~6, pp. 644--654, 1976.
 
+\bibitem{ref:Odlyzko1990}
+A.~M. Odlyzko, ``The rise and fall of knapsack cryptosystem,'' \emph{Cryptology
+  and Computational Number Theory}, vol.~42, pp. 75--88, 1990.
+
+\bibitem{ref:Bach1996}
+E.~Bach and J.~Shallit, \emph{Algorithmic Number Theory}.\hskip 1em plus 0.5em
+  minus 0.4em\relax Cambridge, Massachusetts: MIT Press, 1996, vol. 1:
+  Efficient Algorithms.
+
 \bibitem{ref:Elgamal1985}
 T.~Elgamal, ``A public key cryptosystem and a signature scheme based on
   discrete logarithms,'' \emph{Information Theory, IEEE Transactions on},
