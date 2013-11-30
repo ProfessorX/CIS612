@@ -1,15 +1,6 @@
 # Information Security #
-
-## TODO ##
-1. Finish reading the final few documents.
-2. Begin the programming of your part. (ElGamal cryptosystem)
-3. Begin the writing part of your literature review.
-
-
-
-
-
-
+Life is never easy. Especially if this is your first time to...Well,
+study abroad.
 
 ## Introduction ##
 We have to finish the writing and coding part. Right now I am working
@@ -24,8 +15,29 @@ I have some more stuff to read. God bless PRC.
 ## Writing ##
 
 ## Programming ##
-* Realization of RSA algorithm. Maybe in C, more likely in Python.
-* Implementation of ElGamal cryptosystem. And maybe the digital
-  signature scheme.
-* Anything else will be updated......(If I do have the time.)
+    * Realization of RSA algorithm. Maybe in C, more likely in Python.
+    * Implementation of ElGamal cryptosystem. And maybe the digital
+    signature scheme.
+    * Anything else will be updated......(If I do have the time.)
 
+## TODO ##
+    1. Finish reading the final few documents.
+    2. Begin the programming of your part. (ElGamal cryptosystem)
+    3. Begin the writing part of your literature review.
+
+20131128 Lab 19:45
+    1. Well, as a member of the research group, right now all I want
+    is...A meal.
+    2. Finish your writing part recently. I mean...Recently. (I am never
+    born in Nepal, so...I do not know what life there is like.)
+    3. Rest in peace. Yanan (Abraham) Xiao.
+
+20131130 Lab 14:30
+General outline for my part. In writing we are happy.
+    * Background. Discuss Diffie-Hellman key exchange. (New directions
+      in Cryptography.)
+    * Computational Diffie-Hellman problem.
+    * Decision Diffie-Hellman problem.
+    * Discrete logarithm problem.
+    * ElGamal cryptosystem
+    * Something more? Then possibly attacks.
