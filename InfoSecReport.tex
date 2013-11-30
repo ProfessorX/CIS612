@@ -701,16 +701,34 @@ basis of Diffie-Hellman problem.
 \par
 \textbf{Definition}~The Diffie-Hellman problem (DHP): find
 $\alpha^{ab}\mod p$, provided th~at aprime
-$p$, a generato~r $\~lpha$ of $Z^{*}_{p}$, and elements
+$p$, a generator $\alpha$ of $Z^{*}_{p}$, and elements
 $\alpha^{a}\mod p$ and $\alpha^{b}\mod p$
 \par
 \textbf{Definition}~The \emph{generalized Diffie-Hellman problem
   (GDHP)}: find $\alpha^{ab}$, provided that a finite cyclic group
 $G$, a generator $\alpha$ of $G$, and group elements $\alpha^{a}$ and
-$\alpha^{b}$. 
+$\alpha^{b}$ are known. 
 \par
 The link between Diffie-Hellman problem and discrete logarithm problem
-is established as follows. Under the assumption that 
+is established as follows. Under the assumption that it is easy to
+solve discrete logarithm problem in $Z^{*}_{p}$, one is able to
+compute $a$ from $\alpha$, $p$, $\alpha^{a}\mod p$ by way of solving a
+discrete logarithm equation. And then he can compute
+${(\alpha^{b})}^{a}~=~\alpha^{ab}\mod p$ with the knowledge of
+$\alpha^{b}\mod p$ at the same time.
+\par
+The most recent findings still show that it remains unknown whether
+generalized discrete logarithm problem (GDLP) and GDHP are
+computationally equivalent. Nevertheless, we summarize some recent
+progress with regard to this open problem below. The Euler phi
+function is marked as $\phi$. $B$-smooth is defined under the fact
+that all prime factors of an integer are $\leq B$. (B is a given
+positive integer.)
+% I suppose I could add some *newest* findings later on.
+\begin{itemize}
+\item Assume that
+\end{itemize}
+
 
 
 
