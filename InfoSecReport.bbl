@@ -44,4 +44,14 @@ A.~J. Menezes, P.~C. Van~Oorschot, and S.~A. Vanstone, \emph{Handbook of
   applied cryptography}.\hskip 1em plus 0.5em minus 0.4em\relax CRC press,
   2010.
 
+\bibitem{ref:Boer1990}
+\BIBentryALTinterwordspacing
+B.~Boer, ``\BIBforeignlanguage{English}{Diffie-hellman is as strong as discrete
+  log for certain primes},'' in \emph{\BIBforeignlanguage{English}{Advances in
+  Cryptology — CRYPTO’ 88}}, ser. Lecture Notes in Computer Science,
+  S.~Goldwasser, Ed.\hskip 1em plus 0.5em minus 0.4em\relax Springer New York,
+  1990, vol. 403, pp. 530--539. [Online]. Available:
+  \url{http://dx.doi.org/10.1007/0-387-34799-2_38}
+\BIBentrySTDinterwordspacing
+
 \end{thebibliography}

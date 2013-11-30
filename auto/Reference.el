@@ -9,5 +9,7 @@
      "ref:Diffie1976"
      "ref:Odlyzko1990"
      "ref:Bach1996"
-     "ref:menezes2010handbook")))
+     "ref:menezes2010handbook"
+     "ref:Boer1990"
+     "ref:Maurer1994")))
 
