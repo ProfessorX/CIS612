@@ -54,4 +54,14 @@ B.~Boer, ``\BIBforeignlanguage{English}{Diffie-hellman is as strong as discrete
   \url{http://dx.doi.org/10.1007/0-387-34799-2_38}
 \BIBentrySTDinterwordspacing
 
+\bibitem{ref:Maurer1994}
+\BIBentryALTinterwordspacing
+U.~Maurer, ``\BIBforeignlanguage{English}{Towards the equivalence of breaking
+  the diffie-hellman protocol and computing discrete logarithms},'' in
+  \emph{\BIBforeignlanguage{English}{Advances in Cryptology — CRYPTO ’94}},
+  ser. Lecture Notes in Computer Science, Y.~Desmedt, Ed.\hskip 1em plus 0.5em
+  minus 0.4em\relax Springer Berlin Heidelberg, 1994, vol. 839, pp. 271--281.
+  [Online]. Available: \url{http://dx.doi.org/10.1007/3-540-48658-5_26}
+\BIBentrySTDinterwordspacing
+
 \end{thebibliography}
