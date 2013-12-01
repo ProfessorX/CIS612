@@ -760,8 +760,26 @@ discussed below can be employed in both encryption and digital
 signature.
 % Even if life itself is a bitch. You have to fuck it up till explode.
 \par
-Diffie-Hellman 
-
+Diffie-Hellman key exchange scheme serves as a fundamental technique
+which provides unauthenticated key exchange. Herein we analyze the
+basic Diffie-Hellman protocol and briefly introduce some related ones
+which provide various authentication assurances.
+\par
+As the first practical key exchange scheme proposed to tackle key
+distribution problem, which becomes with an urgent issue after the
+discovery of public key cryptosystem, Diffie-Hellman key exchange
+scheme (also called \emph{exponential key exchange}) makes it possible
+that two parties of communication can establish a common secrete,
+which is strongly against eavesdropping theoretically, by way of a
+simple exponential calculation through an open channel. And this
+seemingly unrealistic approach is done without the prerequisite of,
+say Alice and Bob having met each other before or shared critical
+component of the scheme in advance. However, the primitive
+Diffie-Hellman technique has its defects. Even though this sort of
+protection performs well when eavesdroppers (passive adversaries) are
+cutting in the communication, it lacks key procedures to protect users
+from active adversaries who possess the ability to intercept, modify
+or inject messages. As reflected in 
 
 
 
