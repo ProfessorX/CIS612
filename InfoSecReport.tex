@@ -700,7 +700,7 @@ alongside with ElGamal public key encryption scheme are formed on the
 basis of Diffie-Hellman problem. 
 \par
 \textbf{Definition}~The Diffie-Hellman problem (DHP): find
-$\alpha^{ab}\mod p$, provided th~at aprime
+$\alpha^{ab}\mod p$, provided that a prime
 $p$, a generator $\alpha$ of $Z^{*}_{p}$, and elements
 $\alpha^{a}\mod p$ and $\alpha^{b}\mod p$
 \par
@@ -743,8 +743,25 @@ positive integer.)
   stronger ones can be found in~\cite{ref:Maurer1994}.
 \end{enumerate}
 \par
+% Life is a bitch. Fuck it or leave it. You name it.
 Diffie-Hellman key exchange scheme is based on the Diffie-Hellman
-problem discussed above.
+problem discussed above. It was proposed by Whitfield Diffie and
+Martin Hellman in \emph{New Directions in
+  Cryptography}~\cite{ref:Diffie1976}. What's more important in
+their invited paper is that they carefully examined two kinds of then
+contemporary development in cryptography, and shed light on methods of
+utilizing theories of communication and computation as tools to solve
+future cryptography problems. The Diffie-Hellman key exchange scheme
+has been widely used in Secure Shell (SSH), Transport Layer Security
+(TLS), and Internet Protocol Security (IPSec) since its
+proposal. Moreover, it is a key exchange protocol and \emph{not} used
+for encryption. On the other hand, the ElGamal cryptosystem that is
+discussed below can be employed in both encryption and digital
+signature.
+% Even if life itself is a bitch. You have to fuck it up till explode.
+\par
+Diffie-Hellman 
+
 
 
 
