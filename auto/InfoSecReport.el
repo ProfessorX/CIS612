@@ -8,6 +8,9 @@
      "sec:publ-key-crypt"
      "sec:rsa-cryptosystem"
      "sec:el-gamal-crypt"
+     "eq:2"
+     "eq:3"
+     "fig:diffie-key-agreement"
      "sec:implementation")
     (TeX-run-style-hooks
      "hyperref"

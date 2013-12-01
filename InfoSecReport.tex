@@ -779,7 +779,46 @@ Diffie-Hellman technique has its defects. Even though this sort of
 protection performs well when eavesdroppers (passive adversaries) are
 cutting in the communication, it lacks key procedures to protect users
 from active adversaries who possess the ability to intercept, modify
-or inject messages. As reflected in 
+or inject messages. As reflected in figure
+\ref{fig:diffie-key-agreement},  in real world communication scenarios,
+neither party (of one specific communication) can 100\% tell that the
+source identity of the incoming message is the one it makes the
+request for. The identity of the other party may be the one that
+``happenly'' know the resulting key, i.e.\ entity
+authentication or key authentication.
+\begin{figure}[!t]
+  \centering
+  \begin{algorithmic}
+    \STATE SUMMARY:\@ \emph{A} and \emph{B} communicates with each other
+    through open channel. In this simplified case, they are sending
+    the other one message.
+    \STATE RESULT:\@ A common secrete known to both \emph{A} and
+    \emph{B} is established.
+    \STATE~\quad{}1. \emph{One-time Setup.} Select and publish an
+    appropriate prime $p$ and generator $\alpha$ of $Z^{*}_{p}$.
+    \STATE~\quad{}2. \emph{Protocol messages.}
+    \begin{equation}
+      \label{eq:2}
+      A \rightarrow B: \alpha^{x}\mod p 
+    \end{equation}
+    \begin{equation}
+      \label{eq:3}
+      A \leftarrow B: \alpha^{y}\mod p
+    \end{equation}
+    \STATE~\quad{}3. \emph{Protocol actions.} Each time a shared key
+    is required, the following actions would be carried out.
+    \begin{enumerate}
+    \item \emph{A} selects some random secrete $x$, $1\leq x\leq
+      p-2$. Then sends \emph{B} message~\eqref{eq:2}.
+    \item \emph{B} selects some random secrete $y$, $1\leq y\leq
+      p-2$. Then sends \emph{A} message~\eqref{eq:3}.
+    \end{enumerate}
+  \end{algorithmic}
+  \caption{\textbf{Protocol} Diffie-Hellman key exchange scheme (basic
+    version)}
+  \label{fig:diffie-key-agreement}
+  % \vspace{-6pt}
+\end{figure}
 
 
 
