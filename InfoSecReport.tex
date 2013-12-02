@@ -890,7 +890,44 @@ approach, it would be convenient to think of $G$ as the
 multiplicatively group $Z^{*}_{p}$ of order $p-1$, and what the group
 does is merely multiplication modulo $p$.
 \par
-
+\textbf{Definition}~Suppose that $G$ is a finite cyclic group of order
+$n$, $\alpha$ a generator of $G$, and $\beta\in G$. We denote
+$\log_{\alpha}\beta$ as the discrete logarithm of $\beta$ to the base
+$\alpha$, and it is the unique integer $x$, $0\leq x\leq n-1$, such
+that $\beta=\alpha^{x}$.
+\par
+In cryptography, there are some groups (of numbers) that are more
+interesting for researchers than others. Cases of examples are
+multiplicative group $F^{*}_{p}$ of the field $F_{p}$. More
+specifically, multiplicative group $Z^{*}_{p}$ of the integers modulo
+a prime $p$, multiplicative group $F^{*}_{2^{m}}$ of the finite field
+with characteristic two. Another group that becomes popular after the
+invention of elliptic curve cryptosystem is the group of units
+$Z^{*}_{n}$ with $n$ being a composite integer. Specific examples are
+the group of points which are defined within a finite field on an
+elliptic curve, as well as the jacobian of a hyperelliptic curve that
+is also defined over a finite field.
+\par
+\textbf{Definition}~The \emph{discrete logarithm problem} (DLP) is
+defined as follows: Compute the integer $x$, $0\leq x\leq p-2$ that
+satisfies $\alpha^{x}\equiv \beta(\mod p)$, where $p$ is a prime,
+$\alpha$ a generator of $Z^{*}_{p}$, and $\beta\in Z^{*}_{p}$.
+\par
+\textbf{Definition}~The \emph{generalized discrete logarithm problem}
+(GDLP) is defined as follows: Compute the integer $x$, $0\leq x\leq
+n-1$ that satisfies $\alpha^{x}=\beta$, where $\alpha$ is a generator
+in a finite cyclic group $G$ of order $n$, and $\beta\in G$.
+\par
+Due to the fact that elliptic curve cryptography is yet another grand
+topic, we do not discuss them intensively in this paper. It is
+generally considered to be associated with discrete logarithm problem
+through a method called \emph{composite
+  moduli}~\cite{ref:menezes2010handbook}. 
+\par
+% Finish this paper within the day. Anyway, spare some 1 hour with
+% your data mining slides.
+When analyzing the generalized problem, it is not hard to derive that
+the difficulty of GDLP is independent of generator. 
 
 
 
