@@ -779,7 +779,7 @@ Diffie-Hellman technique has its defects. Even though this sort of
 protection performs well when eavesdroppers (passive adversaries) are
 cutting in the communication, it lacks key procedures to protect users
 from active adversaries who possess the ability to intercept, modify
-or inject messages. As reflected in figure
+or inject messages. As reflected in Fig.
 \ref{fig:diffie-key-agreement},  in real world communication scenarios,
 neither party (of one specific communication) can 100\% tell that the
 source identity of the incoming message is the one it makes the
@@ -812,6 +812,10 @@ authentication or key authentication.
       p-2$. Then sends \emph{B} message~\eqref{eq:2}.
     \item \emph{B} selects some random secrete $y$, $1\leq y\leq
       p-2$. Then sends \emph{A} message~\eqref{eq:3}.
+    \item \emph{B} computes $K={(\alpha^{x})}^{y}\mod p$ as the shared
+      key after receiving $\alpha^{x}$.
+    \item \emph{A} computes $K={(\alpha^{y})}^{x}\mod p$ as the shared
+      key after receiving $\alpha^{y}$.
     \end{enumerate}
   \end{algorithmic}
   \caption{\textbf{Protocol} Diffie-Hellman key exchange scheme (basic
@@ -819,6 +823,32 @@ authentication or key authentication.
   \label{fig:diffie-key-agreement}
   % \vspace{-6pt}
 \end{figure}
+\par
+In order to deal with key authentication issue brought up by basic
+Diffie-Hellman key exchange scheme, a simple method is to set
+$\alpha^{x}$ and $\alpha^{y}\mod p$ constant public keys for the
+corresponding parties. In this way, these public keys can be
+distributed through signed certificates, and the problem of long-term
+shared key is ``seemingly'' fixed. When such certificates are
+available \emph{a prior}, key exchange process evolves into a
+zero-pass key exchange scheme, which no cryptographic message is
+required to finish the exchange. Nevertheless, an obvious drawback is
+that as \emph{a prior}, once being hacked, all messages encrypted with
+this key are under attack. One solution for this drawback is proposed
+as MTI/A0 key exchange protocol in~\cite{ref:Matsumoto1986}. The
+MTI/A0 variant of Diffie-Hellman key exchange scheme patches this
+mentioned drawback by producing time-variant session keys and use them
+in mutual authentication in both directions of key exchange. This
+approach is done implicitly so it performs well against passive
+attacks. Another roundabout solution that takes in key update
+technique is used in ElGamal key exchange scheme, which we discuss in
+later subsections.
+\par
+% Life is a bitch. \end{documen} pretty strange
+% \end{document}
+% \end{document}
+% \end{document}
+% Holy Shit!
 
 
 

@@ -11,5 +11,6 @@
      "ref:Bach1996"
      "ref:menezes2010handbook"
      "ref:Boer1990"
-     "ref:Maurer1994")))
+     "ref:Maurer1994"
+     "ref:Matsumoto1986")))
 

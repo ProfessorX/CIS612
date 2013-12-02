@@ -60,5 +60,20 @@ I have some more stuff to read. God bless PRC.
            * The ElGamal encryption scheme
            * Possible attacks. (for this part, we can have a lot to
              write.)
-             
+
+
+
+
+
+## Temp ##
+@article{ref:Matsumoto1986,
+  author        = "T. MATSUMOTO and Y. TAKASHIMA and H. IMAI",
+  title         = "On seeking smart public key distribution systems",
+  journal       = "The Transactions of the IECE of Japan",
+  volume        = "E69",
+  number        = "2",
+  month         = feb,
+  year          = "1986",
+  pages         = "99-106"
+}
            
