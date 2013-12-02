@@ -927,8 +927,48 @@ through a method called \emph{composite
 % Finish this paper within the day. Anyway, spare some 1 hour with
 % your data mining slides.
 When analyzing the generalized problem, it is not hard to derive that
-the difficulty of GDLP is independent of generator. 
+the difficulty of GDLP is independent of generator. Assume that there
+are two generator $\alpha$ and $\gamma$ for a cyclic group $G$ of
+order $n$, and $\beta$ is an element in $G$. From the definition of
+group generator we can thus have the following equations:
+$x=\log_{\alpha}\beta$, $y=\log_{\gamma}\beta$, and
+$z=\log_{\alpha}\gamma$. Combining those equations, we have
+$\alpha^{x}=\beta=\gamma^{y}={(\alpha^{x})}^{y}$. Consequently
+$x=zy\mod n$, and
+\begin{equation}
+  \label{eq:4}
+  \log_{\gamma}\beta=(\log_{\alpha}\beta){(\log_{\alpha}\gamma)}^{-1}\mod
+  n 
+\end{equation}
+From equation~\eqref{eq:4} we can see once an algorithm is developed to compute
+logarithms to the base $\alpha$, can easily be utilized to compute any
+other base $\gamma$ serving as a generator of group $G$.
+\par
+Before stepping into known algorithms for DLP, we talk about some more
+general cases here. A even more generalized formulation of GDLP can be
+defined as follows: provided that such an integer exists that
+satisfies $\alpha^{x}=\beta$, find it in a finite group where
+$\alpha,\beta\in G$. Generally speaking, this problem may be harder to
+solve than GDLP.\@ Nevertheless, under the circumstance where $G$ is a
+cyclic group, i.e. $G$ being the multiplicative group of a finite
+field and the order of $\alpha$ already known, it would be much easier
+to recognize the existence of integer $x$ satisfying
+$\alpha^{x}=\beta$. For this requirement, the only condition that has
+to be met is $\beta^{n}=1$, where $n$ is the order of element
+$\alpha$.
+\par
+In chapter 3 of ``Handbook of Applied Cryptography'', the authors
+point out that ``Solving the DLP in a cyclic group $G$ of order $n$ is
+in essence computing an isomorphism between $G$ and
+$Z_{n}$''. Isomorphism for cyclic groups refers to the fact that basic
+structure of the two groups is the same while representation of their
+elements differs.
+% Still bad support for subsubsection. Well, modify the cls? I am not
+% sure. 
+% \subsubsection{~~Life is a bitch}
+% \label{sec:life-bitch}
 
+% Is life itself a bitch? I have no idea.
 
 
 

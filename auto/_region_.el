@@ -1,5 +1,19 @@
 (TeX-add-style-hook "_region_"
  (lambda ()
+    (LaTeX-add-bibliographies
+     "IEEEabrv"
+     "Reference")
+    (LaTeX-add-labels
+     "sec:introduction"
+     "sec:publ-key-crypt"
+     "sec:rsa-cryptosystem"
+     "sec:el-gamal-crypt"
+     "sec:diff-hellm-probl"
+     "eq:2"
+     "eq:3"
+     "fig:diffie-key-agreement"
+     "sec:disctr-logar-probl"
+     "sec:implementation")
     (TeX-run-style-hooks
      "hyperref"
      "url"

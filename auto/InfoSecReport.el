@@ -13,6 +13,7 @@
      "eq:3"
      "fig:diffie-key-agreement"
      "sec:disctr-logar-probl"
+     "eq:4"
      "sec:implementation")
     (TeX-run-style-hooks
      "hyperref"
