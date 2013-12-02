@@ -699,6 +699,12 @@ The Diffie-Hellman key exchange agreement and its derivatives,
 alongside with ElGamal public key encryption scheme are formed on the
 basis of Diffie-Hellman problem. 
 \par
+\textbf{Definition}~For a group $G$, if there exists an element
+$\alpha\in G$ such that for each $b\in G$ there is an integer $i$
+satisfying $b=\alpha^{i}$, we then call $G$ a cyclic group and element
+$\alpha$ a generator\footnote{There could be more than one generator
+  in a group, or none at all.} of $G$.\label{sec:diff-hellm-probl}
+\par
 \textbf{Definition}~The Diffie-Hellman problem (DHP): find
 $\alpha^{ab}\mod p$, provided that a prime
 $p$, a generator $\alpha$ of $Z^{*}_{p}$, and elements
@@ -784,18 +790,20 @@ or inject messages. As reflected in Fig.
 neither party (of one specific communication) can 100\% tell that the
 source identity of the incoming message is the one it makes the
 request for. The identity of the other party may be the one that
-``happenly'' know the resulting key, i.e.\ entity
+``happened'' know the resulting key, i.e.\ entity
 authentication or key authentication.
-\begin{figure}[!t]
+\begin{figure*}[!t]
   \centering
   \begin{algorithmic}
+%   \caption{\textbf{Protocol} Diffie-Hellman key exchange scheme (basic
+%     version)}
     \STATE SUMMARY:\@ \emph{A} and \emph{B} communicates with each other
     through open channel. In this simplified case, they are sending
     the other one message.
     \STATE RESULT:\@ A common secrete known to both \emph{A} and
-    \emph{B} is established.
+    \emph{B} is established.\\
     \STATE~\quad{}1. \emph{One-time Setup.} Select and publish an
-    appropriate prime $p$ and generator $\alpha$ of $Z^{*}_{p}$.
+    appropriate prime $p$ and generator $\alpha$ of $Z^{*}_{p}$.\\
     \STATE~\quad{}2. \emph{Protocol messages.}
     \begin{equation}
       \label{eq:2}
@@ -804,7 +812,7 @@ authentication or key authentication.
     \begin{equation}
       \label{eq:3}
       A \leftarrow B: \alpha^{y}\mod p
-    \end{equation}
+    \end{equation}\\
     \STATE~\quad{}3. \emph{Protocol actions.} Each time a shared key
     is required, the following actions would be carried out.
     \begin{enumerate}
@@ -822,7 +830,7 @@ authentication or key authentication.
     version)}
   \label{fig:diffie-key-agreement}
   % \vspace{-6pt}
-\end{figure}
+\end{figure*}
 \par
 In order to deal with key authentication issue brought up by basic
 Diffie-Hellman key exchange scheme, a simple method is to set
@@ -849,6 +857,40 @@ later subsections.
 % \end{document}
 % \end{document}
 % Holy Shit!
+% \end{document}
+Generally speaking, the Diffie-Hellman protocol as well as other
+similar ones based on it could be carried out in any group where both
+the discrete logarithm problem is difficult to solve, and exponential
+computation is easy. In practice, the following groups are more
+commonly used.
+\begin{itemize}
+\item Multiplicative group $Z^{*}_{p}$ of $Z_{p}$.
+\item Analogous multiplicative group $F_{2^{m}}$.
+\item The group of points defined over a finite field by an elliptic curve.
+\end{itemize}
+
+\subsection{Discrete Logarithm Problem}
+\label{sec:disctr-logar-probl}
+% Well, it seems that I have to use \begin{figure*} environment.
+The security issues associated with the intractability of discrete
+logarithm problem have much to do with many cryptographic techniques
+derived from this fascinating problem. Some well-known and widely used
+schemes include Diffie-Hellman key exchange protocol, ElGamal
+encryption, and the ElGamal signature scheme and its derivatives. This
+subsection deals mainly with the mainstream knowledge with regard to
+algorithms developed to solve discrete logarithm problem.
+\par
+% I suppose I should add the definition of generator some time later,
+% when integrating Mrs. Maryam's writing.
+The general mathematical setting implied to describe algorithms in
+this subsection is a (multiplicatively written) finite cyclic group
+$G$ of order $n$. And there is at least a generator (see definition in
+\autoref{sec:diff-hellm-probl}) named $\alpha$. Following a popular
+approach, it would be convenient to think of $G$ as the
+multiplicatively group $Z^{*}_{p}$ of order $p-1$, and what the group
+does is merely multiplication modulo $p$.
+\par
+
 
 
 
@@ -1100,7 +1142,7 @@ is a first year master student at Masdar Institute.
 % use of \vfill depends on what kind of text is
 % on the last page and whether or not the columns
 % are being equalized.
-sizes 
+
 
 \vfill
 
