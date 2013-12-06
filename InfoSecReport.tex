@@ -1011,7 +1011,35 @@ of $\alpha$. The baby-step giant-step algorithm patches the exhaustive
 search method with a large memory consumption. This intuitive approach
 is based on observation discussed above.
 \par
-Assume $\beta=\alpha^{x}$
+Assume $\beta=\alpha^{x}$, therefore we could rewrite $x$ with
+$x=im+j$, in which $0\leq i,j\leq m$. Henceforth, we obtain an
+equation $\alpha^{x}=\alpha^{im}\alpha^{j}$. Combining these two
+equations, we have $\beta{({(\alpha^{-m})}^{i})=\alpha^{j}}$. From
+this equation we could infer key idea lying behind this baby-step
+giant-step algorithm.
+% Warning!
+% Change this to figure* if possible later on.
+\begin{figure}[!t]
+  \centering
+  \begin{algorithmic}
+    \REQUIRE~A cyclic group $G$ of order $n$ with a generator
+    $\alpha$. Element $\beta\in G$. 
+    \ENSURE~solved discrete logarithm $x=\log_{\alpha}\beta$.
+    \begin{enumerate}
+    \item Initiate $m\leftarrow \lceil \sqrt{n}~\rceil$.
+    \item Set up a look-up table with entries $(j,\alpha^{j})$, in
+      which $0\leq j\leq m$. For performance consideration, rank this
+      table by second component. (We could also employ hashing
+      techniques here. Write programs to hash the second component and
+      then store them in a hashing table. After that, it just takes
+      constant time to place an entry and search it in the table.)
+    \item Life is hard. But we have United Arab Emirates.
+    \end{enumerate}
+  \end{algorithmic}
+  \caption{\textbf{Algorithm} Baby-step-giant-step algorithm for solving discrete logarithms}
+  \label{fig:algo-baby-step-giant-step}
+\end{figure}
+  
 
 
 

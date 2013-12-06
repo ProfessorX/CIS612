@@ -21,6 +21,7 @@
      "eq:4"
      "sec:exhaustive-search"
      "sec:baby-step-giant"
+     "fig:algo-baby-step-giant-step"
      "sec:implementation")
     (TeX-run-style-hooks
      "hyperref"
