@@ -957,12 +957,25 @@ $\alpha^{x}=\beta$. For this requirement, the only condition that has
 to be met is $\beta^{n}=1$, where $n$ is the order of element
 $\alpha$.
 \par
-In chapter 3 of ``Handbook of Applied Cryptography'', the authors
-point out that ``Solving the DLP in a cyclic group $G$ of order $n$ is
-in essence computing an isomorphism between $G$ and
+In chapter 3 of ``Handbook of Applied
+Cryptography''~\cite{ref:menezes2010handbook}, the authors point out
+that ``Solving the DLP in a cyclic group $G$ of order $n$ is in
+essence computing an isomorphism between $G$ and
 $Z_{n}$''. Isomorphism for cyclic groups refers to the fact that basic
 structure of the two groups is the same while representation of their
-elements differs.
+elements differs. It is pointed out that some algorithm which is
+pretty efficient with one group may not be adopted to handle problems
+with another without any modifications. A self-obvious example is each
+cyclic group of order $n$ is isomorphic to the additive cyclic group
+$Z_{n}$. The latter is merely a group composed of integers
+${0,1,2,\ldots,n-1}$ with addition modulo $n$ as the group operation.
+\par
+We classify known effective algorithms for DLP as follows:
+\begin{enumerate}
+\item algorithms working in arbitrary groups, e.g.\ exhaustive search,
+  the baby-step-giant-step algorithm, Pollard's rho algorithm;
+\item 
+\end{enumerate}
 % Still bad support for subsubsection. Well, modify the cls? I am not
 % sure. 
 % \subsubsection{~~Life is a bitch}
