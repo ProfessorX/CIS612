@@ -411,6 +411,10 @@
 
 
 
+% \newtheorem sets are defined here
+\newtheorem{definition}{Definition}
+
+
 
 
 % *** Do not adjust lengths that control margins, column widths, etc. ***
@@ -698,23 +702,26 @@ follow the definition style in~\cite{ref:menezes2010handbook}.
 The Diffie-Hellman key exchange agreement and its derivatives,
 alongside with ElGamal public key encryption scheme are formed on the
 basis of Diffie-Hellman problem. 
-\par
-\textbf{Definition}~For a group $G$, if there exists an element
-$\alpha\in G$ such that for each $b\in G$ there is an integer $i$
-satisfying $b=\alpha^{i}$, we then call $G$ a cyclic group and element
-$\alpha$ a generator\footnote{There could be more than one generator
-  in a group, or none at all.} of $G$.\label{sec:diff-hellm-probl}
-\par
-\textbf{Definition}~The Diffie-Hellman problem (DHP): find
+\begin{definition}
+For a group $G$, if there exists an element $\alpha\in G$ such that
+for each $b\in G$ there is an integer $i$ satisfying $b=\alpha^{i}$,
+we then call $G$ a cyclic group and element $\alpha$ a
+generator\footnote{There could be more than one generator in a group,
+  or none at all.} of $G$.\label{sec:diff-hellm-probl} 
+\end{definition}
+\begin{definition}
+The Diffie-Hellman problem (DHP): find
 $\alpha^{ab}\mod p$, provided that a prime
 $p$, a generator $\alpha$ of $Z^{*}_{p}$, and elements
-$\alpha^{a}\mod p$ and $\alpha^{b}\mod p$
-\par
-\textbf{Definition}~The \emph{generalized Diffie-Hellman problem
+$\alpha^{a}\mod p$ and $\alpha^{b}\mod
+p$\label{sec:diff-hellm-probl-1}
+\end{definition}
+\begin{definition}
+The \emph{generalized Diffie-Hellman problem
   (GDHP)}: find $\alpha^{ab}$, provided that a finite cyclic group
 $G$, a generator $\alpha$ of $G$, and group elements $\alpha^{a}$ and
-$\alpha^{b}$ are known. 
-\par
+$\alpha^{b}$ are known. \label{sec:diff-hellm-probl-2}
+\end{definition}
 The link between Diffie-Hellman problem and discrete logarithm problem
 (DLP) is established as follows. Under the assumption that it is easy
 to solve discrete logarithm problem in $Z^{*}_{p}$, one is able to
@@ -885,17 +892,17 @@ algorithms developed to solve discrete logarithm problem.
 The general mathematical setting implied to describe algorithms in
 this subsection is a (multiplicatively written) finite cyclic group
 $G$ of order $n$. And there is at least a generator (see definition in
-\autoref{sec:diff-hellm-probl}) named $\alpha$. Following a popular
+\ref{sec:diff-hellm-probl}) named $\alpha$. Following a popular
 approach, it would be convenient to think of $G$ as the
 multiplicatively group $Z^{*}_{p}$ of order $p-1$, and what the group
 does is merely multiplication modulo $p$.
-\par
-\textbf{Definition}~Suppose that $G$ is a finite cyclic group of order
+\begin{definition}
+Suppose that $G$ is a finite cyclic group of order
 $n$, $\alpha$ a generator of $G$, and $\beta\in G$. We denote
 $\log_{\alpha}\beta$ as the discrete logarithm of $\beta$ to the base
 $\alpha$, and it is the unique integer $x$, $0\leq x\leq n-1$, such
 that $\beta=\alpha^{x}$.
-\par
+\end{definition}
 In cryptography, there are some groups (of numbers) that are more
 interesting for researchers than others. Cases of examples are
 multiplicative group $F^{*}_{p}$ of the field $F_{p}$. More
@@ -907,17 +914,18 @@ $Z^{*}_{n}$ with $n$ being a composite integer. Specific examples are
 the group of points which are defined within a finite field on an
 elliptic curve, as well as the jacobian of a hyperelliptic curve that
 is also defined over a finite field.
-\par
-\textbf{Definition}~The \emph{discrete logarithm problem} (DLP) is
+\begin{definition}
+The \emph{discrete logarithm problem} (DLP) is
 defined as follows: Compute the integer $x$, $0\leq x\leq p-2$ that
 satisfies $\alpha^{x}\equiv \beta(\mod p)$, where $p$ is a prime,
 $\alpha$ a generator of $Z^{*}_{p}$, and $\beta\in Z^{*}_{p}$.
-\par
-\textbf{Definition}~The \emph{generalized discrete logarithm problem}
+\end{definition}
+\begin{definition}
+The \emph{generalized discrete logarithm problem}
 (GDLP) is defined as follows: Compute the integer $x$, $0\leq x\leq
 n-1$ that satisfies $\alpha^{x}=\beta$, where $\alpha$ is a generator
-in a finite cyclic group $G$ of order $n$, and $\beta\in G$.
-\par
+in a finite cyclic group $G$ of order $n$, and $\beta\in G$.\label{def:Generalized-DLP}
+\end{definition}
 Due to the fact that elliptic curve cryptography is yet another grand
 topic, we do not discuss them intensively in this paper. It is
 generally considered to be associated with discrete logarithm problem
@@ -974,8 +982,46 @@ We classify known effective algorithms for DLP as follows:
 \begin{enumerate}
 \item algorithms working in arbitrary groups, e.g.\ exhaustive search,
   the baby-step-giant-step algorithm, Pollard's rho algorithm;
-\item 
+\item algorithms working in arbitrary groups with on-purpose design to
+  tackle groups consisting of small prime factors, e.g.\
+  Pholig-Hellman algorithm; and
+\item algorithms working only effectively in certain groups, e.g.\ the
+  index-calculus algorithm.
 \end{enumerate}
+
+
+
+% No more procrastination!
+\subsubsection{\qquad Exhaustive search}
+\label{sec:exhaustive-search}
+As with all other cryptosystems, exhaustive search works well, at
+least theoretically. For GDLP (see definition in
+\ref{def:Generalized-DLP}), all we have to do is to compute 
+$\alpha^{0}$, $\alpha^{1}$, $\alpha^{2}$, \ldots until $\beta$ is
+obtained. This is a generic method since under this circumstance, all
+is does is $O(n)$ multiplications, in which $n$ serves as the order of
+$\alpha$. So it will turn inefficient when $n$ is substantially
+large. And in modern cryptography, this is extremely common.
+
+\subsubsection{\qquad Baby-step Giant-step algorithm}
+\label{sec:baby-step-giant}
+
+Suppose $m=\lceil \sqrt{n}~\rceil$, in which $n$ serves as the order
+of $\alpha$. The baby-step giant-step algorithm patches the exhaustive
+search method with a large memory consumption. This intuitive approach
+is based on observation discussed above.
+\par
+Assume $\beta=\alpha^{x}$
+
+
+
+
+% \subsubsection{\vfill Life is a bitch}
+% \label{sec:life-bitch-1}
+
+% Life is a bitch.
+
+
 % Still bad support for subsubsection. Well, modify the cls? I am not
 % sure. 
 % \subsubsection{~~Life is a bitch}
