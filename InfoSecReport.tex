@@ -1056,7 +1056,7 @@ multiplication as well as look-up is needed for step 4
 in~\autoref{fig:algo-baby-step-giant-step} even after table
 construction.
 \par
-Running time. Let's assume that $\log n$ times comparison is much less
+Running time. Let's assume that $\log_{10} n$ times comparison is much less
 time-consuming than group multiplications, we then make this statement
 that the computational complexity for baby-step-giant-step algorithm
 is $O(\sqrt{n})$.
@@ -1094,7 +1094,7 @@ $b_{0}=0$.
   \begin{cases}
     a_{i}, & if~x_{i}\in S_{1},\\
     2a_{i}\mod n, & if~x_{i}\in S_{2},\\
-    a_{i}+1, & if~x_{i}\in S_{3}
+    (a_{i}+1)\mod n, & if~x_{i}\in S_{3}
   \end{cases}
 \end{equation}
 and
@@ -1117,13 +1117,13 @@ base $\alpha$ logarithm on both sides of this equation, we get
   \label{eq:pollard-4}
   (b_{i}-b_{2i})\cdot\log_{\alpha}\beta\equiv(a_{2i}-a_{i})~\mod n
 \end{equation}
-With equation~\autoref{eq:pollard-4} at hand, it would be easy to work
+With \autoref{eq:pollard-4} at hand, it would be easy to work
 out $\log_{\alpha}\beta$. 
-\begin{figure}[!t]
+\begin{figure*}[!t]
   \centering
   \begin{algorithmic}
     \REQUIRE~A cyclic group $G$ of order $n$ with a generator
-    $\alpha$. Element $\beta\in G$. 
+    $\alpha$. Element $\beta\in G$.  
     \ENSURE~solved discrete logarithm $x=\log_{\alpha}\beta$.
     \begin{enumerate}
     \item Initialization. $x_{0}=1$, $a_{0}=0$,$b_{0}=0$.
@@ -1132,7 +1132,7 @@ out $\log_{\alpha}\beta$.
       \item Calculate $x_{i}$, $a_{i}$, $b_{i}$ and $x_{2i}$,
         $a_{2i}$, $b_{2i}$ by imputing $x_{i-1}$, $a_{i-1}$, $b_{i-1}$
         and  $x_{2i-2}$, $a_{2i-2}$, $b_{2i-2}$ to
-        equations~\autoref{eq:pollard-1},\autoref{eq:pollard-2} and
+        \autoref{eq:pollard-1},\autoref{eq:pollard-2} and
         \autoref{eq:pollard-3}. 
       \item If $_{i}=x_{2i}$, do
         \begin{enumerate}
@@ -1146,7 +1146,7 @@ out $\log_{\alpha}\beta$.
   \end{algorithmic}
   \caption{\textbf{Algorithm} Pollard's rho algorithm for computing discrete logarithms}
   \label{fig:pollard-rho-algo}
-\end{figure}
+\end{figure*}
 \par
 When algorithm in Fig. \autoref{fig:pollard-rho-algo} returns error,
 initialization process should start over by randomly selecting
@@ -1168,10 +1168,85 @@ congruences. Pholig-Hellman algorithm takes the former. Using Gauss's
 algorithm, we have
 $x_{i}=l_{0}+l_{1}p_{i}+\cdots+l_{e_{i}-1}p_{i}^{e_{i}-1}$ in which
 $l_{0}$, $l_{1}$, \ldots, $l_{e_{i}-1}$ serve as coefficients of
-$x_{i}$'s $p_{i}$-ary representation. 
+$x_{i}$'s $p_{i}$-ary representation.
+\begin{figure}[!t]
+  \centering
+  \begin{algorithmic}
+  \REQUIRE~A cyclic group $G$ of order $n$ with a generator
+    $\alpha$. Element $\beta\in G$.
+    \ENSURE~solved discrete logarithm $x=\log_{\alpha}\beta$.
+    \begin{enumerate}
+    \item Work out the prime factorization of
+      $n$:$n=p_{1}^{e_{1}}p_{2}^{e_{2}}\cdots p_{r}^{e_{r}}$, in which
+      $e_{i}\geq 1$.
+    \item For $i$ from $1$ to $\gamma$ do:\\
+      (Work out
+      $x_{i}=l_{0}+l_{1}p_{i}+\cdots+l_{e_{i}-1}p_{i}^{e_{i}-1}$,
+      in which $x_{i}=x\mod p_{i}^{e_{i}}$)
+      \begin{enumerate}
+      \item Initialization. $q\leftarrow p_{i}$, and $e\leftarrow
+        e_{i}$.
+      \item Evaluate $\gamma\leftarrow 1$ and $l_{-1}\leftarrow 0$.
+      \item Calculate $\bar{\alpha}\leftarrow\alpha^{n/q}$.
+      \item (Calculate the $l_{j}$) For $j$ from $0$ to $e-1$ do:
+        \begin{enumerate}
+        \item $\gamma\leftarrow\gamma\alpha^{l_{j-1}q^{j-1}}$ and
+          $\bar{\beta}\leftarrow{(\beta\gamma^{-1})}^{n/q^{j+1}}$.
+        \item $l_{j}\leftarrow\log_{\bar{\alpha}}\bar{\beta}$
+        \end{enumerate}
+      \item Set $x_{i}\leftarrow
+        l_{0}+l_{1}p_{i}+\cdots+l_{e_{i}-1}p_{i}^{e_{i}-1}$ 
+      \end{enumerate}
+    \item Calculate integer $x$ satisfying $0\leq x\leq n-1$ and for
+      $1\leq i\leq r$ $x\equiv x_{i}\mod p_{i}^{e_{i}}$.
+    \end{enumerate}
+  \end{algorithmic}
+  \caption{\textbf{Algorithm} Pholig-Hellman algorithm for computing discrete logarithms}
+  \label{fig:pholig-hellman-algo}
+\end{figure}
+\par
+According to~\cite{ref:menezes2010handbook}, computational complexity
+for this algorithm under the condition that the factorization of $n$
+is known, is
+\begin{equation}
+  \label{eq:Pholig-hellman-algo-cc}
+  O(\sum_{i=1}^{r}e_{i}(\log_{10}n+\sqrt{p_{i}}))
+\end{equation}
 
+\par
+From the computational complexity
+(\autoref{eq:Pholig-hellman-algo-cc}) we can see that only if each
+$p_{i}$ (prime divisor) is relatively small then this approach to
+generalized discrete logarithm problem is efficient.
 
+\subsubsection{\qquad Index-calculus algorithm}
+\label{sec:qquad-index-calculus}
 
+The last but never the least algorithm to ``combat'' against discrete
+logarithm problems that we discuss here is index-calculus
+algorithm. By fay when it is applied to its specific-purpose group,
+its computational complexity would often reduce to
+subexponential. From this perspective, it is regarded as the most
+powerful method nowadays. We describe a general setting here, namely
+the working group is a cyclic one called group $G$.
+\par
+What makes the index-calculus algorithm unique is that it ``selects''
+a relatively small subset out of vast elements in $G$. The subset is
+named \emph{factor base} due to the fact that from using elements in
+\emph{factor base} a significant amount of elements in group $G$ could
+be expressed, with high efficiency. Therefore in practice such a
+database is precomputed most of the time and reused when it comes that
+a particular group element is required.
+\begin{figure}[!t]
+  \centering
+  \begin{algorithmic}
+  \REQUIRE~A cyclic group $G$ of order $n$ with a generator
+    $\alpha$. Element $\beta\in G$.
+  \ENSURE~solved discrete logarithm $x=\log_{\alpha}\beta$.
+  \end{algorithmic}
+  \caption{\textbf{Algorithm} Index-calculus algorithm for discrete logarithms in cyclic groups}
+  \label{fig:index-calculus-algo-in-cyclic}
+\end{figure}
 
 
 
@@ -1195,7 +1270,8 @@ Well, I really want to finish those stuff as soon as possible. In this
 way I have to abort something else.
 
 \subsection{Generalized El-Gamal Encryption}
-Life is so damn hard. Isn't it? Just another 
+I planned to clarify everything, thus there is a lot to
+write. Right now I would make them more concise and compact.
 
 \subsection{El-Gamal in Digital Signature}
 ~

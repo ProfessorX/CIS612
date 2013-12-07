@@ -29,6 +29,10 @@
      "eq:pollard-4"
      "fig:pollard-rho-algo"
      "sec:pholig-hellman-algo"
+     "fig:pholig-hellman-algo"
+     "eq:Pholig-hellman-algo-cc"
+     "sec:qquad-index-calculus"
+     "fig:index-calculus-algo-in-cyclic"
      "sec:implementation")
     (TeX-run-style-hooks
      "hyperref"
