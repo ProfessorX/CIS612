@@ -897,9 +897,74 @@ can compute Alice’s signature S for M by $S = S’/r \mod N$.
 Having a low private exponent d will reduce decryption and signature
 computing costs.  However, too low of a d is insecure.  Boneh [6]
 describes approximations using fractions can allow Marvin to solve for
-a small d that is $d < \frac{1}{3}\cdot N^{1/4}$
+a small d that is $d < \frac{1}{3}\cdot N^{1/4}$. If N is 1024 bits,
+then d should be at least 256 bits long order to avoid this attack. 
 
+\subsubsection{\qquad Low public exponent attacks}
+\label{sec:qquad-low-public}
 
+Having a low public exponent will reduce encryption and signature
+validation computing costs.  However, too low of an e is also
+insecure.  Today’s standard e is set at $2^{16} + 1$.   This is a large
+enough value to avoid attacks and needs only 17 mod multiplications
+for $M^{e} \mod N$ using repeated squares. But if a very small e is used
+instead, it can be subject to attacks such as Hastad’s Broadcast
+Attack.  If the same M is encrypted with many users (e,N) keys and
+broadcasted out, Marvin can collect each and compute M.  If all users
+have the same e, then Marvin needs to collect at least e messages.
+Restating Boneh~\cite{boneh1999twenty}, take example if $e=3$,
+\begin{equation}
+  \label{eq:low-public-expo-1}
+  C1 = M^{3} \mod N1, C2 = M^{3} \mod N2, C3 = M^{3} \mod N3
+\end{equation}
+\begin{equation}
+  \label{eq:low-public-expo-2}
+  M < {N1, N2, N3} thus M^{3} < N1N2N3
+\end{equation}
+Using Chinese Remainder Theorem (CRT) $C1C2C3 = M^{3} \mod N1N2N3$, thus
+taking cube root of C1C2C3 gives M. Stronger attacks are also known on
+a small e.  If you pad M in the above scenario to make it unique for
+each message, then the broadcast attack fails.  But Hastad shows if
+the padding scheme is a public, fixed polynomial function it doesn’t
+defend from the attack.  Franklin and Reiter found an attack on two
+related messages encrypted with same modulus in time quadratic to
+e. And Coppersmith took it farther to show an attack on same messages
+that used a short, random pad (1/9th the size of M).  So using a small
+e is not wise. To defend against all above low public exponent
+attacks, large e such as the standard $2^{16} + 1$ should be used.  A
+good randomized pad also helps make random M’s to remove relationship
+amongst messages. 
+
+\subsubsection{\qquad Attacks on the implementation}
+\label{sec:qquad-attacks-impl}
+
+Research~\cite{wong2005timing} has shown that it is possible to
+recover the private keys of RSA without directly breaking RSA. This
+type of attack is known as ``timing attack'' an attacker notes runtime
+encryption algorithm and informed and thus justify the extracted
+parameter involved in secret operations. While it is generally agreed
+that the RSA is secure from direct attack, not so well known and often
+overlooked weakness of RSA to timing attacks. 
+\par
+In 1996, Kocher was the first one who discuss about timing
+attacks. Timing attacks are a form of ``side channel attack'' where an
+attacker gains information from the implementation of a coding rather
+than from any inherent weakness in the mathematical properties of the
+system. The operation in RSA that involves the private key is thus the
+modular exponentiation $M = C_{d} \mod N$, where N is the RSA modulus, C is
+the text to decrypt or sign, and d is the private key. The attacker
+wants to find d. For a timing attack, the attacker must have a target
+system compute Cd mod N for several carefully selected values of C. By
+precisely measuring the amount of time required and analyzing the
+timing variations, the attacker can recover the private key d one bit
+at a time until know the entire exponent. 
+\par
+Timing attacks illustrate that attackers do not necessarily play by
+the presumed rules and that they tend to attack the weakest link in a
+system. The best way to protect against such attacks is to think like
+an attacker and find these links before attacker does. 
+
+    
 
 
 
@@ -1384,7 +1449,7 @@ out $\log_{\alpha}\beta$.
   \label{fig:pollard-rho-algo}
 \end{figure*}
 \par
-When algorithm in Fig. \autoref{fig:pollard-rho-algo} returns error,
+When algorithm in~\autoref{fig:pollard-rho-algo} returns error,
 initialization process should start over by randomly selecting
 $a_{0}$, $b_{0}$ from scale $[1,n-1]$. At the same time, it's not hard
 to tell from the algorithm that a negligible storage is required, when
@@ -1554,7 +1619,7 @@ a particular group element is required.
 
 \subsection{Basic El-Gamal Encryption}
 After reviewing related parts of ElGamal cryptosystem
-in~\autoref{sec:diff-hellm-probl},and
+in~\autoref{sec:diff-hellm-probl}, and
 \autoref{sec:disctr-logar-probl}, we discuss the encryption and
 digital signature schemes in the following subsections.
 \par
@@ -1581,7 +1646,7 @@ digital signature schemes in the following subsections.
 \par
 Therein we describe ElGamal public-key encryption algorithm as
 follows:
-\begin{figure*}[!htbp]
+\begin{figure*}[!h]
   \centering
   \begin{algorithmic}
     \ENSURE~$B$ uses $A$'s public key to encrypt a message $m$. Then
@@ -1653,7 +1718,8 @@ another popular cryptosystem based on the intractability of discrete
 logarithm problem, i.e. ElGamal. Due to the lack of time, we can
 hardly discuss them thoroughly, but we think that key ideas relating to
 these two cryptosystems are covered. In the future paper we will
-analyze them with greater details.
+analyze them with greater details. Note, due to the characteristic of
+IEEE template, there is still one figure that can not be typeset. 
 \par
 Each team member's contribution is described as follows:
 \begin{itemize}
@@ -1781,9 +1847,14 @@ Each team member's contribution is described as follows:
 
 % Appendices are here. The grammar highlight here is also good, ahuh.
 % Codes will appear here as an appendix section.
+% \pagebreak
 \appendices
 % \section{Life is never easy}
 % Appendix one text goes here.
+
+
+
+
 
 % % you can choose not to have a title for an appendix
 % % if you want by leaving the argument blank
@@ -1869,6 +1940,7 @@ The authors would like to thank Dr. Zeyar for his amazing lectures throughout th
 % http://www.ctan.org/tex-archive/biblio/bibtex/contrib/doc/
 % The IEEEtran BibTeX style support page is at:
 % http://www.michaelshell.org/tex/ieeetran/bibtex/
+
 \bibliographystyle{IEEEtran}
 % argument is your BibTeX string definitions and bibliography database(s)
 

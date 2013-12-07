@@ -35,6 +35,10 @@ P.~W. Shor, ``{Polynomial time algorithms for prime factorization and discrete
   logarithms on a quantum computer},'' \emph{SIAM J.Sci.Statist.Comput.},
   vol.~26, p. 1484, 1997.
 
+\bibitem{wong2005timing}
+W.~H. Wong, ``Timing attacks on rsa: revealing your secrets through the fourth
+  dimension,'' \emph{Crossroads}, vol.~11, no.~3, pp. 5--5, 2005.
+
 \bibitem{ref:Diffie1976}
 W.~Diffie and M.~Hellman, ``New directions in cryptography,'' \emph{Information
   Theory, IEEE Transactions on}, vol.~22, no.~6, pp. 644--654, 1976.
