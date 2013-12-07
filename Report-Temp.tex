@@ -799,45 +799,45 @@ source identity of the incoming message is the one it makes the
 request for. The identity of the other party may be the one that
 ``happened'' know the resulting key, i.e.\ entity
 authentication or key authentication.
-\begin{figure*}[!htbp]
-  \centering
-  \begin{algorithmic}
+% \begin{figure*}[!htbp]
+%   \centering
+%   \begin{algorithmic}
+% %   \caption{\textbf{Protocol} Diffie-Hellman key exchange scheme (basic
+% %     version)}
+%     \STATE SUMMARY:\@ \emph{A} and \emph{B} communicates with each other
+%     through open channel. In this simplified case, they are sending
+%     the other one message.
+%     \STATE RESULT:\@ A common secrete known to both \emph{A} and
+%     \emph{B} is established.\\
+%     \STATE~\quad{}1. \emph{One-time Setup.} Select and publish an
+%     appropriate prime $p$ and generator $\alpha$ of $Z^{*}_{p}$.\\
+%     \STATE~\quad{}2. \emph{Protocol messages.}
+%     \begin{equation}
+%       \label{eq:diffie-1}
+%       A \rightarrow B: \alpha^{x}\mod p 
+%     \end{equation}
+%     \begin{equation}
+%       \label{eq:diffie-2}
+%       A \leftarrow B: \alpha^{y}\mod p
+%     \end{equation}\\
+%     \STATE~\quad{}3. \emph{Protocol actions.} Each time a shared key
+%     is required, the following actions would be carried out.
+%     \begin{enumerate}
+%     \item \emph{A} selects some random secrete $x$, $1\leq x\leq
+%       p-2$. Then sends \emph{B} message~\eqref{eq:diffie-1}.
+%     \item \emph{B} selects some random secrete $y$, $1\leq y\leq
+%       p-2$. Then sends \emph{A} message~\eqref{eq:diffie-2}.
+%     \item \emph{B} computes $K={(\alpha^{x})}^{y}\mod p$ as the shared
+%       key after receiving $\alpha^{x}$.
+%     \item \emph{A} computes $K={(\alpha^{y})}^{x}\mod p$ as the shared
+%       key after receiving $\alpha^{y}$.
+%     \end{enumerate}
+%   \end{algorithmic}
 %   \caption{\textbf{Protocol} Diffie-Hellman key exchange scheme (basic
 %     version)}
-    \STATE SUMMARY:\@ \emph{A} and \emph{B} communicates with each other
-    through open channel. In this simplified case, they are sending
-    the other one message.
-    \STATE RESULT:\@ A common secrete known to both \emph{A} and
-    \emph{B} is established.\\
-    \STATE~\quad{}1. \emph{One-time Setup.} Select and publish an
-    appropriate prime $p$ and generator $\alpha$ of $Z^{*}_{p}$.\\
-    \STATE~\quad{}2. \emph{Protocol messages.}
-    \begin{equation}
-      \label{eq:diffie-1}
-      A \rightarrow B: \alpha^{x}\mod p 
-    \end{equation}
-    \begin{equation}
-      \label{eq:diffie-2}
-      A \leftarrow B: \alpha^{y}\mod p
-    \end{equation}\\
-    \STATE~\quad{}3. \emph{Protocol actions.} Each time a shared key
-    is required, the following actions would be carried out.
-    \begin{enumerate}
-    \item \emph{A} selects some random secrete $x$, $1\leq x\leq
-      p-2$. Then sends \emph{B} message~\eqref{eq:diffie-1}.
-    \item \emph{B} selects some random secrete $y$, $1\leq y\leq
-      p-2$. Then sends \emph{A} message~\eqref{eq:diffie-2}.
-    \item \emph{B} computes $K={(\alpha^{x})}^{y}\mod p$ as the shared
-      key after receiving $\alpha^{x}$.
-    \item \emph{A} computes $K={(\alpha^{y})}^{x}\mod p$ as the shared
-      key after receiving $\alpha^{y}$.
-    \end{enumerate}
-  \end{algorithmic}
-  \caption{\textbf{Protocol} Diffie-Hellman key exchange scheme (basic
-    version)}
-  \label{fig:diffie-key-agreement}
-  % \vspace{-6pt}
-\end{figure*}
+%   \label{fig:diffie-key-agreement}
+%   % \vspace{-6pt}
+% \end{figure*}
 \par
 In order to deal with key authentication issue brought up by basic
 Diffie-Hellman key exchange scheme, a simple method is to set
@@ -1019,34 +1019,34 @@ this equation we could infer key idea lying behind this baby-step
 giant-step algorithm.
 % Warning!
 % Change this to figure* if possible later on.
-\begin{figure*}[!htbp]
-  \centering
-  \begin{algorithmic}
-    \REQUIRE~A cyclic group $G$ of order $n$ with a generator
-    $\alpha$. Element $\beta\in G$. 
-    \ENSURE~solved discrete logarithm $x=\log_{\alpha}\beta$.
-    \begin{enumerate}
-    \item Initiate $m\leftarrow \lceil \sqrt{n}~\rceil$.
-    \item Set up a look-up table with entries $(j,\alpha^{j})$, in
-      which $0\leq j\leq m$. For performance consideration, rank this
-      table by second component. (We could also employ hashing
-      techniques here. Write programs to hash the second component and
-      then store them in a hashing table. After that, it just takes
-      constant time to place an entry and search it in the table.)
-    \item Calculate $\alpha^{-m}$ then evaluate
-      $\gamma\leftarrow\beta$
-    \item For $i$ from $0$ to $m-1$ do:
-      \begin{enumerate}
-      \item Validate if $\gamma$ equals to the second component of one
-        entry in the table.
-      \item If $\gamma=\alpha^{j}$ then return $(x=im+j)$
-      \item Evaluate $\gamma\leftarrow\gamma\cdot\alpha^{-m}$
-      \end{enumerate}
-    \end{enumerate}
-  \end{algorithmic}
-  \caption{\textbf{Algorithm} Baby-step-giant-step algorithm for solving discrete logarithms}
-  \label{fig:algo-baby-step-giant-step}
-\end{figure*}
+% \begin{figure*}[!htbp]
+%   \centering
+%   \begin{algorithmic}
+%     \REQUIRE~A cyclic group $G$ of order $n$ with a generator
+%     $\alpha$. Element $\beta\in G$. 
+%     \ENSURE~solved discrete logarithm $x=\log_{\alpha}\beta$.
+%     \begin{enumerate}
+%     \item Initiate $m\leftarrow \lceil \sqrt{n}~\rceil$.
+%     \item Set up a look-up table with entries $(j,\alpha^{j})$, in
+%       which $0\leq j\leq m$. For performance consideration, rank this
+%       table by second component. (We could also employ hashing
+%       techniques here. Write programs to hash the second component and
+%       then store them in a hashing table. After that, it just takes
+%       constant time to place an entry and search it in the table.)
+%     \item Calculate $\alpha^{-m}$ then evaluate
+%       $\gamma\leftarrow\beta$
+%     \item For $i$ from $0$ to $m-1$ do:
+%       \begin{enumerate}
+%       \item Validate if $\gamma$ equals to the second component of one
+%         entry in the table.
+%       \item If $\gamma=\alpha^{j}$ then return $(x=im+j)$
+%       \item Evaluate $\gamma\leftarrow\gamma\cdot\alpha^{-m}$
+%       \end{enumerate}
+%     \end{enumerate}
+%   \end{algorithmic}
+%   \caption{\textbf{Algorithm} Baby-step-giant-step algorithm for solving discrete logarithms}
+%   \label{fig:algo-baby-step-giant-step}
+% \end{figure*}
 \par
 Judging from the algorithm in~\autoref{fig:algo-baby-step-giant-step},
 we need $O(\sqrt{n})$ size of storage for group elements. Constructing
@@ -1357,9 +1357,7 @@ follows:
         $(p,\alpha,\alpha^{a})$. 
       \item Express the plaintext message as an integer in the scale
         ${0,1,\ldots,p-1}$. 
-      \item Randomly select an integer $k$ satisfying $1\leq k\leq
-        p-2$.
-      \item Cal
+      \item Randomly select an integer $k$ satisfying $1\leq k\leq p-2$.
       \end{enumerate}
     \end{enumerate}
   \end{algorithmic}
@@ -1511,8 +1509,74 @@ Conclusion and Contributions.
 % Appendices are here. The grammar highlight here is also good, ahuh.
 % Codes will appear here as an appendix section.
 \appendices
-\section{Life is never easy}
-Appendix one text goes here.
+\section{Related Algorithms}
+\begin{figure*}[!htbp]
+  \centering
+  \begin{algorithmic}
+%   \caption{\textbf{Protocol} Diffie-Hellman key exchange scheme (basic
+%     version)}
+    \STATE SUMMARY:\@ \emph{A} and \emph{B} communicates with each other
+    through open channel. In this simplified case, they are sending
+    the other one message.
+    \STATE RESULT:\@ A common secrete known to both \emph{A} and
+    \emph{B} is established.\\
+    \STATE~\quad{}1. \emph{One-time Setup.} Select and publish an
+    appropriate prime $p$ and generator $\alpha$ of $Z^{*}_{p}$.\\
+    \STATE~\quad{}2. \emph{Protocol messages.}
+    \begin{equation}
+      \label{eq:diffie-1}
+      A \rightarrow B: \alpha^{x}\mod p 
+    \end{equation}
+    \begin{equation}
+      \label{eq:diffie-2}
+      A \leftarrow B: \alpha^{y}\mod p
+    \end{equation}\\
+    \STATE~\quad{}3. \emph{Protocol actions.} Each time a shared key
+    is required, the following actions would be carried out.
+    \begin{enumerate}
+    \item \emph{A} selects some random secrete $x$, $1\leq x\leq
+      p-2$. Then sends \emph{B} message~\eqref{eq:diffie-1}.
+    \item \emph{B} selects some random secrete $y$, $1\leq y\leq
+      p-2$. Then sends \emph{A} message~\eqref{eq:diffie-2}.
+    \item \emph{B} computes $K={(\alpha^{x})}^{y}\mod p$ as the shared
+      key after receiving $\alpha^{x}$.
+    \item \emph{A} computes $K={(\alpha^{y})}^{x}\mod p$ as the shared
+      key after receiving $\alpha^{y}$.
+    \end{enumerate}
+  \end{algorithmic}
+  \caption{\textbf{Protocol} Diffie-Hellman key exchange scheme (basic
+    version)}
+  \label{fig:diffie-key-agreement}
+  % \vspace{-6pt}
+\end{figure*}
+\begin{figure*}[!htbp]
+  \centering
+  \begin{algorithmic}
+    \REQUIRE~A cyclic group $G$ of order $n$ with a generator
+    $\alpha$. Element $\beta\in G$. 
+    \ENSURE~solved discrete logarithm $x=\log_{\alpha}\beta$.
+    \begin{enumerate}
+    \item Initiate $m\leftarrow \lceil \sqrt{n}~\rceil$.
+    \item Set up a look-up table with entries $(j,\alpha^{j})$, in
+      which $0\leq j\leq m$. For performance consideration, rank this
+      table by second component. (We could also employ hashing
+      techniques here. Write programs to hash the second component and
+      then store them in a hashing table. After that, it just takes
+      constant time to place an entry and search it in the table.)
+    \item Calculate $\alpha^{-m}$ then evaluate
+      $\gamma\leftarrow\beta$
+    \item For $i$ from $0$ to $m-1$ do:
+      \begin{enumerate}
+      \item Validate if $\gamma$ equals to the second component of one
+        entry in the table.
+      \item If $\gamma=\alpha^{j}$ then return $(x=im+j)$
+      \item Evaluate $\gamma\leftarrow\gamma\cdot\alpha^{-m}$
+      \end{enumerate}
+    \end{enumerate}
+  \end{algorithmic}
+  \caption{\textbf{Algorithm} Baby-step-giant-step algorithm for solving discrete logarithms}
+  \label{fig:algo-baby-step-giant-step}
+\end{figure*}
 
 % you can choose not to have a title for an appendix
 % if you want by leaving the argument blank

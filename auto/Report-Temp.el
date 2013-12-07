@@ -1,4 +1,4 @@
-(TeX-add-style-hook "InfoSecReport"
+(TeX-add-style-hook "Report-Temp"
  (lambda ()
     (LaTeX-add-bibliographies
      "IEEEabrv"
@@ -13,15 +13,11 @@
      "sec:diff-hellm-probl"
      "sec:diff-hellm-probl-1"
      "sec:diff-hellm-probl-2"
-     "eq:diffie-1"
-     "eq:diffie-2"
-     "fig:diffie-key-agreement"
      "sec:disctr-logar-probl"
      "def:Generalized-DLP"
      "eq:discrete-1"
      "sec:exhaustive-search"
      "sec:baby-step-giant"
-     "fig:algo-baby-step-giant-step"
      "sec:poll-rho-algor-1"
      "eq:pollard-1"
      "eq:pollard-2"
@@ -38,7 +34,11 @@
      "fig:index-calculus-algo-in-cyclic"
      "fig:basic-elgamal-encryption"
      "fig:basic-elgamal-public-key-encry-algo"
-     "sec:implementation")
+     "sec:implementation"
+     "eq:diffie-1"
+     "eq:diffie-2"
+     "fig:diffie-key-agreement"
+     "fig:algo-baby-step-giant-step")
     (TeX-run-style-hooks
      "hyperref"
      "url"
