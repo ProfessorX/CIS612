@@ -12,5 +12,6 @@
      "ref:menezes2010handbook"
      "ref:Boer1990"
      "ref:Maurer1994"
-     "ref:Matsumoto1986")))
+     "ref:Matsumoto1986"
+     "Knuth:1997:ACP:270146")))
 

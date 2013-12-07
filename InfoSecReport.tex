@@ -813,20 +813,20 @@ authentication or key authentication.
     appropriate prime $p$ and generator $\alpha$ of $Z^{*}_{p}$.\\
     \STATE~\quad{}2. \emph{Protocol messages.}
     \begin{equation}
-      \label{eq:2}
+      \label{eq:diffie-1}
       A \rightarrow B: \alpha^{x}\mod p 
     \end{equation}
     \begin{equation}
-      \label{eq:3}
+      \label{eq:diffie-2}
       A \leftarrow B: \alpha^{y}\mod p
     \end{equation}\\
     \STATE~\quad{}3. \emph{Protocol actions.} Each time a shared key
     is required, the following actions would be carried out.
     \begin{enumerate}
     \item \emph{A} selects some random secrete $x$, $1\leq x\leq
-      p-2$. Then sends \emph{B} message~\eqref{eq:2}.
+      p-2$. Then sends \emph{B} message~\eqref{eq:diffie-1}.
     \item \emph{B} selects some random secrete $y$, $1\leq y\leq
-      p-2$. Then sends \emph{A} message~\eqref{eq:3}.
+      p-2$. Then sends \emph{A} message~\eqref{eq:diffie-2}.
     \item \emph{B} computes $K={(\alpha^{x})}^{y}\mod p$ as the shared
       key after receiving $\alpha^{x}$.
     \item \emph{A} computes $K={(\alpha^{y})}^{x}\mod p$ as the shared
@@ -944,11 +944,11 @@ $z=\log_{\alpha}\gamma$. Combining those equations, we have
 $\alpha^{x}=\beta=\gamma^{y}={(\alpha^{x})}^{y}$. Consequently
 $x=zy\mod n$, and
 \begin{equation}
-  \label{eq:4}
+  \label{eq:discrete-1}
   \log_{\gamma}\beta=(\log_{\alpha}\beta){(\log_{\alpha}\gamma)}^{-1}\mod
   n 
 \end{equation}
-From equation~\eqref{eq:4} we can see once an algorithm is developed to compute
+From equation~\eqref{eq:discrete-1} we can see once an algorithm is developed to compute
 logarithms to the base $\alpha$, can easily be utilized to compute any
 other base $\gamma$ serving as a generator of group $G$.
 \par
@@ -1033,13 +1033,144 @@ giant-step algorithm.
       techniques here. Write programs to hash the second component and
       then store them in a hashing table. After that, it just takes
       constant time to place an entry and search it in the table.)
-    \item Life is hard. But we have United Arab Emirates.
+    \item Calculate $\alpha^{-m}$ then evaluate
+      $\gamma\leftarrow\beta$
+    \item For $i$ from $0$ to $m-1$ do:
+      \begin{enumerate}
+      \item Validate if $\gamma$ equals to the second component of one
+        entry in the table.
+      \item If $\gamma=\alpha^{j}$ then return $(x=im+j)$
+      \item Evaluate $\gamma\leftarrow\gamma\cdot\alpha^{-m}$
+      \end{enumerate}
     \end{enumerate}
   \end{algorithmic}
   \caption{\textbf{Algorithm} Baby-step-giant-step algorithm for solving discrete logarithms}
   \label{fig:algo-baby-step-giant-step}
 \end{figure}
-  
+\par
+Judging from the algorithm in~\autoref{fig:algo-baby-step-giant-step},
+we need $O(\sqrt{n})$ size of storage for group elements. Constructing
+a table like this would require $O(\sqrt{n})$ multiplications and
+$O(\sqrt{n}\log n)$ for sorting it. A $O(\sqrt{n})$ times of
+multiplication as well as look-up is needed for step 4
+in~\autoref{fig:algo-baby-step-giant-step} even after table
+construction.
+\par
+Running time. Let's assume that $\log n$ times comparison is much less
+time-consuming than group multiplications, we then make this statement
+that the computational complexity for baby-step-giant-step algorithm
+is $O(\sqrt{n})$.
+
+\subsubsection{\qquad Pollard's rho algorithm}
+\label{sec:poll-rho-algor-1}
+
+Pollard's rho algorithm patches the memory consumption defect of
+baby-step-giant-step algorithm. It is a randomized algorithm and works
+with the same computational complexity as algorithm in
+\autoref{fig:algo-baby-step-giant-step}. Due to the superiority in
+memory usage, it is much more preferable for real-world problems. As
+usual and for simplicity, we assume $G$ is a cyclic group with prime
+$n$ as order.
+\par
+A series of group elements in $G$ is defined as follows, in which
+$x_{i+1}=0$: 
+\begin{equation}
+  \label{eq:pollard-1}
+  x_{i+1}~=~f(x_{i})\overset{def}{=}
+  \begin{cases}
+    \beta\cdot x_{i}, & if~x_{i}\in S_{1},\\
+    x_{i}^{2}, & if~x_{i}\in S_{2},\\
+    \alpha\cdot x_{i}, & if~x_{i}\in S_{3}
+  \end{cases}
+\end{equation}
+for $i\geq 0$. The sub-sequences defined in turn, i.e. $a_{0}$,
+$a_{1}$, $a_{2}$, \ldots and $b_{0}$, $b_{1}$,
+$b_{2}$ which satisfying
+$x_{i}=\alpha^{a_{i}}\beta^{b_{i}}$. Furthermore, $a_{0}=0$,
+$b_{0}=0$. 
+\begin{equation}
+  \label{eq:pollard-2}
+  a_{i+1}=
+  \begin{cases}
+    a_{i}, & if~x_{i}\in S_{1},\\
+    2a_{i}\mod n, & if~x_{i}\in S_{2},\\
+    a_{i}+1, & if~x_{i}\in S_{3}
+  \end{cases}
+\end{equation}
+and
+\begin{equation}
+  \label{eq:pollard-3}
+  b_{i+1}=
+  \begin{cases}
+    (b_{i}+1)\mod n, & if~x_{i}\in S_{1},\\
+    2b_{i}\mod n, & if~x_{i}\in S_{2},\\
+    b_{i}, & if~x_{i}\in S_{3}
+  \end{cases}
+\end{equation}
+According to Floyd's cycle-finding
+algorithm~\cite{Knuth:1997:ACP:270146}, we can find two group elements
+$x_{i}$ and $x_{2i}$ satisfying $x_{i}=x_{2i}$. Substituting $x$ with
+$a$ and $\beta$ we obtain
+$\alpha^{a_{i}}\beta^{b_{i}}=\alpha^{a_{2i}}\beta^{b_{2i}}$. Imposing
+base $\alpha$ logarithm on both sides of this equation, we get
+\begin{equation}
+  \label{eq:pollard-4}
+  (b_{i}-b_{2i})\cdot\log_{\alpha}\beta\equiv(a_{2i}-a_{i})~\mod n
+\end{equation}
+With equation~\autoref{eq:pollard-4} at hand, it would be easy to work
+out $\log_{\alpha}\beta$. 
+\begin{figure}[!t]
+  \centering
+  \begin{algorithmic}
+    \REQUIRE~A cyclic group $G$ of order $n$ with a generator
+    $\alpha$. Element $\beta\in G$. 
+    \ENSURE~solved discrete logarithm $x=\log_{\alpha}\beta$.
+    \begin{enumerate}
+    \item Initialization. $x_{0}=1$, $a_{0}=0$,$b_{0}=0$.
+    \item For $i=1,2,\ldots$ do
+      \begin{enumerate}
+      \item Calculate $x_{i}$, $a_{i}$, $b_{i}$ and $x_{2i}$,
+        $a_{2i}$, $b_{2i}$ by imputing $x_{i-1}$, $a_{i-1}$, $b_{i-1}$
+        and  $x_{2i-2}$, $a_{2i-2}$, $b_{2i-2}$ to
+        equations~\autoref{eq:pollard-1},\autoref{eq:pollard-2} and
+        \autoref{eq:pollard-3}. 
+      \item If $_{i}=x_{2i}$, do
+        \begin{enumerate}
+        \item Evaluate $\gamma\leftarrow(b_{i}-b_{2i})\mod n$.
+        \item If $\gamma=0$, return error; else evaluate
+          $x=\gamma^{-1}(a_{2i}-a_{i})\mod n$. 
+        \item Return $(x)$.
+        \end{enumerate}
+      \end{enumerate}
+    \end{enumerate}
+  \end{algorithmic}
+  \caption{\textbf{Algorithm} Pollard's rho algorithm for computing discrete logarithms}
+  \label{fig:pollard-rho-algo}
+\end{figure}
+\par
+When algorithm in Fig. \autoref{fig:pollard-rho-algo} returns error,
+initialization process should start over by randomly selecting
+$a_{0}$, $b_{0}$ from scale $[1,n-1]$. At the same time, it's not hard
+to tell from the algorithm that a negligible storage is required, when
+comparing with baby-step-giant-step algorithm.
+
+\subsubsection{\qquad Pholig-Hellman algorithm}
+\label{sec:pholig-hellman-algo}
+
+Pholig-Hellman algorithm makes the use of factorization. It factorize
+$n$ which is the order of group $G$. Assume $n$ can be prime
+factorized as $n=p_{1}^{e_{1}}p_{2}^{e_{2}}\cdots
+p_{r}^{e_{r}}$. Suppose what we want to get is $x=\log_{a}\beta$, this
+leads to determine $x_{i}=x\mod p_{i}^{e_{i}}$ for $1\leq i\leq
+r$. There are two common practices here, i.e.\ Gauss's algorithm and
+Chinese remainder theorem, to solve simultaneous
+congruences. Pholig-Hellman algorithm takes the former. Using Gauss's
+algorithm, we have
+$x_{i}=l_{0}+l_{1}p_{i}+\cdots+l_{e_{i}-1}p_{i}^{e_{i}-1}$ in which
+$l_{0}$, $l_{1}$, \ldots, $l_{e_{i}-1}$ serve as coefficients of
+$x_{i}$'s $p_{i}$-ary representation. 
+
+
 
 
 

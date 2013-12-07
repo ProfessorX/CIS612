@@ -69,4 +69,9 @@ T.~MATSUMOTO, Y.~TAKASHIMA, and H.~IMAI, ``On seeking smart public key
   distribution systems,'' \emph{The Transactions of the IECE of Japan}, vol.
   E69, no.~2, pp. 99--106, Feb. 1986.
 
+\bibitem{Knuth:1997:ACP:270146}
+D.~E. Knuth, \emph{The Art of Computer Programming, Volume 2 (3rd Ed.):
+  Seminumerical Algorithms}.\hskip 1em plus 0.5em minus 0.4em\relax Boston, MA,
+  USA: Addison-Wesley Longman Publishing Co., Inc., 1997.
+
 \end{thebibliography}
