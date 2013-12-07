@@ -7,8 +7,15 @@
      "definition")
     (LaTeX-add-labels
      "sec:introduction"
-     "sec:publ-key-crypt"
+     "fig:intro-process-of-symmetric"
+     "fig:intro-process-of-asymetric"
      "sec:rsa-cryptosystem"
+     "sec:rsa-background"
+     "sec:rsa-details"
+     "sec:known-attacks-rsa"
+     "sec:qquad-fact-large"
+     "sec:qquad-common-modulus"
+     "sec:qquad-low-private"
      "sec:el-gamal-crypt"
      "sec:diff-hellm-probl"
      "sec:diff-hellm-probl-1"
@@ -38,6 +45,7 @@
      "fig:index-calculus-algo-in-cyclic"
      "fig:basic-elgamal-encryption"
      "fig:basic-elgamal-public-key-encry-algo"
+     "eq:basic-elgamal-encry-algo"
      "sec:implementation")
     (TeX-run-style-hooks
      "hyperref"

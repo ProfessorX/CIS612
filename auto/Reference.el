@@ -13,5 +13,9 @@
      "ref:Boer1990"
      "ref:Maurer1994"
      "ref:Matsumoto1986"
-     "Knuth:1997:ACP:270146")))
+     "Knuth:1997:ACP:270146"
+     "sarlabous2000introduction"
+     "pomerance2008tale"
+     "boneh1999twenty"
+     "Shor:1994jg")))
 

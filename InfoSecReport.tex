@@ -633,9 +633,92 @@ RSA, El-Gamal, implementation, public key, cryptosystem
 % % You must have at least 2 lines in the paragraph with the drop letter
 % % (should never be an issue)
 % I wish you the best of success.
-\IEEEPARstart{P}{ublic} key cryptosystem. 
+\IEEEPARstart{C}{ryptography}  is a fascinating subject. The spread of
+computers and communication systems require private sector to protect
+the information in digital form, and to provide security
+services. Further, Cryptography has a great importance in most
+technology today, not only in computers but also in credit cards,
+government and it remains the standard means for securing electronic
+commerce for many financial institutions around the world. 
 \par
-The rest 
+Cryptography is the science of encoding data, typically using a key,
+so that people without the key cannot read the data. Many different
+algorithms are used to encrypt data and they are either symmetric or
+asymmetric. In symmetric key cryptography, the best known algorithm is
+the Data Encryption Standard (DES). DES, which was developed at IBM in
+1977, was a popular standers algorithm for years, until Triple DES and
+AES began to replace it. Whereas, symmetric key algorithms require a
+shared secret to be exchanged between the communicating parties to
+have a secured communication
+see~\autoref{fig:intro-process-of-symmetric}. 
+\begin{figure}[!t]
+  \centering
+  \includegraphics[scale=0.5]{Figure/Symmetric}
+  \caption{The process of symmetric encryption}
+  \label{fig:intro-process-of-symmetric}
+\end{figure}
+The security of the symmetric key algorithm depends on the secrecy of
+the key. So, the problem with symmetric keys is how to securely get
+the secret keys to each end of the exchange and keep them secure after
+that. For this reason, an asymmetric key system is now often used that
+is known as the public key infrastructure (PKI). Public-key encryption
+does not require that you openly exchange a secret key with the
+recipient of an encrypted message. 
+\par
+Public-key cryptography also referred to as asymmetric encryption,
+uses a pair of cryptographic keys, a public key and a private key see 
+\begin{figure}[!t]
+  \centering
+  \includegraphics[scale=0.5]{Figure/Asymmetric.png}
+  \caption{The process of asymmetric encryption}
+  \label{fig:intro-process-of-asymetric}
+\end{figure} 
+The private key is kept secret and defines the associated
+decryption transformation, while the public key defines an encryption
+transformation and can be distributed openly, thereby negating the
+need to transmit a secret key in advance. The keys are related
+mathematically, allowing the sender of a message to encrypt his
+message using the recipient's public key. The message can then only be
+decrypted using the recipient's private key. Since encryption
+transformation is public knowledge, public-key encryption alone does
+not provide data origin authentication or data integrity. Public-key
+decryption by using private key can provides authentication guarantees
+in entity authentication and authenticated key establishment
+protocols. So, public-key encryption provides both privacy and
+confidentiality. 
+\par
+Public-key encryption schemes are simple, elegant and relatively
+efficient digital signature mechanisms. The key used to describe the
+public verification function is typically much smaller than for the
+symmetric-key counterpart. However they are typically substantially
+slower than symmetric-key encryption algorithms. For this reason,
+public-key encryption is most commonly used in practice for the
+transport of keys subsequently used for bulk data encryption by
+symmetric algorithms and other applications including data integrity
+and authentication, and for encrypting small data items such as credit
+card numbers and PINs.
+\par
+Public-key cryptography being discovered in the mid-1970s and it does
+not have an extensive history as symmetric-key encryption, but the
+most familiar public-key algorithms are RSA and Diffie–Hellman key
+exchange, while the Digital Signature Algorithm is the most widely
+used digital signature system. 
+\par
+There are several public key algorithms. The first one proposed is the
+knapsack cryptosystem but it is insecure and an easily understood
+system. After the knapsack, RSA algorithm is known as the gold
+standard of public key cryptography that we will focus on it in this
+report. Then, The Diffie–Hellman key exchange was published in 1976 by
+Whitfield Diffie and MartinHellman and it provided a common secret key
+between the communicating parties over an insecure channel. 
+\par
+Also there are more public key algorithms such as El-Gamal
+Cryptosystem and Elliptic Curve Cryptosystem (ECC), but in this report
+we are mainly focused on some asymmetric algorithms which are mostly
+used. They are RSA and ElGamal cryptosystems.  
+
+
+
 % \hfill mds
 
 % \hfill January 11, 2007
@@ -653,18 +736,171 @@ The rest
 %\section{Related Work}
 %Some related work will be discussed here.
 
-\section{Public Key Cryptosystem}
-\label{sec:publ-key-crypt}
+% \section{Public Key Cryptosystem}
+% \label{sec:publ-key-crypt}
 
-\subsection{More Details}
+% \subsection{More Details}
 
-Some problems with this template...I mean, the subsubsection part.
+% Some problems with this template...I mean, the subsubsection part.
 
 \section{RSA Cryptosystem}
 \label{sec:rsa-cryptosystem}
 
 
-This is just another testing case.
+RSA algorithm is used for public key cryptography and digital
+signatures. It is the most commonly used public key encryption
+algorithm. The security of the RSA algorithm is based on the
+difficulty of factoring large numbers n = pq, where p and q are large
+prime numbers. The RSA algorithm keys are often of length a power of
+two, like 512, 1024, or 2048 bits, RSA to be secure, the key length
+has to be at least 1024-bits. 
+\par
+This section will provide the history of RSA, describes the RSA
+encryption scheme, its security, and provides some Practical
+Considerations. 
+\par
+
+\subsection{RSA Background}
+\label{sec:rsa-background}
+
+RSA invented by Rivest, Shamir and Adleman in 1977, RSA stands for the
+first letter in each of its inventors' last names. It was first
+published in the paper A Method for Obtaining Digital Signatures and
+Public-Key Cryptosystems, but the National Security Agency (NSA) did
+not like the idea of the distribution the cryptography source code
+internationally, and requested to be stopped. However, they continued
+distribution because the NSA failed to provide a legal basis for their
+request.  
+\par
+
+\subsection{RSA Details}
+\label{sec:rsa-details}
+
+
+RSA system involves three steps: key generation, encryption and
+decryption. First step: key generation, the mathematical details of
+the algorithm used in obtaining the public and private keys are
+explained as follows:
+\begin{enumerate}
+\item Take two large primes, p and q, and compute their product n =
+  pq, where n is called the modulus. 
+\item Choose a number, e which is less than n and relatively prime to
+  $(p-1)(q-1)$, that means e and (p-1)(q-1) have no common  factors
+  except 1. 
+\item Find another number d such that $(ed - 1)$ is divisible by
+  $(p-1)(q-1)$. Whereas the values e and d are called the public and
+  private exponents, respectively. 
+\end{enumerate}
+\par
+The public key is the pair (n, e); the private key is (n, d). The
+factors p and q may be destroyed or kept with the private key. 
+\par
+It is currently difficult to obtain the private key d from the public
+key (n, e). However if one could factor n into p and q, then one could
+obtain the private key d. Thus the security of the RSA system is based
+on the assumption that factoring is difficult. The discovery of an
+easy method of factoring would ``break'' RSA. 
+\par
+Second step: encryption, the ciphertext C is found by the equation $C
+= M^{e}\mod n$ where M is the original message and e is the public or
+encryption exponent. 
+\par
+Third step: decryption, the message M can be found form the ciphertext
+C by the equation $M = C^{d}\mod n$ where d is the private or decryption
+exponent. 
+\par
+The RSA system can be used for public key cryptography (encryption)
+and digital signatures as we said before, there is slightly different
+between them. 
+\par
+In RSA, encryption keys are public, while the decryption keys are
+private, so no one can decrypt an encrypted message except the person
+who has the private key. Everyone has their own public and private
+keys. The keys must be made in such a way that the private key may not
+be easily construed from the public encryption key. 
+
+\subsection{Known Attacks on RSA Cryptosystem}
+\label{sec:known-attacks-rsa}
+
+The RSA function is a one-way trapdoor function. It is not known to be
+easily invertible without the trapdoor, d. General attacks on RSA
+involve trying to compute d, or some other way to get to M
+(plaintext). The difficulties and the main security of RSA algorithm
+is based on prime factorization problem. 
+\par
+There has been much research and many publications on attacks on the
+RSA Cryptosystem.  We can categorize attacks on RSA into five
+categories as below, and we will present a summary of them.
+
+\subsubsection{\qquad Factoring large integers}
+\label{sec:qquad-fact-large}
+
+Given (C, e, N), Marvin can do a brute force search to find M. But
+factoring N involves a much smaller search space and thus, more
+efficient to do. Factoring is a well-researched
+problem. Pomerance~\cite{pomerance2008tale} has an interesting
+introduction into what clever methods can be done.  For example, how
+to factor 8051?  Naive approach is trying all primes up to square root
+of 8051, or almost 90.  Clever trick is to find a square of primes
+that subtract to the number, i.e.$ 90^{2} – 7^{2} = 8051$. Thus $(90 –
+7) * (90 + 7) = 8051$, $83$ and $97$ are the factors. However, this
+trick is only easy if factors are close to square root of the number.
+There are only a very small set of numbers where this is true.  But
+much more sophisticated methods are known.  Currently the general
+number field sieve is the best known running time with, reported by
+Boneh~\cite{boneh1999twenty}, a time on n-bit integers of
+$\exp^{(c+o(1))n^{1/3}\log^{2/3}n}$ for some $c<2$.
+\par
+To be complete, Peter Shor~\cite{Shor:1994jg} has shown a
+quantum computer has a polynomial time algorithm for factoring
+integers. But engineering a quantum computer still has a way to go, so
+RSA is safe for now. 
+\par
+RSA security depends on the computation to be unreasonable for 1) the
+factoring of N, and 2) computing the e\emph{th} roots modulo N. The first is
+fairly well researched and complexity is understood. However, the
+second is an open question. It has not yet been proven that taking the
+eth roots modulo N is at least as hard as factoring N. This means RSA
+security has not been proven to be at least as hard as factoring. But
+it has withstood time and a large amount of research, which is
+encouraging that it will stay secure well into the future.
+\par
+
+
+
+\subsubsection{\qquad Common Modulus}
+\label{sec:qquad-common-modulus}
+Fixing N.  One blatant misuse of RSA would be using the same modulus N
+for all users.  So instead, have a central authority issue out unique
+e,d pairs to each user.  This sort of works, in the fact that $C1 =
+M^{e1} \mod N$ can only be decrypted with corresponding pair d1. So a
+different user with $e_{2},d_{2}$ does not appear able to decrypt. But from the
+property that knowing (e,d,N) you can factor N, then the game is over.
+Any user can use their $(e_{i}, d_{i})$ pair to factor $N$. Then,
+given any other user’s $e_{j}$ and the factors of $N, d_{j}$ can be
+computed. RSA key pairs should never use the same N
+twice~\cite{boneh1999twenty}.
+\par
+Signature forgery can be done with a technique called blinding.  If
+Alice ever “blindly” signs M, then Marvin might be able to forge
+Alice’s signature.  If Marvin sends evil plaintext M for Alice to
+sign, it’s easy to assume Alice would reject and not sign it.  But
+what if Marvin sends a random, harmless looking M?  Depending on the
+implementation, Alice might be fooled and sign it.  Marvin then can
+take advantageous of this is by generating $M’ = r^{e} M \mod N$, for
+some random r.  If Alice provides a signature, S’ on M’, then Marvin
+can compute Alice’s signature S for M by $S = S’/r \mod N$.
+
+\subsubsection{\qquad Low private exponent attacks}
+\label{sec:qquad-low-private}
+
+Having a low private exponent d will reduce decryption and signature
+computing costs.  However, too low of a d is insecure.  Boneh [6]
+describes approximations using fractions can allow Marvin to solve for
+a small d that is $d < \frac{1}{3}\cdot N^{1/4}$
+
+
+
 
 
 
@@ -1359,20 +1595,37 @@ follows:
         ${0,1,\ldots,p-1}$. 
       \item Randomly select an integer $k$ satisfying $1\leq k\leq
         p-2$.
-      \item Cal
+      \item Calculate $\gamma=\alpha^{k}\mod p$ and
+        $\delta=m\cdot{(\alpha^{a})}^{k}\mod p$.
+      \item Transmit the ciphertext $c=(\gamma,\delta)$ to $A$.
+      \end{enumerate}
+    \item \emph{Decryption}. The decrypt steps for $A$ are described
+      as follows:
+      \begin{enumerate}
+      \item Calculate $\gamma^{p-1-a}\mod p$ using $A$'s private
+        key. (note: due to the characteristic of modulus,
+        $\gamma^{p-1-a}=\gamma^{-a}=\alpha^{-ak}$). 
+      \item Calculate plaintext $m$ by evaluating
+        $(\gamma^{-a}\cdot\delta\mod p)$.
       \end{enumerate}
     \end{enumerate}
   \end{algorithmic}
   \caption{\textbf{Algorithm} ElGamal public-key encryption}
   \label{fig:basic-elgamal-public-key-encry-algo}
 \end{figure*}
+\par
+A tiny proof that decryption works.
+\begin{equation}
+  \label{eq:basic-elgamal-encry-algo}
+  \gamma^{-a}\cdot\delta\equiv\alpha^{-ak}ma^{ak}\equiv m\mod p
+\end{equation}
 
-\subsection{Generalized El-Gamal Encryption}
-I planned to clarify everything, thus there is a lot to
-write. Right now I would make them more concise and compact.
+% \subsection{Generalized El-Gamal Encryption}
+% I planned to clarify everything, thus there is a lot to
+% write. Right now I would make them more concise and compact.
 
-\subsection{El-Gamal in Digital Signature}
-~
+% \subsection{El-Gamal in Digital Signature}
+% ~
 
 
 
@@ -1382,17 +1635,35 @@ write. Right now I would make them more concise and compact.
 
 \section{Implementation}
 \label{sec:implementation}
+We implement prototypes of both RSA and ElGamal cryptosystems. The
+steps should be self-evident in source codes. In this manner and to
+save valuable space, we do not paste our codes here.
 
 
-Implementation process will be discussed here. Let the hunt begin \cite{ref:Elgamal1985}.
 
-\subsection{RSA}
+% \subsection{RSA}
 
-\subsection{El-Gamal}
+% \subsection{El-Gamal}
 
 
 \section{Conclusion}
-Conclusion and Contributions.
+We carry out a comprehensive literature review of both the
+representative of contemporary public key cryptosystem, i.e. RSA, and
+another popular cryptosystem based on the intractability of discrete
+logarithm problem, i.e. ElGamal. Due to the lack of time, we can
+hardly discuss them thoroughly, but we think that key ideas relating to
+these two cryptosystems are covered. In the future paper we will
+analyze them with greater details.
+\par
+Each team member's contribution is described as follows:
+\begin{itemize}
+\item Yanan Xiao. He discusses the ElGamal cryptosystem and carries
+  out most of the implementation task. He also typesets this paper in
+  IEEE Computer Society template.
+\item Maryam Al Mehrezi. She finishes the introduction part as well as
+  the discussion of RSA cryptosystem. She also tries her best to help
+  with the prototype implementation. 
+\end{itemize}
 
 
 
@@ -1511,13 +1782,13 @@ Conclusion and Contributions.
 % Appendices are here. The grammar highlight here is also good, ahuh.
 % Codes will appear here as an appendix section.
 \appendices
-\section{Life is never easy}
-Appendix one text goes here.
+% \section{Life is never easy}
+% Appendix one text goes here.
 
-% you can choose not to have a title for an appendix
-% if you want by leaving the argument blank
-\section{Some related math stuff will be displayed here}
-Appendix two text goes here.
+% % you can choose not to have a title for an appendix
+% % if you want by leaving the argument blank
+% \section{Some related math stuff will be displayed here}
+% Appendix two text goes here.
 
 
 % use section* for acknowledgement
@@ -1539,6 +1810,47 @@ The authors would like to thank Dr. Zeyar for his amazing lectures throughout th
 \ifCLASSOPTIONcaptionsoff
   \newpage
 \fi
+
+% \newpage
+% \begin{figure*}[!htbp]
+%   \centering
+%   \begin{algorithmic}
+% %   \caption{\textbf{Protocol} Diffie-Hellman key exchange scheme (basic
+% %     version)}
+%     \STATE SUMMARY:\@ \emph{A} and \emph{B} communicates with each other
+%     through open channel. In this simplified case, they are sending
+%     the other one message.
+%     \STATE RESULT:\@ A common secrete known to both \emph{A} and
+%     \emph{B} is established.\\
+%     \STATE~\quad{}1. \emph{One-time Setup.} Select and publish an
+%     appropriate prime $p$ and generator $\alpha$ of $Z^{*}_{p}$.\\
+%     \STATE~\quad{}2. \emph{Protocol messages.}
+%     \begin{equation}
+%       \label{eq:diffie-1}
+%       A \rightarrow B: \alpha^{x}\mod p 
+%     \end{equation}
+%     \begin{equation}
+%       \label{eq:diffie-2}
+%       A \leftarrow B: \alpha^{y}\mod p
+%     \end{equation}\\
+%     \STATE~\quad{}3. \emph{Protocol actions.} Each time a shared key
+%     is required, the following actions would be carried out.
+%     \begin{enumerate}
+%     \item \emph{A} selects some random secrete $x$, $1\leq x\leq
+%       p-2$. Then sends \emph{B} message~\eqref{eq:diffie-1}.
+%     \item \emph{B} selects some random secrete $y$, $1\leq y\leq
+%       p-2$. Then sends \emph{A} message~\eqref{eq:diffie-2}.
+%     \item \emph{B} computes $K={(\alpha^{x})}^{y}\mod p$ as the shared
+%       key after receiving $\alpha^{x}$.
+%     \item \emph{A} computes $K={(\alpha^{y})}^{x}\mod p$ as the shared
+%       key after receiving $\alpha^{y}$.
+%     \end{enumerate}
+%   \end{algorithmic}
+%   \caption{\textbf{Protocol} Diffie-Hellman key exchange scheme (basic
+%     version)}
+%   \label{fig:diffie-key-agreement}
+%   % \vspace{-6pt}
+% \end{figure*}
 
 
 
@@ -1603,7 +1915,10 @@ is a first year master student at Masdar Institute. For his undergraduate, he sp
 \end{IEEEbiographynophoto}
 
 \begin{IEEEbiographynophoto}{Maryam Al Mehrezi}
-is a first year master student at Masdar Institute.
+is a first year Computing and Information Science student at Masdar
+Institute. She  got a bachelor degree in Computer Science (United Arab
+Emirates University). Watching movies, riding bicycle and  all things
+that are related to computer science are her interests. 
 \end{IEEEbiographynophoto}
 % You can push biographies down or up by placing
 % a \vfill before or after them. The appropriate
@@ -1613,6 +1928,8 @@ is a first year master student at Masdar Institute.
 
 
 \vfill
+
+
 
 % Can be used to pull up biographies so that the bottom of the last one
 % is flush with the other column.
