@@ -61,19 +61,16 @@ I have some more stuff to read. God bless PRC.
            * Possible attacks. (for this part, we can have a lot to
              write.)
 
+    20131209 Lab 17:30
+        1. Presentation slide.
+        2. Program debug. You **have to** finish that shit.
+        3. Finish Homework 3 of this course, if possible, by the day.
+
 
 
 
 
 ## Temp ##
-@article{ref:Matsumoto1986,
-  author        = "T. MATSUMOTO and Y. TAKASHIMA and H. IMAI",
-  title         = "On seeking smart public key distribution systems",
-  journal       = "The Transactions of the IECE of Japan",
-  volume        = "E69",
-  number        = "2",
-  month         = feb,
-  year          = "1986",
-  pages         = "99-106"
-}
+Some dummy temporary file and chunk are to be stored here. But, as you
+can tell, not forever.
            
