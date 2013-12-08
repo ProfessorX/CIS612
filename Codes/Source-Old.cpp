@@ -1,9 +1,9 @@
 #include <iostream>
 #include <time.h>
 
-#ifndef __int64
-#define __int64 long long
-#endif
+// Marco
+#define __int64 long long int
+
 
 using namespace std;
 typedef struct RSA_PARAM_Tag
@@ -15,13 +15,13 @@ typedef struct RSA_PARAM_Tag
 }RSA_PARAM;
 
 
-const static long g_PrimeTable[] = { 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97 }; 
+const static long g_PrimeTable[] = { 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97 };
 const static long g_PrimeCount = sizeof(long);
 const unsigned __int64 multiplier = 12747293821;
 const unsigned __int64 adder = 1343545677842234541;
 
 // Random number
-class RandNumber
+class	RandNumber
 {
 private:
 	unsigned __int64 randSeed;
@@ -132,7 +132,7 @@ unsigned __int64 RandomPrime(char bits)
 unsigned __int64 EuclidGcd(unsigned __int64 &p, unsigned __int64 &q)
 {// In Euclidian method we trust.
 	unsigned __int64 a = p>q ? p : q;
-	unsigned __int64 b = p<q ? p : q;
+	unsigned __int64 b = p<1 ? p : q;
 	unsigned __int64 t;
 	if (p == q)
 	{
@@ -153,43 +153,55 @@ unsigned __int64 EuclidGcd(unsigned __int64 &p, unsigned __int64 &q)
 
 unsigned __int64 SteinGcd(unsigned __int64 &p, unsigned __int64 &q)
 {// Yet another workaround to obtain gcd()
-	unsigned __int64 a = p>q ? p : q;
-	unsigned __int64 b = p<q ? p : q;
-	unsigned __int64 t, r = 1;
-	if (p == q)
-	{
-		return p;
-	}
-	else
-	{
-		while ((!(a & 1)) && (!(b & 1)))  // both a and b are even numbers!
-		{
-			r <<= 1;
-			a >>= 1;
-			b >>= 1;
-		}
-		if (!(a & 1))  // a is even, swap a and b
-		{
-			t = a;
-			a = b;
-			b = t;
-		}
-		do
-		{
-			while (!(b & 1))  // b is even, a is odd. then...
-			{
-				b >>= 1;
-			}
-			if (b<a)
-			{
-				t = a;
-				a = b;
-				b = t;
-			}
-			b = (b - a) >> 1;
-		} while (b);
-		return r*a;
-	}
+    // the old method seems not working.
+    unsigned __int64 temp;
+    do
+    {
+        temp = p%q;
+        if(temp != 0)
+        {
+            p = q;
+            q = temp;
+        }
+    }while(temp != 0);
+    return q;
+	// unsigned __int64 a = p>q ? p : q;
+	// unsigned __int64 b = p<1 ? p : q;
+	// unsigned __int64 t, r = 1;
+	// if (p == q)
+	// {
+	// 	return p;
+	// }
+	// else
+	// {
+	// 	while ((!(a & 1)) && (!(b & 1)))  // both a and b are even numbers!
+	// 	{
+	// 		r <<= 1;
+	// 		a >>= 1;
+	// 		b >>= 1;
+	// 	}
+	// 	if (!(a & 1))  // a is even, swap a and b
+	// 	{
+	// 		t = a;
+	// 		a = b;
+	// 		b = t;
+	// 	}
+	// 	do
+	// 	{
+	// 		while (!(b & 1))  // b is even, a is odd. then...
+	// 		{
+	// 			b >>= 1;
+	// 		}
+	// 		if (b<a)
+	// 		{
+	// 			t = a;
+	// 			a = b;
+	// 			b = t;
+	// 		}
+	// 		b = (b - a) >> 1;
+	// 	} while (b);
+	// 	return r*a;
+	// }
 }
 
 unsigned __int64 Euclid(unsigned __int64 &a, unsigned __int64 &b)
@@ -257,6 +269,10 @@ RSA_PARAM RsaGetParam(void)
 int main(void)
 {
 	RSA_PARAM r;
+	char pSrc[5];  // this line shall be modified. Or some other bugs still exists.
+	const unsigned long n = sizeof(pSrc);
+	unsigned char *q, pDec[n];
+	unsigned __int64 pEnc[n];
 	r = RsaGetParam();
 	cout << "p=" << r.p << endl;
 	cout << "q=" << r.q << endl;
@@ -265,15 +281,9 @@ int main(void)
 	cout << "e=" << r.e << endl;
 	cout << "d=" << r.d << endl;
 
-	string str;
 	cout << endl << " Please enter your plaintext: ";
-	cin >> str;
-	const char * pSrc = str.c_str();
-	const unsigned long n = str.length() + 1;
-	unsigned char* q = (unsigned char *)pSrc;
-	unsigned char pDec[n];
-	unsigned __int64 pEnc[n];
-
+	cin >> pSrc;
+	q = (unsigned char *)pSrc;
 	cout << endl << " Ciphertext is: ";
 	for (unsigned long i = 0; i<n; i++)
 	{
@@ -290,4 +300,21 @@ int main(void)
 	cout << " You plaintext should be: " << (char *)pDec << endl << endl;
 	
 	return 0;
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
