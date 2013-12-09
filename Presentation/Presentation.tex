@@ -7,6 +7,7 @@
 
 % Package and Theme
 \usepackage{amsmath}
+\usepackage{algorithmic}
 \usetheme{AnnArbor}
 \graphicspath{{Figure/}{figures/}{figure/}{pictures/}{picture/}{pic/}{pics/}}
 
@@ -15,9 +16,13 @@
 
 \begin{document}
 
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{Just Present}
   Yet another high tech low tech presentation on the go.
+  \begin{algorithmic}
+    \REQUIRE~Life is not a bitch.
+    \ENSURE~Life is a bitch.
+  \end{algorithmic}
 \end{frame}
 
 

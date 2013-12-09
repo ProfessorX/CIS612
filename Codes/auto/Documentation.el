@@ -13,6 +13,7 @@
      "sec:acknowledgment")
     (TeX-run-style-hooks
      "hyperref"
+     "listings"
      "fancyvrb"
      "graphicx"
      "amssymb"

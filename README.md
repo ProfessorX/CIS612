@@ -61,12 +61,20 @@ I have some more stuff to read. God bless PRC.
            * Possible attacks. (for this part, we can have a lot to
              write.)
 
-    20131209 Lab 17:30
+    20131208 Lab 17:30
         1. Presentation slide.
         2. Program debug. You **have to** finish that shit.
         3. Finish Homework 3 of this course, if possible, by the day.
 
-    
+    20131209 Lab 14:40
+        1. Outline for my part of slides. If further reading is
+           required, do, please. You son of a bitch! Do not be or act
+           lazy!!! You have to work hard. Hard enough.
+        2. Finish the last homework of Information Security, by
+           today. This is a must.
+        3. If there is some more time, redo your Data Mining project
+           to "obtain" results.
+ 
 
 
 

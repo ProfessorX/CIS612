@@ -1,6 +1,7 @@
 (TeX-add-style-hook "Presentation"
  (lambda ()
     (TeX-run-style-hooks
+     "algorithmic"
      "amsmath"
      ""
      "latex2e"

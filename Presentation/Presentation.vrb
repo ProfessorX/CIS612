@@ -1,0 +1,6 @@
+\frametitle{Just Present}
+  Yet another high tech low tech presentation on the go.
+  \begin{algorithmic}
+    \REQUIRE~Life is not a bitch.
+    \ENSURE~Life is a bitch.
+  \end{algorithmic}
