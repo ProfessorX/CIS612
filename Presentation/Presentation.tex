@@ -3,26 +3,89 @@
 %%% mode: latex
 %%% TeX-master: t
 %%% End: 
-\documentclass[12pt,hyperref=true,mathserif]{beamer}
+\documentclass[hyperref=true]{beamer}
 
 % Package and Theme
+% Some more packages will be used.
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{algorithmic}
 \usetheme{AnnArbor}
 \graphicspath{{Figure/}{figures/}{figure/}{pictures/}{picture/}{pic/}{pics/}}
 
 
 % Make preparation. Make slides. And create wealth by yourself.
+% Presentation. Homework. Software Engineering reading.
 
 \begin{document}
+\title[Change the World]{How to Change the World with Donald Knuth}
+\author{Abraham Xiao}
+\institute[Masdar Institute]{Masdar Institute of Science and
+  Technology}
+\date[CIS612 Presentation]{Information Security Project Presentation}
 
-\begin{frame}[fragile]
-  \frametitle{Just Present}
-  Yet another high tech low tech presentation on the go.
-  \begin{algorithmic}
-    \REQUIRE~Life is not a bitch.
-    \ENSURE~Life is a bitch.
-  \end{algorithmic}
+
+
+\begin{frame}
+  \titlepage{}
+\end{frame}
+
+\begin{frame}
+  \tableofcontents{}
+\end{frame}
+
+\section{Discrete Logarithm}
+
+
+
+
+\begin{frame}
+  \frametitle{Discrete Logarithm in a Nutshell}
+The security of many cryptographic techniques depends on the
+intractability of discrete logarithm problem.\\[4pt]A partial list of these
+include:
+\begin{itemize}
+\item Diffie–Hellman key agreement and its derivatives.
+\item ElGamal encryption.
+\item ElGamal signature scheme and its variants.
+\end{itemize}
+General setting for algorithms in this section are:
+\begin{itemize}
+\item A (multiplicatively written) finite cyclic group $G$
+\item $n$ is the order of group $G$
+\item $\alpha$ is a generator of group $G$\footnote{For more math
+    background, refer to~\cite{Rosen:2012}.}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Relevant Definitions}
+Cyclic group and its generator.
+  \begin{definition}
+    A group is \emph{cyclic} if there is an element $\alpha\in G$ such
+    that for each $b\in G$ there is an integer $i$ with
+    $b=\alpha^{i}$. Such an element $\alpha$ is called a generator of $G$.
+  \end{definition}
+Discrete logarithm.
+  \begin{definition}
+    Let $G$ be a finite cyclic group of order $n$. Let $\alpha$ be a
+    generator of $G$, and let $\beta\in G$. The \emph{discrete
+      logarithm of $\beta$ to the base $\alpha$}, denoted
+    $\log_{\alpha}\beta$, is the unique integer $x$, $0\leq x\leq
+    n-1$, such that $\beta=\alpha^{x}$\cite{Menezes:1996:HAC:548089}.
+  \end{definition}
+\end{frame}
+
+
+
+
+
+
+\begin{frame}[allowframebreaks]
+  \frametitle{References}
+\bibliographystyle{amsalpha}
+\bibliography{Ref}
+
 \end{frame}
 
 

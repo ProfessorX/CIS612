@@ -1,1 +1,2 @@
 \beamer@endinputifotherversion {3.26pt}
+\beamer@sectionintoc {1}{Discrete Logarithm}{3}{0}{1}

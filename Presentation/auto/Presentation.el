@@ -1,13 +1,14 @@
 (TeX-add-style-hook "Presentation"
  (lambda ()
+    (LaTeX-add-bibliographies
+     "Ref")
     (TeX-run-style-hooks
      "algorithmic"
+     "amssymb"
      "amsmath"
      ""
      "latex2e"
-     "beamer12"
+     "beamer10"
      "beamer"
-     "mathserif"
-     "hyperref=true"
-     "12pt")))
+     "hyperref=true")))
 
