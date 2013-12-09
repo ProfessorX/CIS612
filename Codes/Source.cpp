@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <time.h>
 
 #ifndef __int64
@@ -267,7 +268,8 @@ int main(void)
 
 	string str;
 	cout << endl << " Please enter your plaintext: ";
-	cin >> str;
+	// cin >> str;
+        getline(cin, str);
 	const char * pSrc = str.c_str();
 	const unsigned long n = str.length() + 1;
 	unsigned char* q = (unsigned char *)pSrc;

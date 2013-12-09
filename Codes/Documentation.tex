@@ -10,6 +10,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{fancyvrb}
 \usepackage{hyperref}
 
 
@@ -90,13 +91,13 @@ For the rest part we itemize features in our implementation.
 \end{itemize}
 
 
-\section{Samples}
-\label{sec:samples}
+\section{Examples}
+\label{sec:examples}
 
 We use a toy sample to conclude this simple documentation. Up to now,
 the string with spaces is not supported. We are sorry for that,
 indeed.
-\begin{verbatim}
+\begin{Verbatim}[showspaces=true]
 abrahamx91@debian:~/Professional/Git/CIS612-Composition/Codes$
  ./a.out 
 p=47911
@@ -117,8 +118,59 @@ Decipher:  You plaintext should be: Abraham-Xiao-Keep-Moving!
 
 abrahamx91@debian:~/Professional/Git/CIS612-Composition/Codes$ 
 
-\end{verbatim}
+\end{Verbatim}
+
+\begin{Verbatim}[showspaces=true]
+abrahamx91@debian:~/Professional/Git/CIS612-Composition/Codes$
+./rsa.out 
+p=55901
+q=34763
+f=(p-1)*(q-1)=1943195800
+n=p*q=1943286463
+e=3501
+d=155966301
+
+Please enter your plaintext: Dr. Zeyar works hard at Masdar 
+Institute of Science and Technology, Abu Dhabi, 54224, UAE.
+
+Ciphertext is: adade57 32897eda 52a1a30 4c829245 14a4abb3 
+a1d1f32 43b55255 1495f338 32897eda 4c829245 59ab7cb0 173246d5
+32897eda 3a9f6276 f252cab 4c829245 5f319e1c 1495f338 32897eda
+71f4e4c6 4c829245 1495f338 1c5adab7 4c829245 578c2244 1495f338
+f252cab 71f4e4c6 1495f338 32897eda 4c829245 4ad4cdcd 3f9710a
+f252cab 1c5adab7 6ab94d57 1c5adab7 3d3bb9af 1c5adab7 a1d1f32
+4c829245 173246d5 1de4b8d6 4c829245 37fa50a5 846acf6 6ab94d57
+a1d1f32 3f9710a 846acf6 a1d1f32 4c829245 1495f338 3f9710a
+71f4e4c6 4c829245 49347697 a1d1f32 846acf6 5f319e1c 3f9710a
+173246d5 14e39337 173246d5 69fa7dd7 43b55255 315c3799 4c829245
+1a4c5703 1f0ec954 3d3bb9af 4c829245 adade57 5f319e1c 1495f338
+1f0ec954 6ab94d57 315c3799 4c829245 6cd1e5fd 6a0f76e3 1ef30397
+1ef30397 6a0f76e3 315c3799 4c829245 4949bf92 1a4c5703 4345300e
+52a1a30 0 
+
+Decipher:  You plaintext should be: Dr. Zeyar works hard at
+Masdar Institute of Science and Technology, Abu Dhabi, 54224,
+UAE.
+
+abrahamx91@debian:~/Professional/Git/CIS612-Composition/Codes$
+date
+Mon Dec  9 12:07:15 GST 2013
+abrahamx91@debian:~/Professional/Git/CIS612-Composition/Codes$ 
+
+\end{Verbatim}
 Some parts are manually modifies due to page space issues.
+
+\section*{Change Log}
+\label{sec:changelog}
+In this part we document the changes we made after the beta version.
+\par
+20131209. As required, we replaced the \verb|cin << str| with
+\verb|getline()| to patch the defect that only
+non-space-separated input can be encrypted. Right now it works fine if
+a single line is typed in. We plan to deal with chunks of input, say
+``happy.txt'' file and so on if time permitting.
+
+
 
 \section*{Acknowledgment}
 \label{sec:acknowledgment}

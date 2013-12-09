@@ -66,7 +66,7 @@ I have some more stuff to read. God bless PRC.
         2. Program debug. You **have to** finish that shit.
         3. Finish Homework 3 of this course, if possible, by the day.
 
-
+    
 
 
 

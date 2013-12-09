@@ -8,10 +8,12 @@
      "sec:introduction"
      "sec:implementation"
      "sec:data-structure"
-     "sec:samples"
+     "sec:examples"
+     "sec:changelog"
      "sec:acknowledgment")
     (TeX-run-style-hooks
      "hyperref"
+     "fancyvrb"
      "graphicx"
      "amssymb"
      "amsmath"
