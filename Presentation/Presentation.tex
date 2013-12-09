@@ -35,7 +35,7 @@
 \end{frame}
 
 \section{Discrete Logarithm}
-
+\label{sec:discrete-logarithm}
 
 
 
@@ -76,6 +76,93 @@ Discrete logarithm.
   \end{definition}
 \end{frame}
 
+
+\begin{frame}
+  \frametitle{A Discrete Logarithm Example}
+  \begin{example}
+    Let $p=97$. Then $\mathbb{Z}_{97}^{*}$ is a cyclic group of order
+    $n=96$. A generator of $\mathbb{Z}_{97}^{*}$ is $\alpha=5$. Since
+    $5^{32}\equiv 35\mod 97$, $\log_{5}35 =32$ in $\mathbb{Z}_{97}^{*}$.
+  \end{example}
+\end{frame}
+
+% http://v.youku.com/v_show/id_XNjQ0MzYwMDMy.html 
+% Add this link to a possible place
+\begin{frame}
+  \frametitle{The Diffie–Hellman Problem}
+The Diffie–Hellman problem is closely related to the well-studied
+discrete logarithm problem.
+\begin{definition}
+  The \emph{Diffie–Hellman problem} is the following: given a prime
+  $p$, a generator $\alpha$ of $\mathbb{Z}_{p}^{*}$, and elements
+  $\alpha^{a}\mod p$ and $\alpha^{b}\mod p$, find $\alpha^{ab}\mod p$.
+\end{definition}
+% \\[4pt]
+Wait! Could we just possibly do
+\begin{equation}
+  \label{eq:diffie–hellman-1}
+  \alpha^{a}\times\alpha^{b}\rightarrow\alpha^{ab}
+\end{equation}
+Well, life is not as easy as it looks like\ldots
+\begin{equation}
+  \label{eq:diffie–hellman-2}
+  \alpha^{a}\times\alpha^{b}=\alpha^{a+b}
+\end{equation}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Links between Discrete Logarithm and Diffie–Hellman
+    Problem}
+\textbf{Suppose} that the discrete logarithm problem in
+$\mathbb{Z}_{p}^{*}$ could be efficiently solved\footnote{In math,
+  the assumption is as important as,\\ if not more important than
+  induction in many situations.}. Then given $\alpha$, $p$,
+$\alpha^{a}\mod p$ and $\alpha^{b}\mod p$, one could first find $a$
+from $\alpha$, $p$ and $\alpha^{a}\mod p$ by
+what?!\\[8pt]\textbf{Solving a discrete logarithm problem}, and  then
+compute ${(\alpha^{b})}^{a}=\alpha^{ab}\mod p$.
+
+\end{frame}
+
+\section{ElGamal Cryptosystem}
+\label{sec:elgamal-cryptosystem}
+
+
+
+\begin{frame}
+  \frametitle{ElGamal public-key encryption}
+The ElGamal public-key encryption scheme can be viewed as
+Diffie–Hellman key agreement\footnote{Yet another fancy nickname for
+  key exchange} in key transfer mode.\\
+Its security is based on the intractability of the discrete logarithm
+problem (Section~\ref{sec:discrete-logarithm}) and the Diffie–Hellman 
+problem (Section~\ref{sec:elgamal-cryptosystem}).
+\end{frame}
+
+
+\begin{frame}
+  \begin{figure}
+    \centering
+  \begin{algorithmic}
+    \ENSURE~A public key and its corresponding private key is created
+    for every entity.
+    \STATE~Steps to generate key pairs are described as follows:
+    \begin{enumerate}
+    \item Generate a prime $p$ that is large enough and cannot be
+      predicted, i.e.\ it should be generated randomly. Find a
+      generator $\alpha$ of the multiplicative group $\mathbb{Z}_{p}^{*}$ of
+      integers modulo $p$.
+    \item Randomly select an integer $a$ satisfying $1\leq
+      a\leq p-2$. Then calculate $\alpha^{a}\mod p$.
+    \item The public key is returned as $(p,\alpha,\alpha^{a})$; The
+      private key is returned as $a$.
+    \end{enumerate}
+  \end{algorithmic}
+  \caption{\textbf{Algorithm} Key generation for ElGamal public-key encryption}
+  \label{fig:basic-elgamal-encryption}
+  \end{figure}
+\end{frame}
 
 
 
