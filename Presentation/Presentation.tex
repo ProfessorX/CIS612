@@ -34,6 +34,15 @@
   \tableofcontents{}
 \end{frame}
 
+% \begin{column}{width=0.5te}
+%   
+% \end{column}
+% \begin{frame}
+%   \begin{columns}
+    
+%   \end{columns}
+% \end{frame}
+
 \section{Discrete Logarithm}
 \label{sec:discrete-logarithm}
 
@@ -275,9 +284,67 @@ as large.
 \begin{frame}
   \frametitle{Index Calculus}
   % Add an example here. Lunch time.
+The index-calculus algorithm is the most powerful method known for
+computing discrete logarithms. The technique employed
+\textcolor{red}{does not} apply to all groups, but when it does (apply
+to specific groups), it often gives a subexponential-time algorithm.\\[8pt]
+The index-calculus algorithm requires the selection of a relatively
+small subset $S$ of elements of $G$, called the \emph{factor base}, in such
+a way that a \textcolor{red}{significant fraction} of elements of $G$
+can be effectively expressed as \emph{products pf elements} from $S$.
 \end{frame}
 
 
+
+\begin{frame}[allowframebreaks]
+  \frametitle{Index Calculus Toy Example}
+Let $p=229$. The element $\alpha=6$ is a generator of
+$\mathbb{Z}_{229}^{*}$ of order $n=228$. Consider $\beta=13$. Then
+$\log_{6}13$ is computed as follows, using index-calculus technique.
+\begin{enumerate}
+\item The factor base is chosen to be the first $5$ primes:
+  $S={2,3,5,7,11}$.
+\item The following six relations involving elements of the factor
+  base are obtained (unsuccessful attemps are not shown):
+  % \begin{gather}
+  %   \label{eq:index-calculus-1}
+  %   6^{100}\mod 229=180=2^{2}\
+  % \end{gather}
+  % \begin{equation}
+  %   \label{eq:index-calculus-1}
+  %   \begin{split}
+
+  %   \end{split}
+  % \end{equation}
+% \end{frame}
+
+\begin{center}
+$6^{100}\mod 229  = 180 = 2^{2}\cdot 3^{2}\cdot 5$\\
+$ 6^{18}\mod 229  = 176 = 2^{4}\cdot 11$\\
+$6^{12}\mod 229=176=3\cdot 5\cdot 11$\\
+\ldots
+\end{center}
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+These relations yields the following equations involving the
+  logarithms of the elements in the factor base:
+\begin{center}
+$100\equiv 2\log_{6}2+2\log_{6}3+\log_{6}5\mod 228$\\
+$18\equiv 4\log_{6}2+2\log_{6}11\mod 228$\\
+$12\equiv \log_{6}3+\log_{6}5+\log_{6}11\mod 228$\\
+\ldots
+\end{center}
+% \end{enumerate}
+Solving the linear system of six equations in five unknown (the
+logarithms $x_{i}=\log_{6}p_{i}$) yields the solutions
+$\log_{6}2=21$, $\log_{6}3=208$, $log_{6}5=98$, $\log_{6}7=107$, and
+$\log_{6}11=162$. All in modulus.\\[4pt]
+Suppose that the integer $k=77$ is selected. Since
+$\beta\cdot\alpha^{k}=13\cdot6^{77}\mod 229=147=3\cdot 7^{2}$.
+\end{frame}
 
 
 
