@@ -3,3 +3,11 @@
 \beamer@slide {eq:diffie–hellman-2}{6}
 \beamer@slide {sec:elgamal-cryptosystem}{8}
 \beamer@slide {fig:basic-elgamal-encryption}{9}
+\beamer@slide {fig:basic-elgamal-public-key-encry-algo}{10}
+\beamer@slide {eq:elgamal-encryption-1}{11}
+\beamer@slide {eq:elgamal-encryption-2}{11}
+\beamer@slide {eq:elgamal-encryption-3}{11}
+\beamer@slide {eq:elgamal-encryption-4}{12}
+\beamer@slide {eq:elgamal-encryption-5}{12}
+\beamer@slide {eq:elgamal-encryption-6}{12}
+\beamer@slide {fig:attack-power-of-two}{14}

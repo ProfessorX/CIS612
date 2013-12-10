@@ -7,6 +7,11 @@
 \providecommand{\href}[2]{#2}
 \begin{thebibliography}{MVO96}
 
+\bibitem[Elg85]{ref:Elgamal1985}
+T.~Elgamal, \emph{A public key cryptosystem and a signature scheme based on
+  discrete logarithms}, Information Theory, IEEE Transactions on \textbf{31}
+  (1985), no.~4, 469--472.
+
 \bibitem[MVO96]{Menezes:1996:HAC:548089}
 Alfred~J. Menezes, Scott~A. Vanstone, and Paul C.~Van Oorschot, \emph{Handbook
   of applied cryptography}, 1st ed., CRC Press, Inc., Boca Raton, FL, USA,

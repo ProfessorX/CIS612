@@ -915,11 +915,12 @@ have the same e, then Marvin needs to collect at least e messages.
 Restating Boneh~\cite{boneh1999twenty}, take example if $e=3$,
 \begin{equation}
   \label{eq:low-public-expo-1}
-  C1 = M^{3} \mod N1, C2 = M^{3} \mod N2, C3 = M^{3} \mod N3
+  C1 = M^{3} \mod N1, C2 = M^{3} \mod N2,
+  C3 = M^{3} \mod N3
 \end{equation}
 \begin{equation}
   \label{eq:low-public-expo-2}
-  M < {N1, N2, N3} thus M^{3} < N1N2N3
+  M < {N1, N2, N3}~thus~M^{3} < N1N2N3
 \end{equation}
 Using Chinese Remainder Theorem (CRT) $C1C2C3 = M^{3} \mod N1N2N3$, thus
 taking cube root of C1C2C3 gives M. Stronger attacks are also known on

@@ -133,11 +133,11 @@ compute ${(\alpha^{b})}^{a}=\alpha^{ab}\mod p$.
 \begin{frame}
   \frametitle{ElGamal public-key encryption}
 The ElGamal public-key encryption scheme can be viewed as
-Diffie–Hellman key agreement\footnote{Yet another fancy nickname for
+Diffie--Hellman key agreement\footnote{Yet another fancy nickname for
   key exchange} in key transfer mode.\\
-Its security is based on the intractability of the discrete logarithm
-problem (Section~\ref{sec:discrete-logarithm}) and the Diffie–Hellman 
-problem (Section~\ref{sec:elgamal-cryptosystem}).
+Its security is \textcolor{red}{based on} the intractability of the
+discrete logarithm problem (Section~\ref{sec:discrete-logarithm}) and
+the Diffie–Hellman problem (Section~\ref{sec:elgamal-cryptosystem}).
 \end{frame}
 
 
@@ -164,8 +164,125 @@ problem (Section~\ref{sec:elgamal-cryptosystem}).
   \end{figure}
 \end{frame}
 
+\begin{frame}
+\begin{figure}
+  \centering
+  \begin{algorithmic}
+    \ENSURE~$B$ uses $A$'s public key to encrypt a message $m$. Then
+    $A$ uses decrypts using his private key.
+    \begin{enumerate}
+    \item \emph{Encryption}. The steps for $B$ to take are as follows:
+      \begin{enumerate}
+      \item Require or obtain $A$'s authentic public key
+        $(p,\alpha,\alpha^{a})$. 
+      \item Express the plaintext message as an integer in the scale
+        ${0,1,\ldots,p-1}$. 
+      \item Randomly select an integer $k$ satisfying $1\leq k\leq
+        p-2$.
+      \item Calculate $\gamma=\alpha^{k}\mod p$ and
+        $\delta=m\cdot{(\alpha^{a})}^{k}\mod p$.
+      \item Transmit the ciphertext $c=(\gamma,\delta)$ to $A$.
+      \end{enumerate}
+    \item \emph{Decryption}. The decrypt steps for $A$ are described
+      as follows:
+      \begin{enumerate}
+      \item Calculate $\gamma^{p-1-a}\mod p$ using $A$'s private
+        key. (note: due to the characteristic of modulus,
+        $\gamma^{p-1-a}=\gamma^{-a}=\alpha^{-ak}$). 
+      \item Calculate plaintext $m$ by evaluating
+        $(\gamma^{-a}\cdot\delta\mod p)$.
+      \end{enumerate}
+    \end{enumerate}
+  \end{algorithmic}
+  \caption{\textbf{Algorithm} ElGamal public-key encryption~\cite{ref:Elgamal1985}}
+  \label{fig:basic-elgamal-public-key-encry-algo}
+\end{figure}
+\end{frame}
 
 
+% Indian people. Pakistan people. And People's Republic.
+\begin{frame}
+  \frametitle{ElGamal Encryption with artificially small parameters}
+\emph{Key generation}. Entity $A$ selects the prime $p=2357$ and a
+generator $\alpha=2$ of $\mathbb{Z}_{2357}^{*}$. $A$ chooses the
+private key $a=1751$ and computes
+\begin{equation}
+  \label{eq:elgamal-encryption-1}
+  \alpha^{a}\mod p=2^{1751}\mod 2357=1185
+\end{equation}
+$A$'s public key is $(p=2357,\alpha=2,\alpha^{a}=1185)$.\\
+\emph{Encryption}. To encrypt a message $m=2035$, $B$ selects a random
+integer $k=1520$ and computes 
+\begin{equation}
+  \label{eq:elgamal-encryption-2}
+  \gamma=2^{1520}\mod 2537=1430
+\end{equation}
+and
+\begin{equation}
+  \label{eq:elgamal-encryption-3}
+  \delta=2035\cdot 1185^{1520}\mod 2357=697
+\end{equation}
+\end{frame}
+
+\begin{frame}
+  \frametitle{ElGamal Encryption cont.}
+  B sends $\gamma=1430$ and $\delta=697$ to $A$.\\
+\emph{Decryption}. To decrypt, $A$ computes
+\begin{equation}
+  \label{eq:elgamal-encryption-4}
+  \gamma^{p-1-a}=1430^{605}\mod 2357=872
+\end{equation}
+and recovers $m$ by computing 
+\begin{equation}
+  \label{eq:elgamal-encryption-5}
+  m=872\cdot 697\mod 2357=2305
+\end{equation}
+A clear \textcolor{red}{disadvantage} of ElGamal encryption is that
+there is a \emph{message expansion} by a factor of $2$. That is, the
+ciphertext is \textcolor{red}{twice} as long as the corresponding
+plaintext.
+\begin{equation}
+  \label{eq:elgamal-encryption-6}
+  m=2035\Rightarrow (\gamma=1430,\delta=697)
+\end{equation}
+\end{frame}
+
+
+
+
+\section{Attack Techniques}
+\begin{frame}
+  \frametitle{Exhaustive Search}
+The most obvious algorithm for discrete logarithm problem is to
+successively compute $\alpha^{0}$,$\alpha^{1}$,$\alpha^{2}$,\ldots
+until $\beta$ is obtained.\\[8pt]
+This method takes $O(n)$ multiplications, where $n$ is the order of
+$\alpha$, and is therefore inefficient if $n$ is large (i.e. in cases
+of cryptographic interest).\\[8pt]
+Say we use $1024$ bits, then the number should be maximum $2^{1024}$
+as large.
+\end{frame}
+
+\begin{frame}
+  \begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{PowOfTwo.png}
+    \caption{Power of Two}
+    \label{fig:attack-power-of-two}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Index Calculus}
+  % Add an example here. Lunch time.
+\end{frame}
+
+
+
+
+
+
+\section{Appendices}
 
 
 \begin{frame}[allowframebreaks]

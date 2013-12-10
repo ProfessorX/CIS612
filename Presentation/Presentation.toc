@@ -1,3 +1,5 @@
 \beamer@endinputifotherversion {3.26pt}
 \beamer@sectionintoc {1}{Discrete Logarithm}{3}{0}{1}
 \beamer@sectionintoc {2}{ElGamal Cryptosystem}{8}{0}{2}
+\beamer@sectionintoc {3}{Attack Techniques}{13}{0}{3}
+\beamer@sectionintoc {4}{Appendices}{16}{0}{4}
