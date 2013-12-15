@@ -21,14 +21,41 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
-\bibitem{pomerance2008tale}
-C.~Pomerance, ``A tale of two sieves,'' \emph{Biscuits of Number Theory},
-  vol.~85, 2008.
+\bibitem{sarlabous2000introduction}
+\BIBentryALTinterwordspacing
+J.~E. Sarlabous. (2000) Introduction to cryptography. [Online]. Available:
+  \url{http://cel.archives-ouvertes.fr/cel-00374740}
+\BIBentrySTDinterwordspacing
+
+\bibitem{ref:menezes2010handbook}
+A.~J. Menezes, P.~C. Van~Oorschot, and S.~A. Vanstone, \emph{Handbook of
+  applied cryptography}.\hskip 1em plus 0.5em minus 0.4em\relax CRC press,
+  2010.
+
+\bibitem{stamp2011information}
+M.~Stamp, \emph{Information security: principles and practice}.\hskip 1em plus
+  0.5em minus 0.4em\relax John Wiley \& Sons, 2011.
+
+\bibitem{Evgeny2009The}
+\BIBentryALTinterwordspacing
+M.~Evgeny. (2009) The rsa algorithm. [Online]. Available:
+  \url{http://www.math.washington.edu/~morrow/336_09/papers/Yevgeny.pdf}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Dan2007The}
+\BIBentryALTinterwordspacing
+W.~Dan. (2007) The rsa algorithm. [Online]. Available:
+  \url{http://imps.mcmaster.ca/courses/SE-4C03-07/wiki/wrighd/rsa_alg.html}
+\BIBentrySTDinterwordspacing
 
 \bibitem{boneh1999twenty}
 D.~Boneh, R.~Rivest, A.~Shamir, L.~Adleman \emph{et~al.}, ``Twenty years of
   attacks on the rsa cryptosystem,'' \emph{Notices of the AMS}, vol.~46, no.~2,
   pp. 203--213, 1999.
+
+\bibitem{pomerance2008tale}
+C.~Pomerance, ``A tale of two sieves,'' \emph{Biscuits of Number Theory},
+  vol.~85, 2008.
 
 \bibitem{Shor:1994jg}
 P.~W. Shor, ``{Polynomial time algorithms for prime factorization and discrete
@@ -56,11 +83,6 @@ E.~Bach and J.~Shallit, \emph{Algorithmic Number Theory}.\hskip 1em plus 0.5em
 T.~Elgamal, ``A public key cryptosystem and a signature scheme based on
   discrete logarithms,'' \emph{Information Theory, IEEE Transactions on},
   vol.~31, no.~4, pp. 469--472, 1985.
-
-\bibitem{ref:menezes2010handbook}
-A.~J. Menezes, P.~C. Van~Oorschot, and S.~A. Vanstone, \emph{Handbook of
-  applied cryptography}.\hskip 1em plus 0.5em minus 0.4em\relax CRC press,
-  2010.
 
 \bibitem{ref:Boer1990}
 \BIBentryALTinterwordspacing

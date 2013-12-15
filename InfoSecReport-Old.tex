@@ -503,7 +503,7 @@ E-mail: \{yxiao,malmehrezi\}@masdar.ac.ae}}
 
 
 % The paper headers
-\markboth{Journal of Masdar Institute,~Vol.~16, No.~1, December~2013}%
+\markboth{Journal of Masdar Institute,~Vol.~16, No.~1, October~2013}%
 {RSA and El-Gamal Cryptosystems}
 % The only time the second header will appear is for the odd numbered pages
 % after the title page when using the twoside option.
@@ -633,14 +633,13 @@ RSA, El-Gamal, implementation, public key, cryptosystem
 % % You must have at least 2 lines in the paragraph with the drop letter
 % % (should never be an issue)
 % I wish you the best of success.
-\IEEEPARstart{C}{ryptography}  is a fascinating subject. The spread
-of computers and communication systems require private sector to protect
+\IEEEPARstart{C}{ryptography}  is a fascinating subject. The spread of
+computers and communication systems require private sector to protect
 the information in digital form, and to provide security
 services. Further, Cryptography has a great importance in most
-
 technology today, not only in computers but also in credit cards,
 government and it remains the standard means for securing electronic
-commerce for many financial institutions around the world.
+commerce for many financial institutions around the world. 
 \par
 Cryptography is the science of encoding data, typically using a key,
 so that people without the key cannot read the data. Many different
@@ -651,7 +650,7 @@ the Data Encryption Standard (DES). DES, which was developed at IBM in
 AES began to replace it. Whereas, symmetric key algorithms require a
 shared secret to be exchanged between the communicating parties to
 have a secured communication
-see~\autoref{fig:intro-process-of-symmetric}.
+see~\autoref{fig:intro-process-of-symmetric}. 
 \begin{figure}[!t]
   \centering
   \includegraphics[scale=0.5]{Figure/Symmetric}
@@ -664,16 +663,16 @@ the secret keys to each end of the exchange and keep them secure after
 that. For this reason, an asymmetric key system is now often used that
 is known as the public key infrastructure (PKI). Public-key encryption
 does not require that you openly exchange a secret key with the
-recipient of an encrypted message.~\cite{sarlabous2000introduction}
+recipient of an encrypted message. 
 \par
 Public-key cryptography also referred to as asymmetric encryption,
-uses a pair of cryptographic keys, a public key and a private key see
+uses a pair of cryptographic keys, a public key and a private key see 
 \begin{figure}[!t]
   \centering
   \includegraphics[scale=0.5]{Figure/Asymmetric.png}
   \caption{The process of asymmetric encryption}
   \label{fig:intro-process-of-asymetric}
-\end{figure}
+\end{figure} 
 The private key is kept secret and defines the associated
 decryption transformation, while the public key defines an encryption
 transformation and can be distributed openly, thereby negating the
@@ -686,7 +685,7 @@ not provide data origin authentication or data integrity. Public-key
 decryption by using private key can provides authentication guarantees
 in entity authentication and authenticated key establishment
 protocols. So, public-key encryption provides both privacy and
-confidentiality.
+confidentiality. 
 \par
 Public-key encryption schemes are simple, elegant and relatively
 efficient digital signature mechanisms. The key used to describe the
@@ -697,13 +696,13 @@ public-key encryption is most commonly used in practice for the
 transport of keys subsequently used for bulk data encryption by
 symmetric algorithms and other applications including data integrity
 and authentication, and for encrypting small data items such as credit
-card numbers and PINs.~\cite{ref:menezes2010handbook}
+card numbers and PINs.
 \par
 Public-key cryptography being discovered in the mid-1970s and it does
 not have an extensive history as symmetric-key encryption, but the
 most familiar public-key algorithms are RSA and Diffie–Hellman key
 exchange, while the Digital Signature Algorithm is the most widely
-used digital signature system.
+used digital signature system. 
 \par
 There are several public key algorithms. The first one proposed is the
 knapsack cryptosystem but it is insecure and an easily understood
@@ -711,12 +710,12 @@ system. After the knapsack, RSA algorithm is known as the gold
 standard of public key cryptography that we will focus on it in this
 report. Then, The Diffie–Hellman key exchange was published in 1976 by
 Whitfield Diffie and MartinHellman and it provided a common secret key
-between the communicating parties over an insecure channel.
+between the communicating parties over an insecure channel. 
 \par
 Also there are more public key algorithms such as El-Gamal
-Cryptosystem and Elliptic Curve Cryptosystem (ECC), ~\cite{stamp2011information} but in this report
+Cryptosystem and Elliptic Curve Cryptosystem (ECC), but in this report
 we are mainly focused on some asymmetric algorithms which are mostly
-used. They are RSA and ElGamal cryptosystems.
+used. They are RSA and ElGamal cryptosystems.  
 
 
 
@@ -754,11 +753,11 @@ algorithm. The security of the RSA algorithm is based on the
 difficulty of factoring large numbers n = pq, where p and q are large
 prime numbers. The RSA algorithm keys are often of length a power of
 two, like 512, 1024, or 2048 bits, RSA to be secure, the key length
-has to be at least 1024-bits.~\cite{Evgeny2009The}
+has to be at least 1024-bits. 
 \par
 This section will provide the history of RSA, describes the RSA
 encryption scheme, its security, and provides some Practical
-Considerations.
+Considerations. 
 \par
 
 \subsection{RSA Background}
@@ -771,7 +770,7 @@ Public-Key Cryptosystems, but the National Security Agency (NSA) did
 not like the idea of the distribution the cryptography source code
 internationally, and requested to be stopped. However, they continued
 distribution because the NSA failed to provide a legal basis for their
-request.~\cite{Dan2007The}
+request.  
 \par
 
 \subsection{RSA Details}
@@ -784,44 +783,41 @@ the algorithm used in obtaining the public and private keys are
 explained as follows:
 \begin{enumerate}
 \item Take two large primes, p and q, and compute their product n =
-  pq, where n is called the modulus.
+  pq, where n is called the modulus. 
 \item Choose a number, e which is less than n and relatively prime to
   $(p-1)(q-1)$, that means e and (p-1)(q-1) have no common  factors
-  except 1.
+  except 1. 
 \item Find another number d such that $(ed - 1)$ is divisible by
   $(p-1)(q-1)$. Whereas the values e and d are called the public and
-  private exponents, respectively.
+  private exponents, respectively. 
 \end{enumerate}
 \par
 The public key is the pair (n, e); the private key is (n, d). The
-factors p and q may be destroyed or kept with the private key.
+factors p and q may be destroyed or kept with the private key. 
 \par
 It is currently difficult to obtain the private key d from the public
 key (n, e). However if one could factor n into p and q, then one could
 obtain the private key d. Thus the security of the RSA system is based
 on the assumption that factoring is difficult. The discovery of an
-easy method of factoring would ``break'' RSA.
+easy method of factoring would ``break'' RSA. 
 \par
 Second step: encryption, the ciphertext C is found by the equation $C
 = M^{e}\mod n$ where M is the original message and e is the public or
-encryption exponent.
+encryption exponent. 
 \par
 Third step: decryption, the message M can be found form the ciphertext
 C by the equation $M = C^{d}\mod n$ where d is the private or decryption
-exponent.
+exponent. 
 \par
 The RSA system can be used for public key cryptography (encryption)
 and digital signatures as we said before, there is slightly different
-between them.
+between them. 
 \par
 In RSA, encryption keys are public, while the decryption keys are
 private, so no one can decrypt an encrypted message except the person
 who has the private key. Everyone has their own public and private
 keys. The keys must be made in such a way that the private key may not
-be easily construed from the public encryption key.~\cite{Dan2007The}
-\par
-Digital signatures : The recipient may need to verify that the message sent in fact originated from the sender (sign), just did not come from there (authentication). This is done by using the decryption key of the sender, and anyone can use the corresponding public key encryption to verify the signature. Therefore, Signatures cannot be forged and after signed the message no one can deny the site at a later time.~\cite{Dan2007The}
-
+be easily construed from the public encryption key. 
 
 \subsection{Known Attacks on RSA Cryptosystem}
 \label{sec:known-attacks-rsa}
@@ -830,7 +826,7 @@ The RSA function is a one-way trapdoor function. It is not known to be
 easily invertible without the trapdoor, d. General attacks on RSA
 involve trying to compute d, or some other way to get to M
 (plaintext). The difficulties and the main security of RSA algorithm
-is based on prime factorization problem.~\cite{boneh1999twenty}
+is based on prime factorization problem. 
 \par
 There has been much research and many publications on attacks on the
 RSA Cryptosystem.  We can categorize attacks on RSA into five
@@ -858,7 +854,7 @@ $\exp^{(c+o(1))n^{1/3}\log^{2/3}n}$ for some $c<2$.
 To be complete, Peter Shor~\cite{Shor:1994jg} has shown a
 quantum computer has a polynomial time algorithm for factoring
 integers. But engineering a quantum computer still has a way to go, so
-RSA is safe for now.
+RSA is safe for now. 
 \par
 RSA security depends on the computation to be unreasonable for 1) the
 factoring of N, and 2) computing the e\emph{th} roots modulo N. The first is
@@ -872,11 +868,9 @@ encouraging that it will stay secure well into the future.
 
 
 
-\subsubsection{\qquad Elementary attacks}
-\label{sec:qquad-Elementary-attacks}
-These attacks show blatant misuse of RSA. There are many such attacks exist, but in this report we will illustrate two of them:
-\par
-Common Modulus: Fixing N. One blatant misuse of RSA would be using the same modulus N
+\subsubsection{\qquad Common Modulus}
+\label{sec:qquad-common-modulus}
+Fixing N.  One blatant misuse of RSA would be using the same modulus N
 for all users.  So instead, have a central authority issue out unique
 e,d pairs to each user.  This sort of works, in the fact that $C1 =
 M^{e1} \mod N$ can only be decrypted with corresponding pair d1. So a
@@ -887,7 +881,7 @@ given any other user’s $e_{j}$ and the factors of $N, d_{j}$ can be
 computed. RSA key pairs should never use the same N
 twice~\cite{boneh1999twenty}.
 \par
-Blinding attack:signature forgery can be done with a technique called blinding. If
+Signature forgery can be done with a technique called blinding.  If
 Alice ever “blindly” signs M, then Marvin might be able to forge
 Alice’s signature.  If Marvin sends evil plaintext M for Alice to
 sign, it’s easy to assume Alice would reject and not sign it.  But
@@ -895,16 +889,16 @@ what if Marvin sends a random, harmless looking M?  Depending on the
 implementation, Alice might be fooled and sign it.  Marvin then can
 take advantageous of this is by generating $M’ = r^{e} M \mod N$, for
 some random r.  If Alice provides a signature, S’ on M’, then Marvin
-can compute Alice’s signature S for M by $S = S’/r \mod N$.~\cite{boneh1999twenty}
+can compute Alice’s signature S for M by $S = S’/r \mod N$.
 
 \subsubsection{\qquad Low private exponent attacks}
 \label{sec:qquad-low-private}
 
 Having a low private exponent d will reduce decryption and signature
-computing costs.  However, too low of a d is insecure.  Boneh~\cite{boneh1999twenty}
+computing costs.  However, too low of a d is insecure.  Boneh [6]
 describes approximations using fractions can allow Marvin to solve for
 a small d that is $d < \frac{1}{3}\cdot N^{1/4}$. If N is 1024 bits,
-then d should be at least 256 bits long order to avoid this attack.
+then d should be at least 256 bits long order to avoid this attack. 
 
 \subsubsection{\qquad Low public exponent attacks}
 \label{sec:qquad-low-public}
@@ -921,17 +915,12 @@ have the same e, then Marvin needs to collect at least e messages.
 Restating Boneh~\cite{boneh1999twenty}, take example if $e=3$,
 \begin{equation}
   \label{eq:low-public-expo-1}
-  C1 = M^{3} \mod N1
-\end{equation}
-\begin{equation} 
-C2 = M^{3} \mod N2
-\end{equation}
-\begin{equation}
+  C1 = M^{3} \mod N1, C2 = M^{3} \mod N2,
   C3 = M^{3} \mod N3
 \end{equation}
 \begin{equation}
   \label{eq:low-public-expo-2}
-  M < {N1, N2, N3}~~thus~~M^{3} < N1N2N3
+  M < {N1, N2, N3}~thus~M^{3} < N1N2N3
 \end{equation}
 Using Chinese Remainder Theorem (CRT) $C1C2C3 = M^{3} \mod N1N2N3$, thus
 taking cube root of C1C2C3 gives M. Stronger attacks are also known on
@@ -945,10 +934,10 @@ that used a short, random pad (1/9th the size of M).  So using a small
 e is not wise. To defend against all above low public exponent
 attacks, large e such as the standard $2^{16} + 1$ should be used.  A
 good randomized pad also helps make random M’s to remove relationship
-amongst messages.
+amongst messages. 
 
-\subsubsection{\qquad Implementation attacks}
-\label{sec:qquad-Implementation-attacks}
+\subsubsection{\qquad Attacks on the implementation}
+\label{sec:qquad-attacks-impl}
 
 Research~\cite{wong2005timing} has shown that it is possible to
 recover the private keys of RSA without directly breaking RSA. This
@@ -956,40 +945,29 @@ type of attack is known as ``timing attack'' an attacker notes runtime
 encryption algorithm and informed and thus justify the extracted
 parameter involved in secret operations. While it is generally agreed
 that the RSA is secure from direct attack, not so well known and often
-overlooked weakness of RSA to timing attacks.
+overlooked weakness of RSA to timing attacks. 
 \par
 In 1996, Kocher was the first one who discuss about timing
 attacks. Timing attacks are a form of ``side channel attack'' where an
 attacker gains information from the implementation of a coding rather
 than from any inherent weakness in the mathematical properties of the
 system. The operation in RSA that involves the private key is thus the
-modular exponentiation $M = C^{d} \mod N$, where N is the RSA modulus, C is
+modular exponentiation $M = C_{d} \mod N$, where N is the RSA modulus, C is
 the text to decrypt or sign, and d is the private key. The attacker
 wants to find d. For a timing attack, the attacker must have a target
 system compute Cd mod N for several carefully selected values of C. By
 precisely measuring the amount of time required and analyzing the
 timing variations, the attacker can recover the private key d one bit
-at a time until know the entire exponent.~\cite{wong2005timing}
-\par
-For example the “repeated squaring algorithm” does a round of computation for each bit of d.  If the bit is 1, then an additional multiplication mod N is performed.  Thus, analyzing the timing/power to determine the operations can give away d.  To prevent, fix the algorithm to provide the same timing and power for each bit of d regardless of 0 or 1.~\cite{boneh1999twenty}
-\par
-If using the Chinese Remainder Theorem (CRT) to speed up computation,
-a random fault could expose secrete key d on a signature.  With CRT to
-compute $M^{d} \mod N$, you instead work with $M^{d} \mod q$ and $M^{d}
-\mod p$ to reduce the computation time by working with smaller
-modulus.   However, if a random fault happens in only one of the
-equations, then Marvin can figure out one of the factors of N.  If a
-fault  happened in $M^{d} \mod q$, then for the final produced C,
-Marvin would observe $C^{e}$ does not equal M mod N.  Now $C^{e} = M
-\mod q$ is  also not true, but $C^{e} = M \mod p$ is.  Thus gcd(N,
-$C^{e} – M$) exposes a factor of N…   To prevent, use random padding
-so Marvin  doesn’t know M.  Or, double check the signature to observe
-faults before releasing.~\cite{boneh1999twenty} 
+at a time until know the entire exponent. 
 \par
 Timing attacks illustrate that attackers do not necessarily play by
 the presumed rules and that they tend to attack the weakest link in a
 system. The best way to protect against such attacks is to think like
-an attacker and find these links before attacker does.
+an attacker and find these links before attacker does. 
+
+    
+
+
 
 
 
@@ -1008,7 +986,7 @@ roots of a modulo a prime. In a more generic manner, the Rabin
 encryption scheme is derived from the problem of finding $d^{th}$
 roots in a finite field, which is intensively discussed
 in~\cite{ref:Bach1996}. In this section, we discuss another cryptosystem that
-is still being widely used, i.e. ElGamal cryptosystem.
+is still being widely used, i.e. ElGamal cryptosystem. 
 \par
 It is well recognized that the ElGamal cryptosystem could be regarded as
 Diffie-Hellman key agreement~\cite{ref:Elgamal1985} in key transfer
@@ -1025,13 +1003,13 @@ follow the definition style in~\cite{ref:menezes2010handbook}.
 % like this. You have to work hard, because you are not one Emirati.
 The Diffie-Hellman key exchange agreement and its derivatives,
 alongside with ElGamal public key encryption scheme are formed on the
-basis of Diffie-Hellman problem.
+basis of Diffie-Hellman problem. 
 \begin{definition}
 For a group $G$, if there exists an element $\alpha\in G$ such that
 for each $b\in G$ there is an integer $i$ satisfying $b=\alpha^{i}$,
 we then call $G$ a cyclic group and element $\alpha$ a
 generator\footnote{There could be more than one generator in a group,
-  or none at all.} of $G$.\label{sec:diff-hellm-probl}
+  or none at all.} of $G$.\label{sec:diff-hellm-probl} 
 \end{definition}
 \begin{definition}
 The Diffie-Hellman problem (DHP): find
@@ -1071,7 +1049,7 @@ positive integer.)
 \item A more general case is that when $G$ is an order $n$ finite
   cyclic group where the factorization of $n$ is known. In this case
   we can also conclude the GDHP and GDLP in $G$ are computationally
-  equivalent.
+  equivalent. 
 \item In this situation, group $G$ is assumed to have the same
   property as above. When either $p-1$ or $p+1$ for $p$ as a prime
   divisor of n is $B$-smooth ($B$ has the same property as above,
@@ -1138,7 +1116,7 @@ authentication or key authentication.
     \STATE~\quad{}2. \emph{Protocol messages.}
     \begin{equation}
       \label{eq:diffie-1}
-      A \rightarrow B: \alpha^{x}\mod p
+      A \rightarrow B: \alpha^{x}\mod p 
     \end{equation}
     \begin{equation}
       \label{eq:diffie-2}
@@ -1254,7 +1232,7 @@ Due to the fact that elliptic curve cryptography is yet another grand
 topic, we do not discuss them intensively in this paper. It is
 generally considered to be associated with discrete logarithm problem
 through a method called \emph{composite
-  moduli}~\cite{ref:menezes2010handbook}.
+  moduli}~\cite{ref:menezes2010handbook}. 
 \par
 % Finish this paper within the day. Anyway, spare some 1 hour with
 % your data mining slides.
@@ -1270,7 +1248,7 @@ $x=zy\mod n$, and
 \begin{equation}
   \label{eq:discrete-1}
   \log_{\gamma}\beta=(\log_{\alpha}\beta){(\log_{\alpha}\gamma)}^{-1}\mod
-  n
+  n 
 \end{equation}
 From equation~\eqref{eq:discrete-1} we can see once an algorithm is developed to compute
 logarithms to the base $\alpha$, can easily be utilized to compute any
@@ -1320,7 +1298,7 @@ We classify known effective algorithms for DLP as follows:
 \label{sec:exhaustive-search}
 As with all other cryptosystems, exhaustive search works well, at
 least theoretically. For GDLP (see definition in
-\ref{def:Generalized-DLP}), all we have to do is to compute
+\ref{def:Generalized-DLP}), all we have to do is to compute 
 $\alpha^{0}$, $\alpha^{1}$, $\alpha^{2}$, \ldots until $\beta$ is
 obtained. This is a generic method since under this circumstance, all
 is does is $O(n)$ multiplications, in which $n$ serves as the order of
@@ -1347,7 +1325,7 @@ giant-step algorithm.
   \centering
   \begin{algorithmic}
     \REQUIRE~A cyclic group $G$ of order $n$ with a generator
-    $\alpha$. Element $\beta\in G$.
+    $\alpha$. Element $\beta\in G$. 
     \ENSURE~solved discrete logarithm $x=\log_{\alpha}\beta$.
     \begin{enumerate}
     \item Initiate $m\leftarrow \lceil \sqrt{n}~\rceil$.
@@ -1397,7 +1375,7 @@ usual and for simplicity, we assume $G$ is a cyclic group with prime
 $n$ as order.
 \par
 A series of group elements in $G$ is defined as follows, in which
-$x_{i+1}=0$:
+$x_{i+1}=0$: 
 \begin{equation}
   \label{eq:pollard-1}
   x_{i+1}~=~f(x_{i})\overset{def}{=}
@@ -1411,7 +1389,7 @@ for $i\geq 0$. The sub-sequences defined in turn, i.e. $a_{0}$,
 $a_{1}$, $a_{2}$, \ldots and $b_{0}$, $b_{1}$,
 $b_{2}$ which satisfying
 $x_{i}=\alpha^{a_{i}}\beta^{b_{i}}$. Furthermore, $a_{0}=0$,
-$b_{0}=0$.
+$b_{0}=0$. 
 \begin{equation}
   \label{eq:pollard-2}
   a_{i+1}=
@@ -1442,12 +1420,12 @@ base $\alpha$ logarithm on both sides of this equation, we get
   (b_{i}-b_{2i})\cdot\log_{\alpha}\beta\equiv(a_{2i}-a_{i})~\mod n
 \end{equation}
 With \autoref{eq:pollard-4} at hand, it would be easy to work
-out $\log_{\alpha}\beta$.
+out $\log_{\alpha}\beta$. 
 \begin{figure*}[!htbp]
   \centering
   \begin{algorithmic}
     \REQUIRE~A cyclic group $G$ of order $n$ with a generator
-    $\alpha$. Element $\beta\in G$.
+    $\alpha$. Element $\beta\in G$.  
     \ENSURE~solved discrete logarithm $x=\log_{\alpha}\beta$.
     \begin{enumerate}
     \item Initialization. $x_{0}=1$, $a_{0}=0$,$b_{0}=0$.
@@ -1457,12 +1435,12 @@ out $\log_{\alpha}\beta$.
         $a_{2i}$, $b_{2i}$ by imputing $x_{i-1}$, $a_{i-1}$, $b_{i-1}$
         and  $x_{2i-2}$, $a_{2i-2}$, $b_{2i-2}$ to
         \autoref{eq:pollard-1},\autoref{eq:pollard-2} and
-        \autoref{eq:pollard-3}.
+        \autoref{eq:pollard-3}. 
       \item If $_{i}=x_{2i}$, do
         \begin{enumerate}
         \item Evaluate $\gamma\leftarrow(b_{i}-b_{2i})\mod n$.
         \item If $\gamma=0$, return error; else evaluate
-          $x=\gamma^{-1}(a_{2i}-a_{i})\mod n$.
+          $x=\gamma^{-1}(a_{2i}-a_{i})\mod n$. 
         \item Return $(x)$.
         \end{enumerate}
       \end{enumerate}
@@ -1519,7 +1497,7 @@ $x_{i}$'s $p_{i}$-ary representation.
         \item $l_{j}\leftarrow\log_{\bar{\alpha}}\bar{\beta}$
         \end{enumerate}
       \item Set $x_{i}\leftarrow
-        l_{0}+l_{1}p_{i}+\cdots+l_{e_{i}-1}p_{i}^{e_{i}-1}$
+        l_{0}+l_{1}p_{i}+\cdots+l_{e_{i}-1}p_{i}^{e_{i}-1}$ 
       \end{enumerate}
     \item Calculate integer $x$ satisfying $0\leq x\leq n-1$ and for
       $1\leq i\leq r$ $x\equiv x_{i}\mod p_{i}^{e_{i}}$.
@@ -1615,7 +1593,7 @@ a particular group element is required.
       $\log_{\alpha}\beta=(\sum_{i=1}^{t}d_{i}\log_{\alpha}p_{i}-k)\mod
       n$. The rest is to evaluate
       $y=(\sum_{i=1}^{t}d_{i}\log_{\alpha}p_{i}-k)\mod n$ and return
-      $(y)$.
+      $(y)$. 
     \end{enumerate}
   \end{enumerate}
   \end{algorithmic}
@@ -1632,7 +1610,7 @@ a particular group element is required.
 
 
 % Still bad support for subsubsection. Well, modify the cls? I am not
-% sure.
+% sure. 
 % \subsubsection{~~Life is a bitch}
 % \label{sec:life-bitch}
 
@@ -1669,7 +1647,7 @@ digital signature schemes in the following subsections.
 \par
 Therein we describe ElGamal public-key encryption algorithm as
 follows:
-\begin{figure}[!htbp]
+\begin{figure*}[!h]
   \centering
   \begin{algorithmic}
     \ENSURE~$B$ uses $A$'s public key to encrypt a message $m$. Then
@@ -1678,9 +1656,9 @@ follows:
     \item \emph{Encryption}. The steps for $B$ to take are as follows:
       \begin{enumerate}
       \item Require or obtain $A$'s authentic public key
-        $(p,\alpha,\alpha^{a})$.
+        $(p,\alpha,\alpha^{a})$. 
       \item Express the plaintext message as an integer in the scale
-        ${0,1,\ldots,p-1}$.
+        ${0,1,\ldots,p-1}$. 
       \item Randomly select an integer $k$ satisfying $1\leq k\leq
         p-2$.
       \item Calculate $\gamma=\alpha^{k}\mod p$ and
@@ -1692,7 +1670,7 @@ follows:
       \begin{enumerate}
       \item Calculate $\gamma^{p-1-a}\mod p$ using $A$'s private
         key. (note: due to the characteristic of modulus,
-        $\gamma^{p-1-a}=\gamma^{-a}=\alpha^{-ak}$).
+        $\gamma^{p-1-a}=\gamma^{-a}=\alpha^{-ak}$). 
       \item Calculate plaintext $m$ by evaluating
         $(\gamma^{-a}\cdot\delta\mod p)$.
       \end{enumerate}
@@ -1700,7 +1678,7 @@ follows:
   \end{algorithmic}
   \caption{\textbf{Algorithm} ElGamal public-key encryption}
   \label{fig:basic-elgamal-public-key-encry-algo}
-\end{figure}
+\end{figure*}
 \par
 A tiny proof that decryption works.
 \begin{equation}
@@ -1708,21 +1686,18 @@ A tiny proof that decryption works.
   \gamma^{-a}\cdot\delta\equiv\alpha^{-ak}ma^{ak}\equiv m\mod p
 \end{equation}
 
-\subsection{Comparison ElGamal Cryptosystem with RSA}
-There are many differences between RSA and El-Gamal, as following:
-El-Gamal relies on discrete logarithm problem while RSA relies on prime factorization problem.
-RSA encryption (with the public key) is faster than the corresponding operation with El-Gamal.
-RSA decryption (with a private key) is a bit slower than El-Gamal decryption.
-Historically, RSA was patented in the US, while El-Gamal was not. which is why OpenPGP specified El-Gamal usage, and GnuPG tends to favour it over RSA (the RSA patent expired a decade ago, so this is no longer an issue).
-RSA is described by a clear standard, which is free (as in "free beer"), and says precisely where each byte should go. That's very good for implementers: it reduces the possible mishaps. On the other hand, There is no established standard at all for El-Gamal, except the bits about it in OpenPGP, which od not deal with El-Gamal "in general".
-
-
 % \subsection{Generalized El-Gamal Encryption}
 % I planned to clarify everything, thus there is a lot to
 % write. Right now I would make them more concise and compact.
 
 % \subsection{El-Gamal in Digital Signature}
 % ~
+
+
+
+
+
+
 
 \section{Implementation}
 \label{sec:implementation}
@@ -1745,11 +1720,8 @@ logarithm problem, i.e. ElGamal. Due to the lack of time, we can
 hardly discuss them thoroughly, but we think that key ideas relating to
 these two cryptosystems are covered. In the future paper we will
 analyze them with greater details. Note, due to the characteristic of
-IEEE template, there is still one figure that can not be typeset.
+IEEE template, there is still one figure that can not be typeset. 
 \par
-
-
-\section{Member Contributions}
 Each team member's contribution is described as follows:
 \begin{itemize}
 \item Yanan Xiao. He discusses the ElGamal cryptosystem and carries
@@ -1757,7 +1729,7 @@ Each team member's contribution is described as follows:
   IEEE Computer Society template.
 \item Maryam Al Mehrezi. She finishes the introduction part as well as
   the discussion of RSA cryptosystem. She also tries her best to help
-  with the prototype implementation.
+  with the prototype implementation. 
 \end{itemize}
 
 
@@ -1927,7 +1899,7 @@ The authors would like to thank Dr. Zeyar for his amazing lectures throughout th
 %     \STATE~\quad{}2. \emph{Protocol messages.}
 %     \begin{equation}
 %       \label{eq:diffie-1}
-%       A \rightarrow B: \alpha^{x}\mod p
+%       A \rightarrow B: \alpha^{x}\mod p 
 %     \end{equation}
 %     \begin{equation}
 %       \label{eq:diffie-2}
@@ -2019,7 +1991,7 @@ is a first year master student at Masdar Institute. For his undergraduate, he sp
 is a first year Computing and Information Science student at Masdar
 Institute. She  got a bachelor degree in Computer Science (United Arab
 Emirates University). Watching movies, riding bicycle and  all things
-that are related to computer science are her interests.
+that are related to computer science are her interests. 
 \end{IEEEbiographynophoto}
 % You can push biographies down or up by placing
 % a \vfill before or after them. The appropriate
@@ -2036,52 +2008,12 @@ that are related to computer science are her interests.
 % is flush with the other column.
 
 % I shall uncomment this later on. Now I suppose I can work on the
-% data mining problem for a while.
+% data mining problem for a while. 
 % Keynote: Get up early, my friend.
 % \enlargethispage{-5in}
 
 
 
-% \newpage{}
-% \begin{figure}[!htbp]
-%   \centering
-%   \begin{algorithmic}
-%     \ENSURE~$B$ uses $A$'s public key to encrypt a message $m$. Then
-%     $A$ uses decrypts using his private key.
-%     \begin{enumerate}
-%     \item \emph{Encryption}. The steps for $B$ to take are as follows:
-%       \begin{enumerate}
-%       \item Require or obtain $A$'s authentic public key
-%         $(p,\alpha,\alpha^{a})$.
-%       \item Express the plaintext message as an integer in the scale
-%         ${0,1,\ldots,p-1}$.
-%       \item Randomly select an integer $k$ satisfying $1\leq k\leq
-%         p-2$.
-%       \item Calculate $\gamma=\alpha^{k}\mod p$ and
-%         $\delta=m\cdot{(\alpha^{a})}^{k}\mod p$.
-%       \item Transmit the ciphertext $c=(\gamma,\delta)$ to $A$.
-%       \end{enumerate}
-%     \item \emph{Decryption}. The decrypt steps for $A$ are described
-%       as follows:
-%       \begin{enumerate}
-%       \item Calculate $\gamma^{p-1-a}\mod p$ using $A$'s private
-%         key. (note: due to the characteristic of modulus,
-%         $\gamma^{p-1-a}=\gamma^{-a}=\alpha^{-ak}$).
-%       \item Calculate plaintext $m$ by evaluating
-%         $(\gamma^{-a}\cdot\delta\mod p)$.
-%       \end{enumerate}
-%     \end{enumerate}
-%   \end{algorithmic}
-%   \caption{\textbf{Algorithm} ElGamal public-key encryption}
-%   \label{fig:basic-elgamal-public-key-encry-algo}
-% \end{figure}
-
-
-
-
-
-
-
-
 % that's all folks
 \end{document}
+

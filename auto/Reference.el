@@ -18,5 +18,8 @@
      "pomerance2008tale"
      "boneh1999twenty"
      "Shor:1994jg"
-     "wong2005timing")))
+     "wong2005timing"
+     "stamp2011information"
+     "Evgeny2009The"
+     "Dan2007The")))
 
