@@ -13,9 +13,46 @@
 \usepackage{amssymb}
 \usepackage[margin=10mm]{geometry}
 \usepackage{graphicx}
-
+\usepackage{algorithm}
+\usepackage{algorithmic}
 
 
 \begin{document}
-Life is a bitch, fuck it or leave it. Up to you!
+\begin{itemize}
+\item \textbf{CIA}, a modern definition. Confidentiality: prevent
+  unauthorized reading of information. Integrity: detect unauthorized
+  writing of information. Availability: data is available in a timely
+  manner when needed. 
+\item \textbf{Network Security}. Various protocols play a critical
+  role, and cryptography matters a lot in protocol (especially network
+  protocols) design and analysis.
+\item \textbf{Kerckhoof's Principle}. The system is completely known
+  to the attacker; only the key is secret; the crypto algorithms are
+  not secret. 
+\item \textbf{Confusion and Diffusion}. Confusion: obscuring the
+  relationship between plaintext and ciphertext. Diffusion: spreading
+  the plaintext statistics through the ciphertext. A little note: hash
+  function can be viewed as \emph{one way cryptography}.
+\item \textbf{Block Cipher}. It's really just an ``electronic''
+  version of a codebook, and employs both confusion and diffusion. 
+  % \begin{algorithm}
+  %   \begin{algorithmic}
+  %     \STATE~Life is a bitch.
+  %     \IF{You are a bitch}
+  %     \STATE~Do something never that silly.
+  %     \ENDIF
+  %   \end{algorithmic}
+  % \end{algorithm}
+  \begin{algorithm}
+    \caption{RC4 Keystream Byte}
+    \label{algo:rc4-keystream-byte}
+    \begin{algorithmic}
+      \STATE~$i=(i+1)\mod 256$
+      \STATE~$j=(j+S[i]\mod 256)$
+      \STATE~swap $(S[i], S[j])$
+      \STATE~$t=(S[i]+S[j]\mod 256)$
+      \STATE~$Keystream~ byte=S[t]$
+    \end{algorithmic}
+  \end{algorithm}
+\end{itemize}
 \end{document}
