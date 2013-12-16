@@ -1,7 +1,8 @@
 (TeX-add-style-hook "Review-Notes"
  (lambda ()
     (LaTeX-add-labels
-     "algo:rc4-keystream-byte")
+     "algo:rc4-keystream-byte"
+     "algo:keygen-for-rsa-encrypt")
     (TeX-run-style-hooks
      "algorithmic"
      "algorithm"
