@@ -33,6 +33,11 @@
   relationship between plaintext and ciphertext. Diffusion: spreading
   the plaintext statistics through the ciphertext. A little note: hash
   function can be viewed as \emph{one way cryptography}.
+\item \textbf{Stream Cipher}. Both A5/1 and RC4 are examples of this
+  symmetric cryptosystem. It generalized the idea of a one-time pad,
+  except that we trade provably security with a relatively small (and
+  manageable) key. The key is stretched into a long stream of bits,
+  which is then used just like a one-time pad. 
 \item \textbf{Block Cipher}. It's really just an ``electronic''
   version of a codebook, and employs both confusion and diffusion. 
   % \begin{algorithm}
@@ -61,6 +66,25 @@
   with \emph{S-box}. Steps: an initial permutation before round 1;
   halves are swapped after last round; a final permutation applied to
   $R_{16},L_{16}$. 
+  \begin{algorithm}
+    \caption{TEA Encryption}
+    \label{algo:tea-encryption}
+    \begin{algorithmic}
+      \STATE~$(K[0],K[1],K[2],K[3])=128~bit~key$
+      \STATE~$(L,R)=plaintext$ ($64-bit$ block)
+      \STATE~$delta=0$x$9e3779b9$
+      \STATE~$sum=0$
+      \FOR{$i=1$ to $32$}
+      \STATE~$sum=sum+delta$
+      \STATE~$L=L+(((R\ll 4)\oplus K[0])\oplus (R+sum)\oplus ((R\gg
+      5)\oplus K[1]))$
+      \STATE~$R=L+(((L\ll 4)\oplus K[2])\oplus (L+sum)\oplus ((L\gg
+      5)\oplus K[3]))$
+      \STATE~next $i$
+      \ENDFOR
+      \STATE~$ciphertext=(L,R)$
+    \end{algorithmic}
+  \end{algorithm}
 \item \textbf{Block Cipher Modes}. ECB:\@ encrypt each block
   independently. CBC:\@ chain the blocks together. For this mode, a
   random initialization vector is required. CTR:\@ block cipher acts
@@ -103,7 +127,29 @@
     that $m^{ed}\equiv m\mod n$. And hence, $c^{d}\equiv
     {(m^{e})}^{d}\equiv m\mod n$.
   \end{itemize}
-\item Life is never that easy.
+\item \textbf{Cube Root attack} on RSA.\@ A simple but practical way to
+  prevent is to pad message with random bits.
+\item \textbf{Cryptographic Hash Function}. This function must provide
+  the following:
+  \begin{itemize}
+  \item Compression. For any size input $x$, the output length,
+    i.e. $h(x)$ is small. Usually a fixed length is pre-defined.
+  \item Efficiency. It must be easy to compute $h(x)$ for any input
+    $x$. 
+  \item One way. Given any value $y$, it's computationally infeasible
+    to find a value $x$ such that $h(y)=x$.
+  \item Weak Collision Resistance. Given $x$ and $h(x)$, it's
+    infeasible to find any $y$, with $y\neq x$, such that
+    $h(y)=h(x)$.
+  \item Strong Collision resistance. It's (and should be so)
+    infeasible to find any $x\neq y$ such that $h(x)=h(y)$.
+  \end{itemize}
+\item \textbf{Birthday Problem}. Strong one. How large much the $N$ be
+  before the probability that someone shares the same birthday with
+  me? Weak one. How many people must be in a room before the
+  probability of at least two share the same birthday is larger than
+  $0.5$?  
+\item Yet another ``final exam''.
 \end{itemize}
 \end{document}
      

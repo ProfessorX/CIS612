@@ -99,7 +99,7 @@ char *EnDeCrypt(const char *pszText, int iTextLen, const char *pszKey)
 
 
 
-/* Yet another easy easy textbook swap program */
+/* Yet another easy easy textbook program */
 void swapints(int *array, int ndx1, int ndx2)
 {
     int temp = array[ndx1];
