@@ -189,6 +189,56 @@
   property of the shared resource that the receiver can
   observe. Finally, the sender and receiver must be able to
   synchronize their communication. 
+\item \textbf{CATPCHA} Completely Automated Public Turing test to tell
+  Computers and Humans Apart. It is a program that can generate and
+  grade tests that it itself cannot pass. (Indeed much like some
+  professors, or a lot of professors, in China.)
+% I love programming, and I love Computer Science. That's why I am at
+% Abu Dhabi. (Partially).
+\item \textbf{Firewall}. In computing, a firewall is a software or
+  hardware-based network security system that controls the incoming
+  and outgoing network traffic by analyzing the data packets and
+  determining whether they should be allowed through or not, based on
+  applied rule sets. (Firewall can be defined in many ways according
+  to your level of understanding.) A firewall establishes a barrier
+  between a trusted, secure internal network and another network
+  (well, take our beloved Internet for example) that is \emph{not
+    assumed to be} secure and trusted. 
+\item \textbf{Packet Filter}. It works by inspecting the ``packets''
+  which transfer between computers on the Internet. If a packet
+  matches the packet filter's set of rules, the packet filter will
+  drop the packet, or reject it. This type of packet filtering pays no
+  attention to \emph{whether a packet is part of an existing stream or
+  traffic}.
+\item \textbf{Stateful Filter}. Its work is achieved by retaining
+  packets until enough information is available to make a judgment
+  about its state. Obviously, from the description above, we can infer
+  that this sort of firewall works on the \emph{transport layer}.
+\item \textbf{Proxy Server}. A proxy server is a gateway from one
+  network to another for a specific network application, in the sense
+  that it functions as a proxy on behalf of (most probably, inner)
+  network users.
+\item \textbf{Authenticate over Network}. For attackers, they can:
+  passively observe messages; they can also \emph{replay} messages;
+  they can also actively attack you, like insert, delete or change
+  your messages. 
+\item \textbf{Keys or Passwords}. Yet another time according to our
+  beloved textbook. After all, passwords are a little more than a
+  crutch used by \emph{humble humans} because most of the case we are
+  incapable of remembering keys. That is, passwords are about the
+  closest thing to a key that, \emph{a humble human being} can
+  remember. So if Alice and Bob are ``actually machines'' (that's the
+  case) in real world communications, they should use keys instead of
+  password, as \emph{the} authentication tool.
+\item \textbf{Authentication Using Symmetric Keys}. Final version as
+  suggested by textbook. Encrypt the user's identity together with the
+  nonce. In this manner, Trudy cannot use a response from Bob for the
+  third message---or it ``seems'' that it's encrypted by Bob himself.
+\item \textbf{Something more about Public Key}. As the concept in
+  (modern) cryptography goes, ``the public key is public''. Or, should
+  it be public? Should it be so public? Could it possibly be, say,
+  private? 
+\item 
 \end{itemize}
 \end{document}
      
