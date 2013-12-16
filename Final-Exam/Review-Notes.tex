@@ -13,6 +13,7 @@
 \usepackage{amssymb}
 \usepackage[margin=10mm]{geometry}
 \usepackage{graphicx}
+\graphicspath{{./}{./Figures/}}
 \usepackage{algorithm}
 \usepackage{algorithmic}
 
@@ -238,7 +239,106 @@
   (modern) cryptography goes, ``the public key is public''. Or, should
   it be public? Should it be so public? Could it possibly be, say,
   private? 
-\item 
+\item \textbf{Authentication Using Session Keys}. Instead of signing
+  \emph{or} encrypting the messages, we sign \emph{and} encrypt the
+  message.
+  \begin{figure}[htbp]
+    \centering
+    \label{fig:mutual-authentication-session-key}
+    \includegraphics[scale=0.28]{Mutual-Authentication}   
+  \end{figure}
+\item \textbf{Public Key Authentication Drawback}. There may be one
+  approach that is dangerous. If you encrypt your message with the
+  other one's public key, and your time stamp is also included in this
+  encryption. Later on you sign this specific message with your
+  private key (aka, as the ``digital signature''). It may suffer
+  attack! 
+  \begin{figure}[htbp]
+    \centering
+    \label{fig:simplified-ssh}
+    \includegraphics[scale=0.3]{Simplified-SSH}
+  \end{figure}
+\item \textbf{God Bless SSH}. Such a login typically requires a
+  password and tools like \emph{rlogin} simply sends the password in
+  the clear (aka, plaintext, or rather, message that can be
+  eavesdropped easily), which might be observed by a snooping
+  Trudy. By first establishing an SSH session, any inherently insecure
+  command such as \emph{rlogin} will be secure. That is, an SSH
+  session provides confidentiality and integrity protection.
+  \begin{figure}[htbp]
+    \centering
+    \label{fig:simplified-ssl}
+    \includegraphics[scale=0.28]{Simplified-SSL}
+  \end{figure}
+  \begin{algorithm}
+    \caption{Simple SSL in A Nutshell}
+    \label{sec:simple-ssl-in-nutshell}
+    \begin{algorithmic}[1]
+      \STATE~Alice passes a list of ciphers that she supports, along
+      with a nonce $R_{A}$.
+      \STATE~Bob selects one of the ciphers from the cipher list that
+      Alice sent in the message one, and he sends a nonce $R_{B}$.
+      \STATE~Alice sends a pre-master secret $S$, along with a hash
+      that is encrypted with the key $K$.
+      \STATE~Bob responds with a similar hash.
+      \STATE~At this point, Alice has authenticated Bob. And Alice and
+      Bob has established a shared session key $K$.
+    \end{algorithmic}
+  \end{algorithm}
+
+\item \textbf{SSL versus IPSec}. 
+  \begin{itemize}
+  \item SSL is very simple whereas IPSec is, well, indeed it is
+    extremely complex.
+  \item SSL lives at socket layer, thus residing is user space. IPSec
+    lives at network layer and is therefore not directly accessible
+    from user space---it's in the domain of \emph{the operating
+      system}. 
+  \item Both SSL and IPSec provide encryption, integrity protection,
+    and authentication.
+  \end{itemize}
+
+\item \textbf{Internet Key Exchange}. Mutual authentication is
+  supported. Session key should (and would) be established. Phase 1,
+  IKE security association. Phase 2, AH/ESP security
+  association. Something more: the main mode \emph{must} be
+  implemented whereas the aggressive mode \emph{should} be
+  implemented. 
+\item \textbf{Transport and Tunnel Modes}. Independent of whether ESP
+  or AH is used, IPSec employs either \emph{transport mode} or
+  \emph{tunnel mode}. 
+  \begin{itemize}
+  \item In transport mode, the new ESP/AH header is sandwiched
+    between the IP header and the data.
+  \item Transport mode is more efficient since it adds a minimal
+    amount of additional header information.
+  \item The downside of transport mode is that a passive attacker can
+    see the headers. This mode is mainly designed for host-to-host
+    communication. 
+    \begin{figure}[htbp]
+      \centering
+      \includegraphics[scale=0.5]{IPSec-Transport-Mode}
+    \end{figure}
+  \item In tunnel mode,  the entire IP packet is encapsulated in a new
+    IP packet. 
+    \begin{figure}[htbp]
+      \centering
+      \includegraphics[scale=0.4]{IPSec-Tunnel-Mode}
+    \end{figure}
+  \end{itemize}
+
+\item \textbf{AH versus ESP}. Authentication Header: provides only
+  integrity. Encapsulating Security Payload: integrity and
+  confidentiality are provided at the same time. For ESP, everything
+  is protected \emph{except} IP header. 
+\item \textbf{Buffer Overflow}. A buffer overflow must exist in the
+  code. But not all buffer overflows are exploitable. However, if
+  exploitable, the attacker can \emph{inject code}.
+\item \textbf{Race Conditions}. To prevent race conditions, one option
+  is to make security-critical processes \emph{atomic}.
+
+
+
 \end{itemize}
 \end{document}
      
