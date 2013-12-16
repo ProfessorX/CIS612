@@ -54,5 +54,13 @@
       \STATE~$Keystream~ byte=S[t]$
     \end{algorithmic}
   \end{algorithm}
+\item \textbf{Feistel Cipher}. It's a general cipher design
+  principle. $L_{i}=R_{i-1}$ and $R_{i}=L_{i-1}\oplus
+  F(R_{i-1},K_{i})$.
+\item \textbf{DES}. The security of this cryptosystem has much to do
+  with \emph{S-box}. Steps: an initial permutation before round 1;
+  halves are swapped after last round; a final permutation applied to
+  $R_{16},L_{16}$. 
+\item 
 \end{itemize}
 \end{document}
