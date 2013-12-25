@@ -82,3 +82,7 @@ I have some more stuff to read. God bless PRC.
 Some dummy temporary file and chunk are to be stored here. But, as you
 can tell, not forever.
            
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/ProfessorX/cis612/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
